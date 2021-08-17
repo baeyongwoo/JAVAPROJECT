@@ -1,4 +1,4 @@
-package users.model;
+package kr.sc.ictjsp.users.model;
 
 public class usersVO {
 	
