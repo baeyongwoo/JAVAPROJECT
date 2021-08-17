@@ -56,7 +56,14 @@ public class Controller extends HttpServlet {
 	 */
 	
 	protected void deRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		//businessUserService
+		//BUserService busv = null;
 		
+		
+		//ui 지정하기
+		
+		
+		String uri = null;
 	}
 
 }
