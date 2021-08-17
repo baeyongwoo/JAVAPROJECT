@@ -11,7 +11,7 @@
 
 *로그인 안 했을 때 -  로그인창 또는 회원가입창으로 가는 페이지
 
-*게시글 창 - 게시글 번호(no), 분류(view-select사용)(choice) , 제목(title), 작성자(writer), 작성일(writedate), 나이대(age)
+*게시글 창 - 게시글 번호(no), 분류(view-select사용)(choice) , 제목(title), 내용(content), 작성자(writer), 작성일(writedate), 나이대(age)
 	  -현재 분류 분석 데이터 표현방법 생각하기
 
 
