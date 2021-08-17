@@ -11,6 +11,7 @@ public class usersDAO {
 	private usersDAO() {
 		
 		try {
+			ds.getConnection();
 			Context ct = new InitialContext();
 			ds = (DataSource)ct.lookup("java:comp/env/jdbc/mysql");
 		} catch (Exception e) {	
