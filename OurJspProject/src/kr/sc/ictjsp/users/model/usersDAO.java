@@ -20,7 +20,6 @@ public class usersDAO {
 	private usersDAO() {
 		
 		try {
-			ds.getConnection();
 			Context ct = new InitialContext();
 			ds = (DataSource)ct.lookup("java:comp/env/jdbc/mysql");
 		} catch (Exception e) {	
@@ -41,6 +40,7 @@ public class usersDAO {
 		
 		int result = 0;
 		
+		System.out.println(user);
 		
 		try {
 			
