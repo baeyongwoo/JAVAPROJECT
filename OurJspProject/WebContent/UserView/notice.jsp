@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style>
+		h3{font: 30px "굴림", Gulim}
+	</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -10,17 +13,13 @@
 	<div align="center">
 	
 		<h1>공지사항</h1>
-			<table>
-			
-				<tr>
-					<td><h3>1. 욕설 금지<br/><br/>
-						2. 게시글은 하루에 1번만<br/><br/>
-						3. 각자의 의견 존중하기</h3>
-					</td>		
-			</table>
-		
-		<a href="http://localhost:8181/OurJspProject/view/join_form.jsp"><input type="button" value ="회원가입"></a>&nbsp;
-		<a href="http://localhost:8181/OurJspProject/view/login_form.jsp"><input type="button" value ="로그인"></a>
+			<ul>
+				<li>욕설 절대 금지.</li>
+				<li>혼자서 도배하지 말아주세요.</li>
+				<li>다른사람의 의견을 존중합시다.</li>
+			</ul>
+		<a href="http://localhost:8181/OurJspProject/UserView/join_form.jsp"><input type="button" value ="회원가입"></a>&nbsp;
+		<a href="http://localhost:8181/OurJspProject/UserView/login_form.jsp"><input type="button" value ="로그인"></a>
 		
 	</div>
 </body>
