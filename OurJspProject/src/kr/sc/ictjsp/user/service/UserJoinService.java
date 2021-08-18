@@ -20,7 +20,7 @@ public class UserJoinService implements BUserService{
 		usersDAO dao = usersDAO.getInstance();
 		usersVO user = new usersVO(uid, upw, uname, uemail, ubirth, ugender);
 		
-		
+		System.out.println(user);
 		int result = dao.joinUsers(user);
 		System.out.println("회원가입 성공 여부 : " + result);
 			

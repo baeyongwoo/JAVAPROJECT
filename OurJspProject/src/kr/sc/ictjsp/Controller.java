@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.sc.ictjsp.user.service.BUserService;
 import kr.sc.ictjsp.user.service.UserJoinService;
@@ -79,6 +80,8 @@ public class Controller extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 		
+		HttpSession session = null;
+		session = request.getSession();
 		// 회원가입~로그인처리 로직
 		if(uri.equals("/OurJspProject/join.use")) {
 			System.out.println("회원가입 요청");

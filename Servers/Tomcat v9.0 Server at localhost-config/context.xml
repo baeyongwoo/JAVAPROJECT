@@ -26,6 +26,7 @@
     <!--
     <Manager pathname="" />
     -->
+<<<<<<< HEAD
     <Resource
         auth="Container"
         driverClassName = "com.mysql.cj.jdbc.Driver"
@@ -36,6 +37,18 @@
         type = "javax.sql.DataSource"
         maxActive = "300"
         maxWait = "1000"
+=======
+<Resource
+    	auth="Container"
+    	driverClassName = "com.mysql.cj.jdbc.Driver"
+    	url = "jdbc:mysql://localhost:3306/project"
+    	username = "root"
+    	password = "mysql"
+    	name = "jdbc/mysql"
+    	type = "javax.sql.DataSource"
+    	maxActive = "300"
+    	maxWait = "1000"    
+>>>>>>> 3ea2249e2b3915f6cf161431fb799b7eb50bb60d
     />
     
 </Context>
