@@ -41,10 +41,11 @@ public class usersDAO {
 		
 		int result = 0;
 		
+		
 		try {
 			
 			con = ds.getConnection();
-			
+
 			String sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, ?)";
 			
 			pstmt = con.prepareStatement(sql);

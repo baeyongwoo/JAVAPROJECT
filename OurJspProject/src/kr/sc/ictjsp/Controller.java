@@ -84,7 +84,7 @@ public class Controller extends HttpServlet {
 			System.out.println("회원가입 요청");
 			busv = new UserJoinService();
 			busv.execute(request, response);
-			ui = "/UserView/join_form.jsp";
+			ui = "/UserView/login_form.jsp";
 			
 		} else if(uri.equals("/OurJspProject/login.use")) {
 			System.out.println("로그인 요청");
