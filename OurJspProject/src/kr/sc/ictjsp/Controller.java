@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.sc.ictjsp.user.service.BUserService;
+import kr.sc.ictjsp.user.service.UserDeleteService;
 import kr.sc.ictjsp.user.service.UserJoinService;
 import kr.sc.ictjsp.user.service.UserLoginService;
 import kr.sc.ictjsp.user.service.UserLogoutService;
+import kr.sc.ictjsp.user.service.UserUpdateService;
 
 /**
  * Servlet implementation class Controller
@@ -74,7 +76,7 @@ public class Controller extends HttpServlet {
 		
 		
 		String uri = request.getRequestURI();
-		System.out.println("현재 페이지 : " + uri);
+		System.out.println("현재 사용자 페이지 : " + uri);
 		
 		response.setContentType("text/html charset=utf-8");
 		response.setCharacterEncoding("utf-8");
@@ -85,23 +87,47 @@ public class Controller extends HttpServlet {
 		// 회원가입~로그인처리 로직
 		if(uri.equals("/OurJspProject/join.use")) {
 			System.out.println("회원가입 요청");
+			System.out.println("현재 사용자 페이지 : " + uri);
 			busv = new UserJoinService();
 			busv.execute(request, response);
 			ui = "/UserView/login_form.jsp";
 			
 		} else if(uri.equals("/OurJspProject/login.use")) {
 			System.out.println("로그인 요청");
+			System.out.println("현재 사용자 페이지 : " + uri);
 			busv = new UserLoginService();
 			busv.execute(request, response);
-			ui = "/UserView/login_form.jsp";
+			
+			String check = (String)session.getAttribute("l_f");
+			System.out.println("현재 사용자 페이지 : " + uri);
+			if(check != null && check.equals("fail")) {
+				session.invalidate();
+				ui = "/UserView/login_form.jsp";
+			}else {
+				ui = "/BoardView/board.jsp";
+			}
 			
 		}else if(uri.equals("/OurJspProject/logout.use")) {
+			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("로그아웃 요청");
 			busv = new UserLogoutService();
 			busv.execute(request, response);
-			ui = "/UserView/login_forom.jsp";
+			ui = "/UserView/notice.jsp";
 			
-		} 
+		}else if(uri.equals("/OurJspProject/update.use")) {
+			System.out.println("현재  사용자 페이지" + uri);
+			System.out.println("회원정보 수정");
+			busv = new UserUpdateService();
+			busv.execute(request, response);
+			ui = "";
+			
+		}else if(uri.equals("/OurJspProject/delete.use")) {
+			System.out.println("현재  사용자 페이지" + uri);
+			System.out.println("회원탈퇴 요청");
+			busv = new UserDeleteService();
+			busv.execute(request, response);
+			ui = "";
+		}
 		//게시판관련 로직
 		
 		
