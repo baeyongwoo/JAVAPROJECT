@@ -16,6 +16,9 @@ public class usersDAO {
 	private static final int LOGIN_FAIL = 0;
 	private static final int DELETE_SUCCESS = 1;
 	private static final int DELETE_FAIL = 0;
+	private static final int UPDATE_SUCCESS = 1;
+	private static final int UPDATE_FAIL = 0;
+	
 	
 	private usersDAO() {
 		
@@ -161,6 +164,42 @@ public class usersDAO {
 		}
 		return DELETE_FAIL;
 	} // end usersDelete
+	
+	public int usersUpdate(usersVO users) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			con = ds.getConnection();
+			String sql = "UPDATE users set pw = ?, name = ?, email = ? WHERE id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, users.getPw());
+			pstmt.setString(2, users.getName());
+			pstmt.setString(3, users.getEmail());
+			pstmt.setString(4, users.getId());
+			
+			pstmt.executeUpdate();
+			return UPDATE_SUCCESS;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return UPDATE_FAIL;
+	} // end usersUpdate
+	
 	
 	
 }
