@@ -2,3 +2,5 @@
 /UserJoinService.class
 /UserLoginService.class
 /UserLogoutService.class
+/UserDeleteService.class
+/UserUpdateService.class
