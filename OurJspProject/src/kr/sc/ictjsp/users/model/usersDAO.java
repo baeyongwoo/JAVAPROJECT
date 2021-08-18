@@ -173,13 +173,12 @@ public class usersDAO {
 		try {
 			
 			con = ds.getConnection();
-			String sql = "UPDATE users set pw = ?, name = ?, email = ? WHERE id = ?";
+			String sql = "UPDATE users set pw = ?, email = ? WHERE id = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, users.getPw());
-			pstmt.setString(2, users.getName());
-			pstmt.setString(3, users.getEmail());
-			pstmt.setString(4, users.getId());
+			pstmt.setString(2, users.getEmail());
+			pstmt.setString(3, users.getId());
 			
 			pstmt.executeUpdate();
 			return UPDATE_SUCCESS;
