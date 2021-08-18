@@ -12,9 +12,10 @@ public class usersDAO {
 	
 	private static final int JOIN_SUCCESS = 1;
 	private static final int JOIN_FAIL = 0;
-	
 	private static final int LOGIN_SUCCESS = 1;
 	private static final int LOGIN_FAIL = 0;
+	private static final int DELETE_SUCCESS = 1;
+	private static final int DELETE_FAIL = 0;
 	
 	private usersDAO() {
 		
@@ -40,10 +41,11 @@ public class usersDAO {
 		
 		int result = 0;
 		
+		
 		try {
 			
 			con = ds.getConnection();
-			
+
 			String sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, ?)";
 			
 			pstmt = con.prepareStatement(sql);
@@ -55,7 +57,7 @@ public class usersDAO {
 			pstmt.setString(6, user.getGender());
 			
 			pstmt.executeUpdate();
-			
+						
 			result = JOIN_SUCCESS;
 		} catch (SQLException e) {
 			System.out.println("에러 : " + e);
@@ -123,4 +125,42 @@ public class usersDAO {
 		}
 		return LOGIN_FAIL;
 	} // end usersLogin
+
+	public int usersDelete(usersVO users, String dpw) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			if(users.getPw().equals(dpw)) {
+				
+				con = ds.getConnection();
+				String sql = "DELETE from project WHERE id = ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, users.getId());
+				pstmt.executeUpdate();
+				
+				return DELETE_SUCCESS;
+			} else {
+				return DELETE_FAIL;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return DELETE_FAIL;
+	} // end usersDelete
+	
+	
 }
