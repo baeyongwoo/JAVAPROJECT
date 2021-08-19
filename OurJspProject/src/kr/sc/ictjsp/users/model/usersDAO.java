@@ -18,7 +18,8 @@ public class usersDAO {
 	private static final int DELETE_FAIL = 0;
 	private static final int UPDATE_SUCCESS = 1;
 	private static final int UPDATE_FAIL = 0;
-	
+	private static final int PwChange_SUCCESS = 1;
+	private static final int PwChange_FAIL = 0;
 	
 	private usersDAO() {
 		
@@ -199,6 +200,76 @@ public class usersDAO {
 		return UPDATE_FAIL;
 	} // end usersUpdate
 	
+	public usersVO usersFindId(usersVO users) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		usersVO getId = new usersVO();
+		
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT id FROM users WHERE name = ? and email = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, users.getName());
+			pstmt.setString(2, users.getEmail());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+					
+				getId.setId(rs.getString("id"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}				
+		}
+		return getId;
+	} // end usersFindId
 	
-	
+	public int usersPwChange(usersVO users) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = ds.getConnection();
+			String sql = "UPDATE users set pw = ? WHERE id = ? and name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, users.getPw());
+			pstmt.setString(2, users.getId());
+			pstmt.setString(3, users.getName());
+			
+			pstmt.executeUpdate();
+			return PwChange_SUCCESS;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return PwChange_FAIL;
+	} // end usersPwChange
 }
