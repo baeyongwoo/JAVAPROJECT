@@ -6,7 +6,7 @@
 <style>
 body {
 	align-content: center;
-	background: url(./login.png) no-repeat;
+	background: url(../UserImage/login.png) no-repeat;
 	background-size: 500px;
 	background-position: center;
 	background-color: #c8f5ff;}

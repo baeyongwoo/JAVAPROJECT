@@ -6,7 +6,7 @@
 <style>
 body {
 	align-content: center;
-	background: url(./join.jpg) no-repeat;
+	background: url(../UserImage/join.jpg) no-repeat;
 	background-size: 900px;
 	background-position: center;
 	background-color: #FFD71F;}

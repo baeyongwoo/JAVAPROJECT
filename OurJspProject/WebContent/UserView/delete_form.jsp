@@ -3,8 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style>
+body{background: url("../UserImage/delete_form.jpg") no-repeat;
+	background-position:center 120px;
+	background-size:50%;}
+h1{color:red;
+	font-size:50px;}
+	</style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원탈퇴 하실건가요? ㅠㅠ</title>
 </head>
 <body>
 	<div align="center">

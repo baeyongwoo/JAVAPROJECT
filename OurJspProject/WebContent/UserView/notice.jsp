@@ -8,7 +8,7 @@
 			align-content : center;
 			font: 12px "고딕", Gothic, bolder;
 			color:teal;
-			background:url("./notice.jpg") no-repeat;
+			background:url("../UserImage/notice.jpg");
 			background-position: center;
 			background-size: 120%;
 			background-color: #f5f1b1;

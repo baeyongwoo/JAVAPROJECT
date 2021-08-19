@@ -32,7 +32,7 @@ td {
 			<tr>
 				<th width="50px">번호</th>
 				<th width="50px">
-					<form action="#" method="post">
+					<form action="/OurJspProject/update.use" method="post">
 						<select name="select">
 							<option value="all">전체보기</option>
 							<option value="notice">공지사항</option>
