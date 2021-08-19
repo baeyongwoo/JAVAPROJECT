@@ -119,7 +119,7 @@ public class Controller extends HttpServlet {
 			System.out.println("회원정보 수정");
 			busv = new UserUpdateService();
 			busv.execute(request, response);
-			ui = "/UserView/notice.jsp";
+			ui = "/UserView/update_form.jsp";
 			
 		}else if(uri.equals("/OurJspProject/delete.use")) {
 			System.out.println("현재  사용자 페이지 : " + uri);
