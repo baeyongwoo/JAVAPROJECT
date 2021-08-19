@@ -29,6 +29,8 @@ public class UserUpdateService implements BUserService{
 			
 			int result = dao.usersUpdate(user);
 			
+			System.out.println(uid);
+			System.out.println(result);
 			if(result == 1) {
 				System.out.println("회원정보 수정완료");
 			} else if(result == 0) {
@@ -38,6 +40,7 @@ public class UserUpdateService implements BUserService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		
 	}
 

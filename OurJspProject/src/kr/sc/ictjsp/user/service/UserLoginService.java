@@ -31,6 +31,11 @@ public class UserLoginService implements BUserService{
 			if(result == 1) {
 				session.setAttribute("u_id", uid);
 				session.setAttribute("u_pw", upw);
+				session.setAttribute("u_email", user.getEmail());
+				session.setAttribute("u_name", user.getName());
+				session.setAttribute("u_birth", user.getBirth());
+				session.setAttribute("u_gender", user.getGender());
+				
 				System.out.println(uid + "님 로그인 성공");
 			} else if(result == 0){
 				System.out.println(uid + "님 로그인 실패");
