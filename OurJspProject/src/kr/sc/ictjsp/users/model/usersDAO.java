@@ -232,6 +232,9 @@ public class usersDAO {
 				if(pstmt != null && !pstmt.isClosed()) {
 					pstmt.close();
 				}
+				if(rs != null && !rs.isClosed()) {
+					rs.close();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}				
@@ -272,4 +275,49 @@ public class usersDAO {
 		}
 		return PwChange_FAIL;
 	} // end usersPwChange
+	
+	public usersVO getUserInfo(usersVO users) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		usersVO usersData = new usersVO();
+		
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT * FROM users WHERE id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, users.getId());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				usersData.setId("id");
+				usersData.setPw("pw");
+				usersData.setName("name");
+				usersData.setEmail("email");
+				usersData.setBirth("birth");
+				usersData.setGender("gender");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+				if(rs != null && !rs.isClosed()) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return usersData;
+	} // end getUserInfo
 }
