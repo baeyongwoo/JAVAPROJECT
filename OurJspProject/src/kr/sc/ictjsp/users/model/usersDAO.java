@@ -89,7 +89,7 @@ public class usersDAO {
 		try {
 			con = ds.getConnection();
 			
-			String sql = "SELECT * FROM users WHERE id = ?";
+			String sql = "SELECT * FROM users WHERE uid = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user.getUid());
@@ -98,8 +98,8 @@ public class usersDAO {
 			
 			if(rs.next()) {
 				
-				String dbId = rs.getString("id");
-				String dbPw = rs.getString("pw");
+				String dbId = rs.getString("uid");
+				String dbPw = rs.getString("upw");
 				
 				if(user.getUid().equals(dbId) &&
 						user.getUpw().equals(dbPw)) {
@@ -138,7 +138,7 @@ public class usersDAO {
 			if(users.getUpw().equals(dpw)) {
 				
 				con = ds.getConnection();
-				String sql = "DELETE from project WHERE id = ?";
+				String sql = "DELETE from project WHERE uid = ?";
 				
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, users.getUid());
@@ -173,7 +173,7 @@ public class usersDAO {
 		try {
 			
 			con = ds.getConnection();
-			String sql = "UPDATE users set pw = ?, email = ? WHERE id = ?";
+			String sql = "UPDATE users set upw = ?, uemail = ? WHERE uid = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, users.getUpw());
@@ -198,7 +198,7 @@ public class usersDAO {
 		}
 		return UPDATE_FAIL;
 	} // end usersUpdate
-	
+	/*
 	public usersVO usersFindId(usersVO users) {
 		
 		Connection con = null;
@@ -240,7 +240,8 @@ public class usersDAO {
 		}
 		return getId;
 	} // end usersFindId
-	
+	*/
+	/*
 	public int usersPwChange(usersVO users) {
 		
 		Connection con = null;
@@ -248,7 +249,7 @@ public class usersDAO {
 		
 		try {
 			con = ds.getConnection();
-			String sql = "UPDATE users set pw = ? WHERE id = ? and name = ?";
+			String sql = "UPDATE users set upw = ? WHERE id = ? and name = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, users.getUpw());
@@ -275,6 +276,7 @@ public class usersDAO {
 		return PwChange_FAIL;
 	} // end usersPwChange
 	
+	/*
 	public usersVO getUserInfo(usersVO users) {
 		
 		Connection con = null;
@@ -317,4 +319,5 @@ public class usersDAO {
 		}
 		return usersData;
 	} // end getUserInfo
+	*/
 }

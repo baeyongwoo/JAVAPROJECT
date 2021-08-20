@@ -8,6 +8,8 @@ public class usersVO {
 	private String uemail;
 	private int subject;
 	
+	public usersVO() {}
+	
 	public usersVO(String uid, String upw, String uname, 
 				String uemail, int subject) {
 		super();

@@ -10,6 +10,7 @@ import kr.sc.ictjsp.users.model.usersVO;
 public class UserDeleteService implements BUserService{
 	
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		/*
 		try {
 		
 		String uid = (String)request.getParameter("id");
@@ -33,7 +34,7 @@ public class UserDeleteService implements BUserService{
 		
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }
