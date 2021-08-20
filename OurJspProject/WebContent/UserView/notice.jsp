@@ -15,6 +15,7 @@
 			}
 		h1{
 			text-shadow:3px 3px 0px #bdbdbd;
+			font-size: 150px;
 				}
 		
 		ul{	
@@ -44,11 +45,11 @@
 <body>
 	<div align="center">
 	
-		<h1>공지사항</h1>
+		<h1>짱구의 코딩교실</h1>
 			<ul>
-				<li>욕설 절대 금지</li>
-				<li>혼자서 도배하지 말아주세요</li>
-				<li>다른사람의 의견을 존중합시다</li>
+				<li>4차산업시대의 필수과목!</li>
+				<li>너도나도우리모두 코딩</li>
+				<li>짱구도 하니까 당신도 할수있어요!</li>
 			</ul>
 		<div class="user">
 		<a href="http://localhost:8181/OurJspProject/UserView/join_form.jsp"><button>회원가입</button></a>&nbsp;&nbsp;
