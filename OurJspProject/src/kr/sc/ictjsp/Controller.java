@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.sc.ictjsp.user.service.BUserService;
 import kr.sc.ictjsp.user.service.UserDeleteService;
+import kr.sc.ictjsp.user.service.UserGetinfoService;
 import kr.sc.ictjsp.user.service.UserJoinService;
 import kr.sc.ictjsp.user.service.UserLoginService;
 import kr.sc.ictjsp.user.service.UserLogoutService;
@@ -104,7 +105,7 @@ public class Controller extends HttpServlet {
 				session.invalidate();
 				ui = "/UserView/login_form.jsp";
 			}else {
-				ui = "/BoardView/board.jsp";
+				ui = "/UserView/login_success.jsp";
 			}
 			
 		}else if(uri.equals("/OurJspProject/logout.use")) {
@@ -137,6 +138,11 @@ public class Controller extends HttpServlet {
 				ui = "/UserView/delete_ok.jsp";
 			}
 			
+		}else if(uri.equals("OurJspProject/getinfo.use")) {
+			System.out.println("현재 사용자 페이지 : " + uri);
+			System.out.println("회원 정보 보기 요청");
+			busv = new UserGetinfoService();
+			busv.execute(request, response);
 		}
 		//게시판관련 로직
 		
