@@ -20,8 +20,8 @@
 		<input type="hidden" name ="name" value="${u_name }"/>
 		<input type="submit">
 		<input type="reset"><br/><br/>
-		<a href="/OurJspProject/login.use"><button>게시판으로 돌아가기</button></a><br/><br/>
-		<a href="/OurJspProject/delete.use"><button class="delete">회원탈퇴</button></a>
 		</form>
+		<a href="http://localhost:8181/OurJspProject/UserView/login_success.jsp"><button>게시판으로 돌아가기</button></a><br/><br/>
+		<a href="/OurJspProject/delete.use"><button class="delete">회원탈퇴</button></a>
 </body>
 </html>
