@@ -12,15 +12,13 @@ public class UserJoinService implements BUserService {
 		try {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("utf-8");
-			String uid = (String) request.getParameter("id");
-			String upw = (String) request.getParameter("pw");
-			String uname = (String) request.getParameter("name");
-			String uemail = (String) request.getParameter("email");
-			String ubirth = (String) request.getParameter("birth");
-			String ugender = (String) request.getParameter("gender");
-
+			String uid = (String)request.getParameter("uid");
+			String upw = (String)request.getParameter("upw");
+			String uname = (String)request.getParameter("uname");
+			String uemail = (String)request.getParameter("uemail");
+			String subject = (String)request.getParameter("subject");
 			usersDAO dao = usersDAO.getInstance();
-			usersVO user = new usersVO(uid, upw, uname, uemail, ubirth, ugender);
+			usersVO user = new usersVO(uid, upw, uname, uemail, subject);
 
 			int result = dao.joinUsers(user);
 			System.out.println("회원가입 성공 여부 : " + result);

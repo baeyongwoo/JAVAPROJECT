@@ -13,6 +13,8 @@ body {
 	
 input{padding: 10px;
 border: 1px solid #58D3F7;}
+
+p{}
 	
 }
 </style>
@@ -23,14 +25,20 @@ border: 1px solid #58D3F7;}
 	<div align="center">
 	<h1>WELCOME TO OUR JSP</h1>
 		<form action="/OurJspProject/join.use" method="post">
-			<input type="text" name="id" placeholder="아이디를 입력해주세요" size="30"><br />
-			<input type="password" name="pw" placeholder="패스워드를 입력해주세요" size="30"><br />
-			<input type="text" name="name" placeholder="이름을 입력해주세요" size="30"><br />
-			<input type="email" name="email" placeholder="이메일을 입력해주세요" size="30"><br />
-			<input type="text" name="birth" placeholder="생년월일" size="30"><br /><br />
-			<input class="radio" type="radio" name="gender" value="male">남
-			<input class="radio" type="radio" name="gender" value="female">여<br /> <br />
+			<input type="text" name="uid" placeholder="아이디를 입력해주세요" size="30"><br />
+			<input type="password" name="upw" placeholder="패스워드를 입력해주세요" size="30"><br />
+			<input type="text" name="uname" placeholder="이름을 입력해주세요" size="30"><br />
+			<input type="email" name="uemail" placeholder="이메일을 입력해주세요" size="30"><br />
+			
+			<p>JAVA <input type="checkbox" name="sub" value="1"></p>
+			<p>HTML <input type="checkbox" name="sub" value="2"></p>
+			<p>JSP <input type="checkbox" name="sub" value="3"></p>
+			<p>SPRING <input type="checkbox" name="sub" value="s4"></p>
+			
+			
+			
 			<input type="submit" value="회원가입하기">
+			<input type="reset">
 		</form>
 	</div>
 </body>
