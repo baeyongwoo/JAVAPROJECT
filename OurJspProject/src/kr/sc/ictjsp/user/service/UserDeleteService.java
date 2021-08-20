@@ -8,7 +8,7 @@ import kr.sc.ictjsp.users.model.usersDAO;
 import kr.sc.ictjsp.users.model.usersVO;
 
 public class UserDeleteService implements BUserService{
-	@Override
+	
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		try {
 		
