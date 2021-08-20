@@ -30,10 +30,10 @@ p{}
 			<input type="text" name="uname" placeholder="이름을 입력해주세요" size="30"><br />
 			<input type="email" name="uemail" placeholder="이메일을 입력해주세요" size="30"><br />
 			
-			<p>JAVA <input type="checkbox" name="sub" value="1"></p>
-			<p>HTML <input type="checkbox" name="sub" value="2"></p>
-			<p>JSP <input type="checkbox" name="sub" value="3"></p>
-			<p>SPRING <input type="checkbox" name="sub" value="s4"></p>
+			<p>JAVA <input type="checkbox" name="subject" value="1"></p>
+			<p>HTML <input type="checkbox" name="subject" value="2"></p>
+			<p>JSP <input type="checkbox" name="subject" value="3"></p>
+			<p>SPRING <input type="checkbox" name="subject" value="s4"></p>
 			
 			
 			

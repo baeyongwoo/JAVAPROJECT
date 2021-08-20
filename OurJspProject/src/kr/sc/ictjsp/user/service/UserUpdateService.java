@@ -13,7 +13,7 @@ public class UserUpdateService implements BUserService{
 
 		HttpSession session = null;
 		session = request.getSession();
-		
+		/*
 		try {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("utf-8");
@@ -42,7 +42,7 @@ public class UserUpdateService implements BUserService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		*/
 		
 	}
 

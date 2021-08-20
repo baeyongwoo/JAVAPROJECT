@@ -1,9 +1,0 @@
-CREATE TABLE users (
-	uid VARCHAR(20) NOT NULL PRIMARY KEY,
-    upw VARCHAR(20) NOT NULL,
-    uname VARCHAR(10) NOT NULL,
-    uemail VARCHAR(25),
-    subject int
-);
-
-desc users;
