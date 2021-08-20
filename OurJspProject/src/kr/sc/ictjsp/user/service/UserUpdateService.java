@@ -28,9 +28,11 @@ public class UserUpdateService implements BUserService{
 			usersVO user = new usersVO(uid, upw, uname, uemail, ubirth, ugender);
 			
 			int result = dao.usersUpdate(user);
-			
 			System.out.println(uid);
-			System.out.println(result);
+			System.out.println(upw);
+			System.out.println(uname);
+			System.out.println(ubirth);
+			System.out.println(ugender);
 			if(result == 1) {
 				System.out.println("회원정보 수정완료");
 			} else if(result == 0) {
