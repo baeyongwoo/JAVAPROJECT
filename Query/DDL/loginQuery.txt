@@ -1,11 +1,9 @@
-create table users(
-	id VARCHAR(15) PRIMARY KEY,
-    pw VARCHAR(15) NOT NULL,
-    name VARCHAR(5) NOT NULL,
-    email VARCHAR(45) NOT NULL,
-    birth VARCHAR(15) NOT NULL,
-    gender VARCHAR(1) NOT NULL
+CREATE TABLE users (
+	uid VARCHAR(20) NOT NULL PRIMARY KEY,
+    upw VARCHAR(20) NOT NULL,
+    uname VARCHAR(10) NOT NULL,
+    uemail VARCHAR(25),
+    subject int
 );
-
 
 desc users;

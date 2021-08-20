@@ -50,16 +50,15 @@ public class usersDAO {
 			
 			con = ds.getConnection();
 
-			String sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?)";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, user.getId());
-			pstmt.setString(2, user.getPw());
-			pstmt.setString(3, user.getName());
-			pstmt.setString(4, user.getEmail());
-			pstmt.setString(5, user.getBirth());
-			pstmt.setString(6, user.getGender());
-			
+			pstmt.setString(1, user.getUid());
+			pstmt.setString(2, user.getUpw());
+			pstmt.setString(3, user.getUname());
+			pstmt.setString(4, user.getUemail());
+			pstmt.setInt(5, user.getSubject());
+
 			pstmt.executeUpdate();
 						
 			result = JOIN_SUCCESS;
@@ -93,7 +92,7 @@ public class usersDAO {
 			String sql = "SELECT * FROM users WHERE id = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, user.getId());
+			pstmt.setString(1, user.getUid());
 			
 			rs = pstmt.executeQuery();
 			
@@ -102,8 +101,8 @@ public class usersDAO {
 				String dbId = rs.getString("id");
 				String dbPw = rs.getString("pw");
 				
-				if(user.getId().equals(dbId) &&
-						user.getPw().equals(dbPw)) {
+				if(user.getUid().equals(dbId) &&
+						user.getUpw().equals(dbPw)) {
 					return LOGIN_SUCCESS;
 				} else {
 					return LOGIN_FAIL;
@@ -136,13 +135,13 @@ public class usersDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			if(users.getPw().equals(dpw)) {
+			if(users.getUpw().equals(dpw)) {
 				
 				con = ds.getConnection();
 				String sql = "DELETE from project WHERE id = ?";
 				
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, users.getId());
+				pstmt.setString(1, users.getUid());
 				pstmt.executeUpdate();
 				
 				return DELETE_SUCCESS;
@@ -177,9 +176,9 @@ public class usersDAO {
 			String sql = "UPDATE users set pw = ?, email = ? WHERE id = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, users.getPw());
-			pstmt.setString(2, users.getEmail());
-			pstmt.setString(3, users.getId());
+			pstmt.setString(1, users.getUpw());
+			pstmt.setString(2, users.getUemail());
+			pstmt.setString(3, users.getUid());
 			
 			pstmt.executeUpdate();
 			return UPDATE_SUCCESS;
@@ -213,14 +212,14 @@ public class usersDAO {
 			String sql = "SELECT id FROM users WHERE name = ? and email = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, users.getName());
-			pstmt.setString(2, users.getEmail());
+			pstmt.setString(1, users.getUname());
+			pstmt.setString(2, users.getUemail());
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 					
-				getId.setId(rs.getString("id"));
+				getId.setUid(rs.getString("id"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -252,9 +251,9 @@ public class usersDAO {
 			String sql = "UPDATE users set pw = ? WHERE id = ? and name = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, users.getPw());
-			pstmt.setString(2, users.getId());
-			pstmt.setString(3, users.getName());
+			pstmt.setString(1, users.getUpw());
+			pstmt.setString(2, users.getUid());
+			pstmt.setString(3, users.getUname());
 			
 			pstmt.executeUpdate();
 			return PwChange_SUCCESS;
@@ -289,17 +288,15 @@ public class usersDAO {
 			String sql = "SELECT * FROM users WHERE id = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, users.getId());
+			pstmt.setString(1, users.getUid());
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				usersData.setId("id");
-				usersData.setPw("pw");
-				usersData.setName("name");
-				usersData.setEmail("email");
-				usersData.setBirth("birth");
-				usersData.setGender("gender");
+				usersData.setUid("id");
+				usersData.setUpw("pw");
+				usersData.setUname("name");
+				usersData.setUemail("email");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

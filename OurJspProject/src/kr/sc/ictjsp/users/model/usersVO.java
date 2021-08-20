@@ -2,80 +2,71 @@ package kr.sc.ictjsp.users.model;
 
 public class usersVO {
 	
-	private String id;
-	private String pw;
-	private String name;
-	private String email;
-	private String birth;
-	private String gender;
+	private String uid;
+	private String upw;
+	private String uname;
+	private String uemail;
+	private int subject;
 	
 	public usersVO() {
 		
 	}
 	
-	public usersVO(String id, String pw, String name, 
-				String email, String birth, String gender) {
+	public usersVO(String uid, String upw, String uname, 
+				String uemail, int subject) {
 		super();
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.email = email;
-		this.birth = birth;
-		this.gender = gender;
+		this.uid = uid;
+		this.upw = upw;
+		this.uname = uname;
+		this.uemail = uemail;
+		this.subject = subject;
 	}
 
-	public String getId() {
-		return id;
-	}
 	
-	public void setId(String id) {
-		this.id = id;
+	public String getUid() {
+		return uid;
 	}
 
-	public String getPw() {
-		return pw;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public String getUpw() {
+		return upw;
 	}
 
-	public String getName() {
-		return name;
+	public void setUpw(String upw) {
+		this.upw = upw;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getUname() {
+		return uname;
 	}
 
-	public String getEmail() {
-		return email;
+	public void setUname(String uname) {
+		this.uname = uname;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public String getUemail() {
+		return uemail;
 	}
 
-	public String getBirth() {
-		return birth;
+	public void setUemail(String uemail) {
+		this.uemail = uemail;
 	}
 
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public int getSubject() {
+		return subject;
 	}
 
-	public String getGender() {
-		return gender;
+	public void setSubject(int subject) {
+		this.subject = subject;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	
 	@Override
 	public String toString() {
-		return "UsersVO [id=" + id + ", pw=" + pw + ", name=" + name + 
-				", email=" + email + ", birth=" + birth + ", gender=" + gender + "]";
+		return "UsersVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + 
+				", uemail=" + uemail + ", subject" + subject + "]";
 	}
 
 }
