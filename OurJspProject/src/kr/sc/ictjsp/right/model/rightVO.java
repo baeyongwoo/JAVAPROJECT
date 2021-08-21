@@ -1,4 +1,4 @@
-package kr.sc.ictjsp.test.model;
+package kr.sc.ictjsp.right.model;
 
 public class rightVO {
 	//html, css, java, jsp 
