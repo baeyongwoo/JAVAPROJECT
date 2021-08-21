@@ -275,9 +275,9 @@ public class usersDAO {
 		}
 		return PwChange_FAIL;
 	} // end usersPwChange
+	*/
 	
-	/*
-	public usersVO getUserInfo(usersVO users) {
+	public usersVO usergetinfo(usersVO users) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -319,5 +319,5 @@ public class usersDAO {
 		}
 		return usersData;
 	} // end getUserInfo
-	*/
+	
 }
