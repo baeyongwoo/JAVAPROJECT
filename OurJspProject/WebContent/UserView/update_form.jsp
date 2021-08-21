@@ -5,8 +5,11 @@
 <html>
 <head>
 	<style>
+	body{background: url("../UserImage/select.png") no-repeat #fe4e81;
+	background-position:center;
+	background-size:100%;
+	text-align: center;}
 		.delete{color:red;}
-		body{text-align: center;}
 		input{padding: 10px;}
 	</style>
 <meta charset="UTF-8">

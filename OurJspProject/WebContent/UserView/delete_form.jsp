@@ -21,7 +21,7 @@ a{color: green;
 </head>
 <body>
 	<div align="center">
-	<h1>뭐라고???? 회원탈퇴?!?!????!??!?!?</h1>
+	<h1>뭐!!!!???? 회원탈퇴?!?!????!??!?!?</h1>
 	<h2>아진짜형누나언니오빠삼촌이모왜그래그냥공부같이하자쫌!!!!!!!</h2>
 	<p class="a">그래도 갈거면 아래 입력하던가...</p>
 	<form action ="/OurJspProject/delete.use" method="post">

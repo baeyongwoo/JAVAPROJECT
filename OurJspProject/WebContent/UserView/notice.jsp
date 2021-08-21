@@ -8,7 +8,7 @@
 			align-content : center;
 			font: 12px "고딕", Gothic, bolder;
 			color:teal;
-			background:url("../UserImage/notice.jpg");
+			background:url("../UserImage/notice.jpg") no-repeat;
 			background-position: center;
 			background-size: 120%;
 			background-color: #f5f1b1;
@@ -32,6 +32,7 @@
 			height:50px;
 			padding-top: 25px;
 			}
+			
 	button{border-top-right-radius: 10px;
 			border-bottom-left-radius: 10px;
 			background-color: rgb(0,0,0,0);
