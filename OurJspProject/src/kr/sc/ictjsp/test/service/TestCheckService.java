@@ -13,8 +13,8 @@ public class TestCheckService implements TestService{
 		String ex4 =(String)request.getParameter("ex4");
 		String ex5 =(String)request.getParameter("ex5");
 		
-		testDAO dao = testDAO.getinstance();
-		testVO answer = new testVO(ex1, ex2, ex3, ex4, ex5);
+		htmltestDAO dao = htmltestDAO.getinstance();
+		htmltestVO answer = new htmltestVO(ex1, ex2, ex3, ex4, ex5);
 		
 		dao.answer(answer);
 		

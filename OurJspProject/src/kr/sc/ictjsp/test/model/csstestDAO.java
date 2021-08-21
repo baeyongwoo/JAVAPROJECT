@@ -1,5 +1,5 @@
 package kr.sc.ictjsp.test.model;
 
-public class testDAO {
+public class csstestDAO {
 
 }

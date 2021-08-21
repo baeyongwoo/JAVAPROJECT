@@ -1,5 +1,5 @@
 package kr.sc.ictjsp.right.model;
 
-public class rightDAO {
+public class javaRightDAO {
 
 }
