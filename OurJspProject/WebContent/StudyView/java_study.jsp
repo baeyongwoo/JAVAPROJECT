@@ -51,8 +51,8 @@ td {
 				<td>${type}공부자료</td> <!--c:if ${boardLIst.type} 을 이용해 if로 노출해줄 타입을 구현--> 
 				<td><a href="#">${title} 임시제목</a></td>
 				<td>${writer}홍길동</td>
-
 		</table>
+		<a href="http://localhost:8181/OurJspProject/StudyView/write_form.jsp"><button>글쓰기</button></a>
 	</div>
 </body>
 </html>
