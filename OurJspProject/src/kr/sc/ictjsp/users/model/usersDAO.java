@@ -57,7 +57,7 @@ public class usersDAO {
 			pstmt.setString(2, user.getUpw());
 			pstmt.setString(3, user.getUname());
 			pstmt.setString(4, user.getUemail());
-			pstmt.setInt(5, user.getSubject());
+			pstmt.setString(5, user.getSubject());
 
 			pstmt.executeUpdate();
 						

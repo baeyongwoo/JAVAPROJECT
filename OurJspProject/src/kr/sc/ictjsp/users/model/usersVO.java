@@ -6,12 +6,13 @@ public class usersVO {
 	private String upw;
 	private String uname;
 	private String uemail;
-	private int subject;
+	private String subject;
 	
 	public usersVO() {}
 	
-	public usersVO(String uid, String upw, String uname, 
-				String uemail, int subject) {
+	
+
+	public usersVO(String uid, String upw, String uname, String uemail, String subject) {
 		super();
 		this.uid = uid;
 		this.upw = upw;
@@ -20,7 +21,15 @@ public class usersVO {
 		this.subject = subject;
 	}
 
-	
+
+	@Override
+	public String toString() {
+		return "usersVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", uemail=" + uemail + ", subject="
+				+ subject + "]";
+	}
+
+
+
 	public String getUid() {
 		return uid;
 	}
@@ -53,18 +62,14 @@ public class usersVO {
 		this.uemail = uemail;
 	}
 
-	public int getSubject() {
+	public String getSubject() {
 		return subject;
 	}
 
-	public void setSubject(int subject) {
+	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-
-	@Override
-	public String toString() {
-		return "UsersVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + 
-				", uemail=" + uemail + ", subject" + subject + "]";
-	}
+	
+	
 
 }

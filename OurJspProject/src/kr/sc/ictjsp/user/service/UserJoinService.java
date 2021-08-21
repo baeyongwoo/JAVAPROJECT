@@ -16,8 +16,7 @@ public class UserJoinService implements BUserService {
 			String upw = (String)request.getParameter("upw");
 			String uname = (String)request.getParameter("uname");
 			String uemail = (String)request.getParameter("uemail");
-			String subject = (String)request.getParameter("subject");
-			int usubject = Integer.parseInt(subject);
+			String usubject = (String)request.getParameter("subject");
 			usersDAO dao = usersDAO.getInstance();
 			usersVO user = new usersVO(uid, upw, uname, uemail, usubject);
 
