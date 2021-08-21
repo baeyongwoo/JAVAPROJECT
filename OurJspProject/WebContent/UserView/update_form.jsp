@@ -17,8 +17,8 @@
 		<input type="text" name ="id" value="${u_id }" readonly="readonly"/><br/>
 		<input type="password" name ="pw" placeholder="변경할 비밀번호"/><br/>
 		<input type="email" name ="email" value="${u_email }"/>
-		<input type="hidden" name ="name" value="${u_name }"/>
-		<input type="submit">
+		<input type="hidden" name ="name" value="${u_name }"/><br/>
+		<input type="submit"> 
 		<input type="reset"><br/><br/>
 		</form>
 		<a href="http://localhost:8181/OurJspProject/UserView/login_success.jsp"><button>게시판으로 돌아가기</button></a><br/><br/>

@@ -18,7 +18,7 @@ td {
 .user{padding:30px;}
 </style>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>HTML 스터디 모임</title>
 </head>
 <body>
 	<div class="user" align="right">
@@ -27,7 +27,7 @@ td {
 	</div>
 
 	<div align="center">
-		<h1>게시판</h1>
+		<h1>HTML 스터디 모임</h1>
 		<table>
 			<tr>
 				<th width="50px">번호</th>
@@ -36,9 +36,9 @@ td {
 						<select name="select">
 							<option value="all">전체보기</option>
 							<option value="notice">공지사항</option>
-							<option value="trip">여행</option>
-							<option value="study">공부</option>
-							<option value="meeting">미팅</option>
+							<option value="study">공부자료</option>
+							<option value="qna">질문&답변</option>
+							<option value="free">잡담</option>
 						</select>
 					</form>
 				</th>
@@ -48,7 +48,7 @@ td {
 
 			<tr>
 				<td>${num }0</td>
-				<td>${type}여행</td>
+				<td>${type}공부자료</td> <!--c:if ${boardLIst.type} 을 이용해 if로 노출해줄 타입을 구현--> 
 				<td><a href="#">${title} 임시제목</a></td>
 				<td>${writer}홍길동</td>
 			</tr>
