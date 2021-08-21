@@ -25,9 +25,5 @@ public class boardDAO {
 			dao = new boardDAO();
 		}
 		return dao;
-	}
-	
-	
-	
-	
+	}	
 }

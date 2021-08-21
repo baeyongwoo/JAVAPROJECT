@@ -209,7 +209,7 @@ public class usersDAO {
 		
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT id FROM users WHERE name = ? and email = ?";
+			String sql = "SELECT uid FROM users WHERE uname = ? and uemail = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, users.getUname());
@@ -219,7 +219,7 @@ public class usersDAO {
 			
 			if(rs.next()) {
 					
-				getId.setUid(rs.getString("id"));
+				getId.setUid(rs.getString("uid"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -249,7 +249,7 @@ public class usersDAO {
 		
 		try {
 			con = ds.getConnection();
-			String sql = "UPDATE users set upw = ? WHERE id = ? and name = ?";
+			String sql = "UPDATE users set upw = ? WHERE uid = ? and uname = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, users.getUpw());
@@ -287,7 +287,7 @@ public class usersDAO {
 		
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM users WHERE id = ?";
+			String sql = "SELECT * FROM users WHERE uid = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, users.getUid());
@@ -295,10 +295,9 @@ public class usersDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				usersData.setUid("id");
-				usersData.setUpw("pw");
-				usersData.setUname("name");
-				usersData.setUemail("email");
+				usersData.setUid("uid");
+				usersData.setUname("uname");
+				usersData.setUemail("uemail");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

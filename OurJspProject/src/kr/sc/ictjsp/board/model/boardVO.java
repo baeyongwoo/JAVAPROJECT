@@ -1,35 +1,80 @@
 package kr.sc.ictjsp.board.model;
 
-import java.sql.Timestamp;
-
 public class boardVO {
 	
 	private int no;
-	private String choice;
-	private String writer;
-	private String title;
-	private String content;
-	private String age;
-	private Timestamp writedate;
-	private int hit;
-	
+	private String btype;
+	private String btitle;
+	private String bwriter;
+	private String bcontent;
+	private int bhit;
+		
 	public boardVO() {
 		
 	}
 	
-	public boardVO(int no, String choice, String writer, String title,
-			String content, String age, Timestamp writedate, int hit) {
+	public boardVO(int no, String btype, String btitle, 
+				String bwriter, String bcontent, int bhit) {
 		super();
 		this.no = no;
-		this.choice = choice;
-		this.writer = writer;
-		this.title = title;
-		this.content = content;
-		this.age = age;
-		this.writedate = writedate;
-		this.hit = hit;
+		this.btype = btype;
+		this.btitle = btitle;
+		this.bwriter = bwriter;
+		this.bcontent = bcontent;
+		this.bhit = bhit;
 	}
 
-	
-	
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public String getBtype() {
+		return btype;
+	}
+
+	public void setBtype(String btype) {
+		this.btype = btype;
+	}
+
+	public String getBtitle() {
+		return btitle;
+	}
+
+	public void setBtitle(String btitle) {
+		this.btitle = btitle;
+	}
+
+	public String getBwriter() {
+		return bwriter;
+	}
+
+	public void setBwriter(String bwriter) {
+		this.bwriter = bwriter;
+	}
+
+	public String getBcontent() {
+		return bcontent;
+	}
+
+	public void setBcontent(String bcontent) {
+		this.bcontent = bcontent;
+	}
+
+	public int getBhit() {
+		return bhit;
+	}
+
+	public void setBhit(int bhit) {
+		this.bhit = bhit;
+	}
+
+	@Override
+	public String toString() {
+		return "boardVO [no=" + no + ", btype=" + btype + ", btitle=" + btitle + 
+				", bwriter=" + bwriter + ", bcontent=" + bcontent + "bhit=" + bhit + "]";
+	}	
 }

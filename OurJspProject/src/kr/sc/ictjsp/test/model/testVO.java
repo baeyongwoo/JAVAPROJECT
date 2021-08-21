@@ -3,62 +3,57 @@ package kr.sc.ictjsp.test.model;
 //문제들 풀엇을 때 db에 저장
 public class testVO {
 	
-	private String htmlQ;
-	private String cssQ;
-	private String javaQ;
-	private String jspQ;
+	private String subject;
+	private String questionNum;
+	private String question;
+	private String answer;
 	
 	public testVO() {}
 	
-	public testVO(String htmlQ, String cssQ, 
-				String javaQ, String jspQ) {
+	public testVO(String subject, String questionNum, 
+				String question, String answer) {
 		super();
-		this.htmlQ = htmlQ;
-		this.cssQ = cssQ;
-		this.javaQ = javaQ;
-		this.jspQ = jspQ;
+		this.subject = subject;
+		this.questionNum = questionNum;
+		this.question = question;
+		this.answer = answer;
 	}
 
-	public String getHtmlQ() {
-		return htmlQ;
+	public String getSubject() {
+		return subject;
 	}
 
-	public void setHtmlQ(String htmlQ) {
-		this.htmlQ = htmlQ;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 
-	public String getCssQ() {
-		return cssQ;
+	public String getQuestionNum() {
+		return questionNum;
 	}
 
-	public void setCssQ(String cssQ) {
-		this.cssQ = cssQ;
+	public void setQuestionNum(String questionNum) {
+		this.questionNum = questionNum;
 	}
 
-	public String getJavaQ() {
-		return javaQ;
+	public String getQuestion() {
+		return question;
 	}
 
-	public void setJavaQ(String javaQ) {
-		this.javaQ = javaQ;
+	public void setQuestion(String question) {
+		this.question = question;
 	}
 
-	public String getJspQ() {
-		return jspQ;
+	public String getAnswer() {
+		return answer;
 	}
 
-	public void setJspQ(String jspQ) {
-		this.jspQ = jspQ;
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 
 	@Override
 	public String toString() {
-		return "testVO [htmlQ=" + htmlQ + ", cssQ=" + cssQ + 
-				", javaQ=" + javaQ + ", jspQ=" + jspQ + "]";
+		return "testVO [subject=" + subject + ", questionNum=" + questionNum + ", "
+				+ "question=" + question + ", answer=" + answer + "]";
 	}
-	
-	
-	
-	
-	
 }
