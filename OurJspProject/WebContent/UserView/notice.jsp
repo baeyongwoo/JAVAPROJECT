@@ -25,7 +25,7 @@
 			text-shadow:3px 3px 0px #bdbdbd;
 			}
 		
-		.user{
+		.user{`
 			border-top:5px dashed;
 			border-bottom:5px dashed;
 			width:200px;

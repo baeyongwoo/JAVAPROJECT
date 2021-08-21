@@ -33,7 +33,7 @@ p{}
 			<p>JAVA <input type="checkbox" name="subject" value="1"></p>
 			<p>HTML <input type="checkbox" name="subject" value="2"></p>
 			<p>JSP <input type="checkbox" name="subject" value="3"></p>
-			<p>SPRING <input type="checkbox" name="subject" value="s4"></p>
+			<p>CSS <input type="checkbox" name="subject" value="4"></p>
 			
 			
 			
