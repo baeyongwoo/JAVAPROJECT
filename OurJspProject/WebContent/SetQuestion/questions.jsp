@@ -10,8 +10,8 @@
 	<form action="/OurJspProject/questions.use" method="post">
 		<%-- value값 나오게 해주세요 --%>
 		<input type="text" name="qcode" value="1010 + 1" readonly="readonly">
-		<input type="text" name="question" placeholder="문제를 입력하세요">
-		<input type="submit" value="제출">
+		<input type="text" name="question" placeholder="문제의 답을 입력하세요">
+		<input type="submit" value="정답입력">
 	</form>
 </body>
 </html>

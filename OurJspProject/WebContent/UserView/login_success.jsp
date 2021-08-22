@@ -69,12 +69,26 @@ div>h2{color: maroon;
 	<!-- head -->
 
 	<div id="body" align="center">
+	
+		<c:set var="uid" value="${u_id}"/> <!-- Attribute 값을 가져오면 JSTL로 출력이 가능함. -->
+		
 		<div class="content">
 		<div class="left" align="left">
-			<h2>실력을 보여주세요</h2>
+			<c:choose>
+				<c:when test="${uid eq 'test'}"> <!-- 유저 실력을 판가름할 변수로 출력할 메뉴 설정 현재는 테스트를 위해 test라는 이름을 가진 사람만 출제메뉴 생성 -->
+			<h2>"${u_id}" 실력자시군요</h2>
 			<p>
 				<a href=""></a>
-				<a href="http://localhost:8181/OurJspProject/SetQuestion/questions.jsp">HTML 문제출제</a><br /> <a
+				<a href="http://localhost:8181/OurJspProject/SetQuestion/questions.jsp">HTML 문제출제</a><br />
+				<a href="http://localhost:8181/OurJspProject/SetQuestion/questions.jsp">JAVA 문제출제	</a><br />
+				<a href="http://localhost:8181/OurJspProject/SetQuestion/questions.jsp">JSP 문제출제</a><br />
+				<a href="http://localhost:8181/OurJspProject/SetQuestion/questions.jsp">CSS 문제출제</a>
+			</p>
+			</c:when>
+				<c:when test="${uid eq 'test2'}">
+			<h2>"${u_id}" 실력을 보여주세요</h2>
+			<p>
+				<a href="http://localhost:8181/OurJspProject/TestView/HTML_test.jsp">HTML 테스트</a><br /> <a
 				href="http://localhost:8181/OurJspProject/TestView/java_test.jsp">JAVA
 				테스트</a><br /> <a
 				href="http://localhost:8181/OurJspProject/TestView/jsp_test.jsp">JSP
@@ -82,6 +96,13 @@ div>h2{color: maroon;
 				href="http://localhost:8181/OurJspProject/TestView/css_test.jsp">CSS
 				테스트</a>
 			</p>
+			</c:when>
+			<c:otherwise>
+			로그인 해주셔야 메뉴가 보여요
+			</c:otherwise>
+			</c:choose>
+			
+			
 		</div>
 	
 		<div class="center" align="center">
