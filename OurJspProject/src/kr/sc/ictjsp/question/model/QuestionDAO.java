@@ -4,6 +4,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionDAO {
 
@@ -136,27 +138,28 @@ public class QuestionDAO {
 		return DELETEQFAIL;
 	} // end DeleteQuestion
 
-/*
-	public QuestionVO QuestionGetInfo(QuestionVO question) {
+
+	public List<QuestionVO> QuestionGetInfo() {
 		
+		List<QuestionVO> QList = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		QuestionVO questionData = new QuestionVO();
 	
+		String sql = "SELECT * FROM question ORDER BY qcode DESC";
+
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM question WHERE qcode = ?";
-			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, question.getqcode());
-			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-				questionData.setqcode();
-				questionData.setquestion("question");
+			while(rs.next()) {
+				questionData.setqcode(rs.getInt("qcode"));
+				questionData.setquestion(rs.getString("question"));
+				
+				QList.add(questionData);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -175,7 +178,7 @@ public class QuestionDAO {
 				e.printStackTrace();
 			}
 		}
-		return questionData;
+		return QList;
 	} // end QuestionGetInfo
-*/
+
 }
