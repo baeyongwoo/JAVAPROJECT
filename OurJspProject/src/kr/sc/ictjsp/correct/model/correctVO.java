@@ -4,6 +4,11 @@ public class correctVO {
 
 	private int ccode;
 	private String correct;
+	
+	public correctVO() {
+		
+	}
+	
 	public correctVO(int ccode, String correct) {
 		super();
 		this.ccode = ccode;

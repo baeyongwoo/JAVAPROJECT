@@ -138,7 +138,7 @@ public class usersDAO {
 			if(users.getUpw().equals(dpw)) {
 				
 				con = ds.getConnection();
-				String sql = "DELETE from project WHERE uid = ?";
+				String sql = "DELETE from users WHERE uid = ?";
 				
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, users.getUid());

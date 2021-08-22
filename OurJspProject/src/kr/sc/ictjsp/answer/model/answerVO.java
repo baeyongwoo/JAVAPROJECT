@@ -4,6 +4,11 @@ public class answerVO {
 
 	private int acode;
 	private String answer;
+	
+	public answerVO() {
+		
+	}
+	
 	public answerVO(int acode, String answer) {
 		super();
 		this.acode = acode;

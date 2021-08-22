@@ -5,6 +5,10 @@ public class QuestionVO {
 	private int qcode;
 	private String question;
 	
+	public QuestionVO() {
+		
+	}
+	
 	public QuestionVO(int qcode, String question) {
 		super();
 		this.qcode = qcode;
