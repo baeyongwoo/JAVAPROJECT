@@ -141,18 +141,20 @@ public class Controller extends HttpServlet {
 				ui = "/UserView/delete_ok.jsp";
 			}
 			
-		}else if(uri.equals("OurJspProject/getinfo.use")) {
+		}else if(uri.equals("/OurJspProject/getinfo.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("회원 정보 보기 요청");
 			busv = new UserGetinfoService();
 			busv.execute(request, response);
 		}
 		//문제 출제
-		else if(uri.equals("OurJspProject/question.use")) {
+		
+		else if(uri.equals("/OurJspProject/questions.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("문제 출제 페이지");
 			qs = new InsertQuestionService();
 			qs.execute(request, response);
+			ui = "/UserView/login_success.jsp";
 			
 		}
 		

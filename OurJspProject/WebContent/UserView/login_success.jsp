@@ -74,7 +74,7 @@ div>h2{color: maroon;
 			<h2>실력을 보여주세요</h2>
 			<p>
 				<a href=""></a>
-				<a href="http://localhost:8181/OurJspProject/SetQuestion/question.jsp">HTML 문제출제</a><br /> <a
+				<a href="http://localhost:8181/OurJspProject/SetQuestion/questions.jsp">HTML 문제출제</a><br /> <a
 				href="http://localhost:8181/OurJspProject/TestView/java_test.jsp">JAVA
 				테스트</a><br /> <a
 				href="http://localhost:8181/OurJspProject/TestView/jsp_test.jsp">JSP

@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.sc.ictjsp.question.model.QuestionDAO;
 import kr.sc.ictjsp.question.model.QuestionVO;
-import kr.sc.ictjsp.users.model.usersDAO;
-import kr.sc.ictjsp.users.model.usersVO;
 
 public class InsertQuestionService implements QuestionService {
 	@Override
@@ -20,10 +18,11 @@ public class InsertQuestionService implements QuestionService {
 
 			int qcode = Integer.parseInt(q_code);
 
+			System.out.println("코드 정보 : " + qcode + "문제 : " + question);
 			QuestionDAO dao = QuestionDAO.getInstance();
 			QuestionVO Input_question = new QuestionVO(qcode, question);
 
-			int result = dao.InsertQuestion();
+			int result = dao.InsertQuestion(Input_question);
 
 			if (result == 1) {
 				System.out.println("문제 생성 완료");
