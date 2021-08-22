@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.sc.ictjsp.question.service.InsertQuestionService;
+import kr.sc.ictjsp.question.service.QuestionService;
 import kr.sc.ictjsp.user.service.BUserService;
 import kr.sc.ictjsp.user.service.UserDeleteService;
 import kr.sc.ictjsp.user.service.UserGetinfoService;
@@ -69,6 +71,7 @@ public class Controller extends HttpServlet {
 	protected void deRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//businessUserService
 		BUserService busv = null;
+		QuestionService qs = null;
 		
 		
 		//ui 지정하기
@@ -144,8 +147,14 @@ public class Controller extends HttpServlet {
 			busv = new UserGetinfoService();
 			busv.execute(request, response);
 		}
-		//게시판관련 로직
-		
+		//문제 출제
+		else if(uri.equals("OurJspProject/question.use")) {
+			System.out.println("현재 사용자 페이지 : " + uri);
+			System.out.println("문제 출제 페이지");
+			qs = new InsertQuestionService();
+			qs.execute(request, response);
+			
+		}
 		
 		else {
 			//나중에 오류페이지로 보내주기
