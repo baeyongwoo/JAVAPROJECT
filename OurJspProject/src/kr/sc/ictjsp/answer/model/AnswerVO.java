@@ -1,15 +1,15 @@
 package kr.sc.ictjsp.answer.model;
 
-public class answerVO {
+public class AnswerVO {
 
 	private int acode;
 	private String answer;
 	
-	public answerVO() {
+	public AnswerVO() {
 		
 	}
 	
-	public answerVO(int acode, String answer) {
+	public AnswerVO(int acode, String answer) {
 		super();
 		this.acode = acode;
 		this.answer = answer;

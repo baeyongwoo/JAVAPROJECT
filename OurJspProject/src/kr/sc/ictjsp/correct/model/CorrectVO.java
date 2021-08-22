@@ -1,15 +1,15 @@
 package kr.sc.ictjsp.correct.model;
 
-public class correctVO {
+public class CorrectVO {
 
 	private int ccode;
 	private String correct;
 	
-	public correctVO() {
+	public CorrectVO() {
 		
 	}
 	
-	public correctVO(int ccode, String correct) {
+	public CorrectVO(int ccode, String correct) {
 		super();
 		this.ccode = ccode;
 		this.correct = correct;

@@ -6,17 +6,15 @@ import java.sql.*;
 import java.util.*;
 
 public class QuestionDAO {
-
-	//문제들 처음 db에 입력하기, 문제들 오류수정하기, 문제 삭제하기, 문제 보기
 	
 	private DataSource ds;
 	
-	private static final int INSERTQSUCCESS = 1;
-	private static final int INSERTQFAIL = 0;
-	private static final int UPDATEQSUCCESS = 1;
-	private static final int UPDATEQFAIL = 0;
-	private static final int DELETEQSUCCESS = 1;
-	private static final int DELETEQFAIL = 0;
+	private static final int INSERT_Q_SUCCESS = 1;
+	private static final int INSERT_Q_FAIL = 0;
+	private static final int UPDATE_Q_SUCCESS = 1;
+	private static final int UPDATE_Q_FAIL = 0;
+	private static final int DELETE_Q_SUCCESS = 1;
+	private static final int DELETE_Q_FAIL = 0;
 	
 	private QuestionDAO() {
 		
@@ -50,7 +48,7 @@ public class QuestionDAO {
 			
 			pstmt.executeUpdate();
 			
-			return INSERTQSUCCESS;
+			return INSERT_Q_SUCCESS;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -67,7 +65,7 @@ public class QuestionDAO {
 			}
 			
 		}
-		return INSERTQFAIL;
+		return INSERT_Q_FAIL;
 	} // end InsertQuestion
 	
 	public int UpdateQuestion(QuestionVO question) {
@@ -85,7 +83,7 @@ public class QuestionDAO {
 			pstmt.setInt(2, question.getqcode());
 			
 			pstmt.executeUpdate();
-			return UPDATEQSUCCESS;
+			return UPDATE_Q_SUCCESS;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -100,7 +98,7 @@ public class QuestionDAO {
 				e.printStackTrace();
 			}
 		}
-		return UPDATEQFAIL;
+		return UPDATE_Q_FAIL;
 	} // end UpdateQuestion
 	
 	public int DeleteQuestion(QuestionVO question) {
@@ -117,8 +115,8 @@ public class QuestionDAO {
 			pstmt.setInt(1, question.getqcode());
 			pstmt.executeUpdate();
 			
-			return DELETEQSUCCESS;
-		} catch (Exception e) {
+			return DELETE_Q_SUCCESS;
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -133,7 +131,7 @@ public class QuestionDAO {
 			}
 			
 		}
-		return DELETEQFAIL;
+		return DELETE_Q_FAIL;
 	} // end DeleteQuestion
 
 
