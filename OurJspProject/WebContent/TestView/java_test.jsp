@@ -17,6 +17,7 @@
 	<div id=body></div>
 		<h1>JAVA 실력을 평가합니다.</h1>
 		<h2>아래 제시된 문제를 해결해주세요.</h2>
+
 	<div id=footer></div>
 </body>
 </html>
