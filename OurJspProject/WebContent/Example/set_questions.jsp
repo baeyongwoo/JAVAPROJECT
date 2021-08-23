@@ -9,17 +9,18 @@
 </head>
 <body>
 <c:set var="uname" value="${u_name}" scope="session"/>
-<c:set var="qcode" value="${q_code}" scope="session"/>
 	<h1>"${uname }" 님은 문제를 출제하실수 있습니다.</h1>
+	
+	
 	<form action="/OurJspProject/questions.use" method="post">
-<<<<<<< HEAD
-=======
-		<input type="hidden" name="qcode" value="1002" readonly="readonly">
->>>>>>> 3a559aa8e1285f457e81d4a8f8002c221ff0456a
+		html<input type="radio" name ="html" value="1"><br/>
+		css<input type="radio" name ="css" value="2"><br/>
+		java<input type="radio" name ="java" value="3"><br/>
+		jsp<input type="radio" name ="jsp" value="4"><br/>
+
 		<input type="text" name="question" placeholder="문제를 입력하세요">
 		<input type="text" name="correct" placeholder="답을 입력하세요">
-		<input type="hidden" name="qcode" value="+1">
-		<input type="hidden" name="ccode" value="+1">
+
 		<input type="submit" value="문제출제">
 
 	</form>
