@@ -7,28 +7,28 @@ public class usersVO {
 	private String uname;
 	private String uemail;
 	private String subject;
+	private int htmlcount;
+	private int csscount;
+	private int javacount;
+	private int jspcount;
 	
 	public usersVO() {}
 	
 	
 
-	public usersVO(String uid, String upw, String uname, String uemail, String subject) {
+	public usersVO(String uid, String upw, String uname, String uemail, String subject,
+				int htmlcount, int csscount, int javacount, int jspcount) {
 		super();
 		this.uid = uid;
 		this.upw = upw;
 		this.uname = uname;
 		this.uemail = uemail;
 		this.subject = subject;
+		this.htmlcount = htmlcount;
+		this.csscount = csscount;
+		this.javacount = javacount;
+		this.jspcount = jspcount;
 	}
-
-
-	@Override
-	public String toString() {
-		return "usersVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", uemail=" + uemail + ", subject="
-				+ subject + "]";
-	}
-
-
 
 	public String getUid() {
 		return uid;
@@ -69,7 +69,62 @@ public class usersVO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	
-	
 
+
+
+	public int getHtmlcount() {
+		return htmlcount;
+	}
+
+
+
+	public void setHtmlcount(int htmlcount) {
+		this.htmlcount = htmlcount;
+	}
+
+
+
+	public int getCsscount() {
+		return csscount;
+	}
+
+
+
+	public void setCsscount(int csscount) {
+		this.csscount = csscount;
+	}
+
+
+
+	public int getJavacount() {
+		return javacount;
+	}
+
+
+
+	public void setJavacount(int javacount) {
+		this.javacount = javacount;
+	}
+
+
+
+	public int getJspcount() {
+		return jspcount;
+	}
+
+
+
+	public void setJspcount(int jspcount) {
+		this.jspcount = jspcount;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "usersVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + 
+				", uemail=" + uemail + ", subject=" + subject + ", htmlcount=" +
+				htmlcount + ", csscount=" + csscount + ", javacount=" + javacount + 
+				", jspcount=" + jspcount + "]";
+	}
 }
