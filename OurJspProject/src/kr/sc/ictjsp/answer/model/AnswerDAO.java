@@ -8,6 +8,8 @@ public class AnswerDAO {
 
 	private DataSource ds;
 	
+	//문제 코드, 누적문제코드, 풀은 사용자 아이디, 사용자가 푼 답, 풀은 날짜
+	
 	private final int INSERT_A_SUCCESS = 1;
 	private final int INSERT_A_FAIL = 0;
 	private final int EDIT_A_SUCCESS = 1;
