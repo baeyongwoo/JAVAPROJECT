@@ -13,10 +13,10 @@ public class InsertQuestionService implements QuestionService {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("utf-8");
 			
-			String code = (String) request.getParameter("code");
+			String htmlcode = (String) request.getParameter("html");
 			String question = (String) request.getParameter("question");
 
-			int ecode = Integer.parseInt(code);
+			int ecode = Integer.parseInt(htmlcode);
 
 			System.out.println("선택한 코드 : " + ecode + "문제 : " + question);
 			QuestionDAO dao = QuestionDAO.getInstance();

@@ -46,12 +46,13 @@ public class CorrectDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
+		System.out.println(code);
 		try {
 			
 			con = ds.getConnection();
 			switch (code) {
 			case 1: 
-				String sql1 = "INSERT INTO correct VALUES(htmlcode, ?)";
+				String sql1 = "INSERT INTO correct VALUES("+htmlcode+", ?)";
 				pstmt = con.prepareStatement(sql1);
 				pstmt.setString(1, correct.getCorrect());
 				

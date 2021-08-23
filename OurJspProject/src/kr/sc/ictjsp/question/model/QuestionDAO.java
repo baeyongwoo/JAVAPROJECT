@@ -47,7 +47,7 @@ public class QuestionDAO {
 			con = ds.getConnection();
 			switch (code) {
 			case 1: 
-				String sql1 = "INSERT INTO question VALUES(htmlcode, ?)";
+				String sql1 = "INSERT INTO question VALUES("+htmlcode+", ?)";
 				pstmt = con.prepareStatement(sql1);
 				pstmt.setString(1, question.getquestion());
 				

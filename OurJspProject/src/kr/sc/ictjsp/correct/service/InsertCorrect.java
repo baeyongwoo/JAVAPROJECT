@@ -14,10 +14,10 @@ public class InsertCorrect implements CorrectService {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("utf-8");
 			
-			String code = (String) request.getParameter("code");
+			String htmlcode = (String) request.getParameter("html");
 			String correct = (String) request.getParameter("correct");
 
-			int ccode = Integer.parseInt(code);
+			int ccode = Integer.parseInt(htmlcode);
 
 			System.out.println("선택한 코드 : " + ccode + "정답 : " + correct);
 			CorrectDAO dao = CorrectDAO.getInstance();
