@@ -79,13 +79,7 @@ div>h2{color: maroon;
 
 			<h2>"${uname}" 환영합니다.</h2>
 			<p>
-				<a href="http://localhost:8181/OurJspProject/Example/set_questions.jsp">HTML 문제출제</a>
-				<br />
-				<a href=http://localhost:8181/OurJspProject/Example/set_questions.jsp>JAVA 문제출제</a>
-				<br />
-				<a href="http://localhost:8181/OurJspProject/TestView/jsp_test.jsp">JSP 문제출제</a>
-				<br />
-				<a href="http://localhost:8181/OurJspProject/TestView/css_test.jsp">CSS 문제출제</a>
+				<a href="http://localhost:8181/OurJspProject/Example/set_questions.jsp">문제 출제하기</a>
 			</p>
 		
 			
