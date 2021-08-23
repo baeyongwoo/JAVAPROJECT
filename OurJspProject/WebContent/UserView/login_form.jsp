@@ -23,8 +23,8 @@ border: 1px solid #58D3F7;}
 	<form action="/OurJspProject/login.use" method="post">
 	<input type="text" name="id" placeholder="아이디를 입력해주세요" size = "30"><br/><br/>
 	<input type="password" name="pw" placeholder="비밀번호를 입력해주세요" size = "30"><br/><br/>
-	<a href	="http://localhost:8181/OurJspProject/UserView/join_form.jsp"><input type ="button" value="회원가입"></a>&nbsp;
-	<input type="submit" value = "로그인">
+	<input type="submit" value = "로그인">&nbsp;
+	<a href	="http://localhost:8181/OurJspProject/UserView/join_form.jsp"><input type ="button" value="회원가입"></a>
 	</form>
 	</div>
 </body>
