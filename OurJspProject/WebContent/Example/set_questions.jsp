@@ -12,6 +12,10 @@
 <c:set var="qcode" value="${q_code}" scope="session"/>
 	<h1>"${uname }" 님은 문제를 출제하실수 있습니다.</h1>
 	<form action="/OurJspProject/questions.use" method="post">
+<<<<<<< HEAD
+=======
+		<input type="hidden" name="qcode" value="1002" readonly="readonly">
+>>>>>>> 3a559aa8e1285f457e81d4a8f8002c221ff0456a
 		<input type="text" name="question" placeholder="문제를 입력하세요">
 		<input type="text" name="correct" placeholder="답을 입력하세요">
 		<input type="hidden" name="qcode" value="+1">

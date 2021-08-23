@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.sc.ictjsp.answer.service.InsertAnswerService;
+import kr.sc.ictjsp.correct.service.CorrectService;
+import kr.sc.ictjsp.correct.service.InsertCorrect;
 import kr.sc.ictjsp.question.service.InsertQuestionService;
 import kr.sc.ictjsp.question.service.QuestionService;
 import kr.sc.ictjsp.user.service.BUserService;
@@ -72,6 +75,7 @@ public class Controller extends HttpServlet {
 		//businessUserService
 		BUserService busv = null;
 		QuestionService qs = null;
+		CorrectService cs = null;
 		
 		
 		//ui 지정하기
@@ -156,6 +160,8 @@ public class Controller extends HttpServlet {
 			System.out.println("문제 출제 페이지");
 			qs = new InsertQuestionService();
 			qs.execute(request, response);
+			cs = new InsertCorrect();
+			cs.execute(request, response);
 			ui = "/UserView/login_success.jsp";
 			
 		}
