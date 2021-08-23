@@ -7,7 +7,7 @@ import kr.sc.ictjsp.answer.model.AnswerDAO;
 import kr.sc.ictjsp.correct.model.CorrectDAO;
 import kr.sc.ictjsp.correct.model.CorrectVO;
 
-public class CorrectInsert implements CorrectService {
+public class InsertCorrect implements CorrectService {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		try {
