@@ -102,12 +102,14 @@ public class Controller extends HttpServlet {
 			busv = new UserLoginService();
 			busv.execute(request, response);
 			
+			
 			String check = (String)session.getAttribute("l_f");
 			System.out.println("현재 사용자 페이지 : " + uri);
 			if(check != null && check.equals("fail")) {
 				session.invalidate();
 				ui = "/UserView/login_form.jsp";
 			}else {
+				//System.out.println("이름 세션 : " +  );
 				ui = "/UserView/login_success.jsp";
 			}
 			

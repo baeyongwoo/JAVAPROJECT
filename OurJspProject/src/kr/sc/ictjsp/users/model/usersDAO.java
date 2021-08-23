@@ -6,6 +6,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.*;
 
+import com.mysql.cj.Session;
+
 public class usersDAO {
 	
 	private DataSource ds;
@@ -100,6 +102,7 @@ public class usersDAO {
 				
 				String dbId = rs.getString("uid");
 				String dbPw = rs.getString("upw");
+				String dbName = rs.getString("uname");
 				
 				if(user.getUid().equals(dbId) &&
 						user.getUpw().equals(dbPw)) {
@@ -129,19 +132,19 @@ public class usersDAO {
 		return LOGIN_FAIL;
 	} // end usersLogin
 
-	public int usersDelete(usersVO users, String dpw) {
+	public int usersDelete(usersVO user, String dpw) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			if(users.getUpw().equals(dpw)) {
+			if(user.getUpw().equals(dpw)) {
 				
 				con = ds.getConnection();
 				String sql = "DELETE from users WHERE uid = ?";
 				
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, users.getUid());
+				pstmt.setString(1, user.getUid());
 				pstmt.executeUpdate();
 				
 				return DELETE_SUCCESS;
@@ -165,7 +168,7 @@ public class usersDAO {
 		return DELETE_FAIL;
 	} // end usersDelete
 	
-	public int usersUpdate(usersVO users) {
+	public int usersUpdate(usersVO user) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -176,9 +179,9 @@ public class usersDAO {
 			String sql = "UPDATE users set upw = ?, uemail = ? WHERE uid = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, users.getUpw());
-			pstmt.setString(2, users.getUemail());
-			pstmt.setString(3, users.getUid());
+			pstmt.setString(1, user.getUpw());
+			pstmt.setString(2, user.getUemail());
+			pstmt.setString(3, user.getUid());
 			
 			pstmt.executeUpdate();
 			return UPDATE_SUCCESS;
@@ -198,6 +201,46 @@ public class usersDAO {
 		}
 		return UPDATE_FAIL;
 	} // end usersUpdate
+	public String getName(String id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String uname = null;
+		try {
+			con = ds.getConnection();
+			
+			String sql = "SELECT uname FROM users WHERE uid = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				uname = (rs.getString("uname"));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(uname);
+		return uname;
+		
+		
+	}//getsessionEnd
+	
+	
 	/*
 	public usersVO usersFindId(usersVO users) {
 		

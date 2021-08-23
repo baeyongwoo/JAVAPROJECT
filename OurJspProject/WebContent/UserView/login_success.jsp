@@ -65,18 +65,19 @@ div>h2{color: maroon;
 	<div id="header" align="right">
 		<a href="/OurJspProject/update.use"><button>회원정보수정</button></a> <a
 			href="/OurJspProject/logout.use"><button>로그아웃</button></a>
+			${u_name}
 	</div>
 	<!-- head -->
 
 	<div id="body" align="center">
 	
-		<c:set var="uid" value="${u_id}"/> <!-- Attribute 값을 가져오면 JSTL로 출력이 가능함. -->
+		<c:set var="uid" value="${u_name}"/> <!-- Attribute 값을 가져오면 JSTL로 출력이 가능함. -->
 		
 		<div class="content">
 		<div class="left" align="left">
 			<c:choose>
-				<c:when test="${uid eq 'test'}"> <!-- 유저 실력을 판가름할 변수로 출력할 메뉴 설정 현재는 테스트를 위해 test라는 이름을 가진 사람만 출제메뉴 생성 -->
-			<h2>"${u_id}" 실력자시군요</h2>
+				<c:when test="${uid eq '테스트1'}"> <!-- 유저 실력을 판가름할 변수로 출력할 메뉴 설정 현재는 테스트를 위해 test라는 이름을 가진 사람만 출제메뉴 생성 -->
+			<h2>"${uid}" 실력자시군요</h2>
 			<p>
 				<a href=""></a>
 				<a href="http://localhost:8181/OurJspProject/SetQuestion/questions.jsp">HTML 문제출제</a><br />
