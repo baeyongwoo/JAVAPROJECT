@@ -89,6 +89,7 @@ public class usersDAO {
 		ResultSet rs = null;
 		
 		try {
+			
 			con = ds.getConnection();
 			
 			String sql = "SELECT * FROM users WHERE uid = ?";
@@ -141,6 +142,7 @@ public class usersDAO {
 			if(user.getUpw().equals(dpw)) {
 				
 				con = ds.getConnection();
+				
 				String sql = "DELETE from users WHERE uid = ?";
 				
 				pstmt = con.prepareStatement(sql);
@@ -176,6 +178,7 @@ public class usersDAO {
 		try {
 			
 			con = ds.getConnection();
+			
 			String sql = "UPDATE users set upw = ?, uemail = ? WHERE uid = ?";
 			
 			pstmt = con.prepareStatement(sql);
@@ -330,6 +333,7 @@ public class usersDAO {
 		
 		try {
 			con = ds.getConnection();
+			
 			String sql = "SELECT * FROM users WHERE uid = ?";
 			
 			pstmt = con.prepareStatement(sql);

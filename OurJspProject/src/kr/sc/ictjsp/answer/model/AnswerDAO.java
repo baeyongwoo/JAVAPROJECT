@@ -8,7 +8,7 @@ public class AnswerDAO {
 
 	private DataSource ds;
 	
-	//문제 코드, 누적문제코드, 풀은 사용자 아이디, 사용자가 푼 답, 풀은 날짜
+	//acode, accacode, answeruid, answer, solvedate
 	
 	private final int INSERT_A_SUCCESS = 1;
 	private final int INSERT_A_FAIL = 0;
@@ -31,6 +31,31 @@ public class AnswerDAO {
 	
 	public static AnswerDAO getInstance() {
 		return dao;
+	}
+	
+	public AnswerVO SelectAnswer(AnswerVO answer) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		AnswerVO answerData = new AnswerVO();
+		
+		try {
+			
+			con = ds.getConnection();
+
+			String sql = "SELECT * FROM answer WHERE acode = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, answer.getAcode());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				answerData.set
+			}
+		}
 	}
 	
 	public int InsertAnswer(AnswerVO answer) {
