@@ -16,13 +16,13 @@ import kr.sc.ictjsp.correct.service.CorrectService;
 import kr.sc.ictjsp.correct.service.InsertCorrect;
 import kr.sc.ictjsp.question.service.InsertQuestionService;
 import kr.sc.ictjsp.question.service.QuestionService;
-import kr.sc.ictjsp.user.service.BUserService;
-import kr.sc.ictjsp.user.service.UserDeleteService;
-import kr.sc.ictjsp.user.service.UserGetinfoService;
-import kr.sc.ictjsp.user.service.UserJoinService;
-import kr.sc.ictjsp.user.service.UserLoginService;
-import kr.sc.ictjsp.user.service.UserLogoutService;
-import kr.sc.ictjsp.user.service.UserUpdateService;
+import kr.sc.ictjsp.users.service.BUserService;
+import kr.sc.ictjsp.users.service.UserDeleteService;
+import kr.sc.ictjsp.users.service.UserGetinfoService;
+import kr.sc.ictjsp.users.service.UserJoinService;
+import kr.sc.ictjsp.users.service.UserLoginService;
+import kr.sc.ictjsp.users.service.UserLogoutService;
+import kr.sc.ictjsp.users.service.UserUpdateService;
 
 /**
  * Servlet implementation class Controller
