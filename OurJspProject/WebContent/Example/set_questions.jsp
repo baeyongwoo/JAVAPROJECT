@@ -9,12 +9,14 @@
 </head>
 <body>
 <c:set var="uname" value="${u_name}" scope="session"/>
-<c:set var="qcode" value="${q_code}" scope="application"/>
+<c:set var="qcode" value="${q_code}" scope="session"/>
 	<h1>"${uname }" 님은 문제를 출제하실수 있습니다.</h1>
 	<form action="/OurJspProject/questions.use" method="post">
-		<input type="hidden" name="qcode" value="+1" readonly="readonly">
 		<input type="text" name="question" placeholder="문제를 입력하세요">
-		<input type="submit" value="정답입력">
+		<input type="text" name="correct" placeholder="답을 입력하세요">
+		<input type="hidden" name="qcode" value="+1">
+		<input type="hidden" name="ccode" value="+1">
+		<input type="submit" value="문제출제">
 
 	</form>
 </body>
