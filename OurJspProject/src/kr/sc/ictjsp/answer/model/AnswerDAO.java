@@ -33,31 +33,6 @@ public class AnswerDAO {
 		return dao;
 	}
 	
-	public AnswerVO SelectAnswer(AnswerVO answer) {
-		
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		AnswerVO answerData = new AnswerVO();
-		
-		try {
-			
-			con = ds.getConnection();
-
-			String sql = "SELECT * FROM answer WHERE acode = ?";
-			
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, answer.getAcode());
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				answerData.set
-			}
-		}
-	}
-	
 	public int InsertAnswer(AnswerVO answer) {
 		
 		Connection con = null;
