@@ -14,16 +14,16 @@ public class InsertCorrect implements CorrectService {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("utf-8");
 			
-			String c_code = (String) request.getParameter("ccode");
+			String code = (String) request.getParameter("code");
 			String correct = (String) request.getParameter("correct");
 
-			int ccode = Integer.parseInt(c_code);
+			int ccode = Integer.parseInt(code);
 
-			System.out.println("코드 정보 : " + ccode + "정답 : " + correct);
+			System.out.println("선택한 코드 : " + ccode + "정답 : " + correct);
 			CorrectDAO dao = CorrectDAO.getInstance();
 			CorrectVO Input_correct = new CorrectVO(ccode, correct);
 
-			int result = dao.InsertCorrect(Input_correct);
+			int result = dao.InsertCorrect(Input_correct, ccode);
 
 			if (result == 1) {
 				System.out.println("답안지 생성 완료");

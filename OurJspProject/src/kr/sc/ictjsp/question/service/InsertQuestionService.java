@@ -13,16 +13,16 @@ public class InsertQuestionService implements QuestionService {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("utf-8");
 			
-			String q_code = (String) request.getParameter("qcode");
+			String code = (String) request.getParameter("code");
 			String question = (String) request.getParameter("question");
 
-			int qcode = Integer.parseInt(q_code);
+			int ecode = Integer.parseInt(code);
 
-			System.out.println("코드 정보 : " + qcode + "문제 : " + question);
+			System.out.println("선택한 코드 : " + ecode + "문제 : " + question);
 			QuestionDAO dao = QuestionDAO.getInstance();
-			QuestionVO Input_question = new QuestionVO(qcode, question);
+			QuestionVO Input_question = new QuestionVO(ecode, question);
 
-			int result = dao.InsertQuestion(Input_question);
+			int result = dao.InsertQuestion(Input_question, ecode);
 
 			if (result == 1) {
 				System.out.println("문제 생성 완료");

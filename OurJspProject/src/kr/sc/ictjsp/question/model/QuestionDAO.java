@@ -16,6 +16,11 @@ public class QuestionDAO {
 	private static final int DELETE_Q_SUCCESS = 1;
 	private static final int DELETE_Q_FAIL = 0;
 	
+	private int htmlcode = 1000;
+	private int csscode = 2000;
+	private int javacode = 3000;
+	private int jspcode = 4000;
+	
 	private QuestionDAO() {
 		
 		try {
@@ -32,7 +37,7 @@ public class QuestionDAO {
 		return dao;
 	}
 	
-	public int InsertQuestion(QuestionVO question) {
+	public int InsertQuestion(QuestionVO question, int code) {
 			
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -40,14 +45,40 @@ public class QuestionDAO {
 		try {
 			
 			con = ds.getConnection();
-			
-			String sql = "INSERT INTO question VALUES(NULL, ?)";
-			
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, question.getquestion());
-			
-			pstmt.executeUpdate();
-			
+			switch (code) {
+			case 1: 
+				String sql1 = "INSERT INTO question VALUES(htmlcode, ?)";
+				pstmt = con.prepareStatement(sql1);
+				pstmt.setString(1, question.getquestion());
+				
+				pstmt.executeUpdate();
+				htmlcode++;
+				break;
+			case 2:
+				String sql2 = "INSERT INTO question VALUES(csscode, ?)";
+				pstmt = con.prepareStatement(sql2);
+				pstmt.setString(1, question.getquestion());
+				
+				pstmt.executeUpdate();
+				csscode++;
+				break;
+			case 3:
+				String sql3 = "INSERT INTO question VALUES(javacode, ?)";
+				pstmt = con.prepareStatement(sql3);
+				pstmt.setString(1, question.getquestion());
+				
+				pstmt.executeUpdate();
+				javacode++;
+				break;
+			case 4:
+				String sql4 = "INSERT INTO question VALUES(jspcode, ?)";
+				pstmt = con.prepareStatement(sql4);
+				pstmt.setString(1, question.getquestion());
+				
+				pstmt.executeUpdate();
+				jspcode++;
+				break;
+			}	
 			return INSERT_Q_SUCCESS;
 			
 		} catch (SQLException e) {

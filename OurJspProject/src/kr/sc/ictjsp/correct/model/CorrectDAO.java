@@ -20,6 +20,11 @@ public class CorrectDAO {
 	private static final int DELETE_Co_SUCCESS = 1;
 	private static final int DELETE_Co_FAIL = 0;
 	
+	private int htmlcode = 1000;
+	private int csscode = 2000;
+	private int javacode = 3000;
+	private int jspcode = 4000;
+	
 	private CorrectDAO () {
 		
 		try {
@@ -36,7 +41,7 @@ public class CorrectDAO {
 		return dao;
 	}
 	
-	public int InsertCorrect(CorrectVO correct) {
+	public int InsertCorrect(CorrectVO correct, int code) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -44,14 +49,40 @@ public class CorrectDAO {
 		try {
 			
 			con = ds.getConnection();
-			
-			String sql = "INSERT INTO answer VALUES(NULL, ?)";
-			
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, correct.getCorrect());
-			
-			pstmt.executeUpdate();
-			
+			switch (code) {
+			case 1: 
+				String sql1 = "INSERT INTO correct VALUES(htmlcode, ?)";
+				pstmt = con.prepareStatement(sql1);
+				pstmt.setString(1, correct.getCorrect());
+				
+				pstmt.executeUpdate();
+				htmlcode++;
+				break;
+			case 2:
+				String sql2 = "INSERT INTO correct VALUES(csscode, ?)";
+				pstmt = con.prepareStatement(sql2);
+				pstmt.setString(1, correct.getCorrect());
+				
+				pstmt.executeUpdate();
+				csscode++;
+				break;
+			case 3:
+				String sql3 = "INSERT INTO correct VALUES(javacode, ?)";
+				pstmt = con.prepareStatement(sql3);
+				pstmt.setString(1, correct.getCorrect());
+				
+				pstmt.executeUpdate();
+				javacode++;
+				break;
+			case 4:
+				String sql4 = "INSERT INTO correct VALUES(jspcode, ?)";
+				pstmt = con.prepareStatement(sql4);
+				pstmt.setString(1, correct.getCorrect());
+				
+				pstmt.executeUpdate();
+				jspcode++;
+				break;
+			}	
 			return INSERT_Co_SUCCESS;
 		
 		} catch (SQLException e) {
