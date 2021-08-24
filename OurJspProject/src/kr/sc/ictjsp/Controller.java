@@ -163,7 +163,13 @@ public class Controller extends HttpServlet {
 			cs = new InsertCorrect();
 			cs.execute(request, response);
 			ui = "/UserView/login_success.jsp";
-			
+		}
+		else if(uri.equals("/OurJspProject/answer.use")) {
+			System.out.println("현재 답 입력 페이지 : " + uri);
+			System.out.println("문제 풀이 페이지");
+			qs = new InsertAnswerService();
+			qs.execute(request, response);
+			ui = "/Example/.jsp";
 		}
 		
 		else {
