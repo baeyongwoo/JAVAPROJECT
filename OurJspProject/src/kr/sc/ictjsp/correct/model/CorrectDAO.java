@@ -60,7 +60,7 @@ public class CorrectDAO {
 				htmlcode++;
 				break;
 			case 2:
-				String sql2 = "INSERT INTO correct VALUES(csscode, ?)";
+				String sql2 = "INSERT INTO correct VALUES("+csscode+", ?)";
 				pstmt = con.prepareStatement(sql2);
 				pstmt.setString(1, correct.getCorrect());
 				
@@ -68,7 +68,7 @@ public class CorrectDAO {
 				csscode++;
 				break;
 			case 3:
-				String sql3 = "INSERT INTO correct VALUES(javacode, ?)";
+				String sql3 = "INSERT INTO correct VALUES("+javacode+", ?)";
 				pstmt = con.prepareStatement(sql3);
 				pstmt.setString(1, correct.getCorrect());
 				
@@ -76,7 +76,7 @@ public class CorrectDAO {
 				javacode++;
 				break;
 			case 4:
-				String sql4 = "INSERT INTO correct VALUES(jspcode, ?)";
+				String sql4 = "INSERT INTO correct VALUES("+jspcode+", ?)";
 				pstmt = con.prepareStatement(sql4);
 				pstmt.setString(1, correct.getCorrect());
 				

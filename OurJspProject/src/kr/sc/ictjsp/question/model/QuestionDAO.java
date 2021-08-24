@@ -55,7 +55,7 @@ public class QuestionDAO {
 				htmlcode++;
 				break;
 			case 2:
-				String sql2 = "INSERT INTO question VALUES(csscode, ?)";
+				String sql2 = "INSERT INTO question VALUES("+csscode+", ?)";
 				pstmt = con.prepareStatement(sql2);
 				pstmt.setString(1, question.getquestion());
 				
@@ -63,7 +63,7 @@ public class QuestionDAO {
 				csscode++;
 				break;
 			case 3:
-				String sql3 = "INSERT INTO question VALUES(javacode, ?)";
+				String sql3 = "INSERT INTO question VALUES("+javacode+", ?)";
 				pstmt = con.prepareStatement(sql3);
 				pstmt.setString(1, question.getquestion());
 				
@@ -71,7 +71,7 @@ public class QuestionDAO {
 				javacode++;
 				break;
 			case 4:
-				String sql4 = "INSERT INTO question VALUES(jspcode, ?)";
+				String sql4 = "INSERT INTO question VALUES("+jspcode+", ?)";
 				pstmt = con.prepareStatement(sql4);
 				pstmt.setString(1, question.getquestion());
 				
