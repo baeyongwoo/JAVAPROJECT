@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+
 <style>
 * {
 	padding: 0
@@ -38,11 +40,14 @@ a:active{color:red;}
 		}
 
 div>h2{color: maroon;
-		font-size: 40px}		
+		font-size: 40px}
+		
+div>h3{color: blue;
+		font-size : 40px;}		
 		
 .left {
 	 display: inline-block;
-	 margin:30px;
+	 margin:10px;
 	
 }
 
@@ -54,17 +59,18 @@ div>h2{color: maroon;
 
 .right {
 	display: inline-block;
-	margin:30px;
+	margin:10px;
 	
 }
+
 </style>
 <meta charset="UTF-8">
 <title>게시판</title>
 </head>
 <body>
 	<div id="header" align="right">
-		<a href="/OurJspProject/update.use"><button>회원정보수정</button></a> <a
-			href="/OurJspProject/logout.use"><button>로그아웃</button></a>
+		<a href="/OurJspProject/update.use"><button>회원정보수정</button></a>
+		<a href="/OurJspProject/logout.use"><button>로그아웃</button></a>
 			
 	</div>
 	<!-- head -->
@@ -77,15 +83,19 @@ div>h2{color: maroon;
 		<div class="left" align="left">
 			<c:set var="uname" value="${u_name}" scope="session"/>
 
-			<h2>"${uname}" 환영합니다.</h2>
-			<p>
-				<a href="http://localhost:8181/OurJspProject/Example/set_questions.jsp">문제 출제하기</a>
-			</p>
-		
+			<h2>${uname} 환영합니다</h2>
 			
 			
+			<form action ="http://localhost:8181/OurJspProject/Example/example.jsp" method="post">
+			<button class="btn btn-primary" name="subject" value="1">HTML 문제 풀러가기</button><br/><br/><br/>
+			<button class="btn btn-primary" name="subject" value="2">CSS 문제 풀러가기</button><br/><br/><br/>
+			<button class="btn btn-primary" name="subject" value="3">JAVA 문제 풀러가기</button><br/><br/><br/>
+			<button class="btn btn-primary" name="subject" value="4">JSP 문제 풀러가기</button>
+			</form>
+			
+			
+					
 		</div>
-	
 		<div class="center" align="center">
 		<p>
 			<a href="http://localhost:8181/OurJspProject/UserView/getinfo_form.jsp">
@@ -97,23 +107,42 @@ div>h2{color: maroon;
 	</div>
 
 		<div class="right" align="right">
-		<h2>실력 보충하기</h2>
+		<h2>공부하러가기</h2>
 		<p>
-			<a
-				href="http://localhost:8181/OurJspProject/StudyView/html_study.jsp">HTML
-				공부하기</a><br /> <a
-				href="http://localhost:8181/OurJspProject/StudyView/java_study.jsp">JAVA
-				공부하기</a><br /> <a
-				href="http://localhost:8181/OurJspProject/StudyView/jsp_study.jsp">JSP
-				공부하기</a><br /> <a
-				href="http://localhost:8181/OurJspProject/StudyView/css_study.jsp">CSS
-				공부하기</a>
-		</p>
+			<form action="http://localhost:8181/OurJspProject/StudyView/html_study.jsp" method="post">
+			<button class="btn btn-primary" name="subject" value="1">HTML 공부 게시판</button><br/><br/><br/>
+			<button class="btn btn-primary" name="subject" value="2">CSS 공부 게시판</button><br/><br/><br/>
+			<button class="btn btn-primary" name="subject" value="3">JAVA 공부 게시판</button><br/><br/><br/>
+			<button class="btn btn-primary" name="subject" value="4">JSP 공부 게시판</button>
+			</form>
 		</div>
 
 	</div>
 
 	</div>	<!-- body -->
-	<div id="footer"></div>
+	<div id="footer">
+	<c:choose>
+			<c:when test="${uname eq 'test'}">
+			
+			<h3>문제 출제하기</h3>
+				<p>	문제유형 선택 :</p> 
+				<form action="/OurJspProject/questions.use" method="post">
+				html <input type="radio" name ="subject" value="1">
+				css <input type="radio" name ="subject" value="2">
+				java <input type="radio" name ="subject" value="3">
+				jsp <input type="radio" name ="subject" value="4"> <br/>
+
+				<input type="text" name="question" placeholder="문제를 입력하세요">
+				<input type="text" name="correct" placeholder="답을 입력하세요">
+			</form>
+
+			<input type="submit" value="문제출제">
+			
+			</c:when>
+			<c:otherwise>
+			</c:otherwise>
+			</c:choose>
+			
+	</div>
 </body>
 </html>
