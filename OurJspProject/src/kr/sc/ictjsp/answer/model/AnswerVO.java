@@ -4,9 +4,8 @@ import java.sql.Timestamp;
 
 public class AnswerVO {
 
-	private int acode;
-	private int accacode;
-	private String answeruid;
+	private int auto_acode;
+	private int qcode;
 	private String answer;
 	private Timestamp solvedate;
 	
@@ -16,38 +15,29 @@ public class AnswerVO {
 		
 	}
 	
-	public AnswerVO(int acode, int accacode, String answeruid, 
-					String answer, Timestamp solvedate) {
+	public AnswerVO(int auto_acode, int qcode,  
+			String answer, Timestamp solvedate) {
 		super();
-		this.acode = acode;
-		this.accacode = accacode;
-		this.answeruid = answeruid;
+		this.auto_acode = auto_acode;
+		this.qcode = qcode;
 		this.answer = answer;
 		this.solvedate = solvedate;
 	}
 
-	public int getAcode() {
-		return acode;
+	public int getAuto_acode() {
+		return auto_acode;
 	}
 
-	public void setAcode(int acode) {
-		this.acode = acode;
+	public void setAuto_acode(int auto_acode) {
+		this.auto_acode = auto_acode;
 	}
 
-	public int getAccacode() {
-		return accacode;
+	public int getQcode() {
+		return qcode;
 	}
 
-	public void setAccacode(int accacode) {
-		this.accacode = accacode;
-	}
-
-	public String getAnuid() {
-		return answeruid;
-	}
-
-	public void setAnuid(String answeruid) {
-		this.answeruid = answeruid;
+	public void setQcode(int qcode) {
+		this.qcode = qcode;
 	}
 
 	public String getAnswer() {
@@ -68,10 +58,7 @@ public class AnswerVO {
 
 	@Override
 	public String toString() {
-		return "AnswerVO [acode=" + acode + ", accacode=" + accacode + ", answeruid=" 
-					+ answeruid + ", answer=" + answer + ", solvedate=" + solvedate + "]";
-	}
-	
-	
-	
+		return "AnswerVO [auto_acode=" + auto_acode + ", qcode=" + qcode 
+				+ ", answer=" + answer + ", solvedate=" + solvedate + "]";
+	}	
 }

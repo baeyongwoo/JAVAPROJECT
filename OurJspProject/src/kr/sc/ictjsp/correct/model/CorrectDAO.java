@@ -45,8 +45,7 @@ public class CorrectDAO {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
-		System.out.println(code);
+	
 		try {
 			
 			con = ds.getConnection();
