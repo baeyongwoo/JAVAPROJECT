@@ -134,9 +134,10 @@ div>h3{color: blue;
 
 				<input type="text" name="question" placeholder="문제를 입력하세요">
 				<input type="text" name="correct" placeholder="답을 입력하세요">
+				<input type="submit" value="문제출제">
 			</form>
 
-			<input type="submit" value="문제출제">
+			
 			
 			</c:when>
 			<c:otherwise>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.sc.ictjsp.answer.service.AnswerService;
 import kr.sc.ictjsp.answer.service.InsertAnswerService;
 import kr.sc.ictjsp.correct.service.CorrectService;
 import kr.sc.ictjsp.correct.service.InsertCorrect;
@@ -76,6 +77,7 @@ public class Controller extends HttpServlet {
 		BUserService busv = null;
 		QuestionService qs = null;
 		CorrectService cs = null;
+		AnswerService as = null;
 		
 		
 		//ui 지정하기
@@ -167,8 +169,8 @@ public class Controller extends HttpServlet {
 		else if(uri.equals("/OurJspProject/answer.use")) {
 			System.out.println("현재 답 입력 페이지 : " + uri);
 			System.out.println("문제 풀이 페이지");
-			qs = new InsertAnswerService();
-			qs.execute(request, response);
+			as = new InsertAnswerService();
+			as.execute(request, response);
 			ui = "/Example/.jsp";
 		}
 		

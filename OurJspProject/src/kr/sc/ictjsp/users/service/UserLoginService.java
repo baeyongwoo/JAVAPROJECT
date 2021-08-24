@@ -19,12 +19,15 @@ public class UserLoginService implements BUserService{
 			response.setCharacterEncoding("utf-8");
 			String uid = (String)request.getParameter("id");
 			String upw = (String)request.getParameter("pw");
+			System.out.println("폼에서 날린 아이디 : " + uid + "//폼에서 날린 비번 : " + upw);
 			
 			usersDAO dao = usersDAO.getInstance();
 			usersVO user = new usersVO();
 			
 			user.setUid(uid);
 			user.setUpw(upw);
+			
+			System.out.println("user 객체 디버깅 : " + user);
 			
 			int result = dao.usersLogin(user);
 			
@@ -35,8 +38,8 @@ public class UserLoginService implements BUserService{
 			} else if(result == 0){
 				System.out.println(uid + "님 로그인 실패");
 				session.setAttribute("l_f", "fail");
-				long time = session.getLastAccessedTime();
-				System.out.println(time);
+//				long time = session.getLastAccessedTime();
+//				System.out.println(time);
 			}
 			
 		}catch(Exception e) {

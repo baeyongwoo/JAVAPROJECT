@@ -1,5 +1,13 @@
 package kr.sc.ictjsp.question.service;
 
-public class UpdateQuestionService {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class UpdateQuestionService implements QuestionService{
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
+
+		//String
+	}
 
 }
