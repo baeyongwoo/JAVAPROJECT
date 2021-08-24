@@ -6,7 +6,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.*;
 
-import com.mysql.cj.Session;
 
 public class usersDAO {
 	
@@ -20,8 +19,6 @@ public class usersDAO {
 	private static final int DELETE_FAIL = 0;
 	private static final int UPDATE_SUCCESS = 1;
 	private static final int UPDATE_FAIL = 0;
-	private static final int PwChange_SUCCESS = 1;
-	private static final int PwChange_FAIL = 0;
 	
 	private usersDAO() {
 		
@@ -83,10 +80,11 @@ public class usersDAO {
 	} // end joinUsers;
 	
 	public int usersLogin(usersVO user) {
-		
+		System.out.println("넘겨받아서 처리할 객체 : " + user);
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		int resultCode = 0;
 		
 		try {
 			
@@ -103,20 +101,22 @@ public class usersDAO {
 				
 				String dbId = rs.getString("uid");
 				String dbPw = rs.getString("upw");
-				String dbName = rs.getString("uname");
+				
+				System.out.println("디비쪽 아이디 :" + dbId);
+				System.out.println("디비쪽 비번 :" + dbPw);
 				
 				if(user.getUid().equals(dbId) &&
 						user.getUpw().equals(dbPw)) {
-					return LOGIN_SUCCESS;
+					resultCode = LOGIN_SUCCESS;
 				} else {
-					return LOGIN_FAIL;
+					resultCode = LOGIN_FAIL;
 				} 
 				
 			}else {
-					return LOGIN_FAIL;
+				resultCode = LOGIN_FAIL;
 						
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -130,7 +130,7 @@ public class usersDAO {
 				e.printStackTrace();
 			}
 		}
-		return LOGIN_FAIL;
+		return resultCode;
 	} // end usersLogin
 
 	public int usersDelete(usersVO user, String dpw) {
