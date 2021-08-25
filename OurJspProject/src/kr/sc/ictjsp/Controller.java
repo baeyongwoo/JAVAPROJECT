@@ -164,7 +164,7 @@ public class Controller extends HttpServlet {
 			qs.execute(request, response);
 			cs = new InsertCorrect();
 			cs.execute(request, response);
-			ui = "/UserView/login_success.jsp";
+			ui = "/Test/question_list.jsp";
 		}
 		else if(uri.equals("/OurJspProject/answer.use")) {
 			System.out.println("현재 답 입력 페이지 : " + uri);
@@ -172,8 +172,7 @@ public class Controller extends HttpServlet {
 			as = new InsertAnswerService();
 			as.execute(request, response);
 			ui = "/Example/.jsp";
-		}
-		
+		} 
 		else {
 			//나중에 오류페이지로 보내주기
 			//out.print("잘못된 페이지");
