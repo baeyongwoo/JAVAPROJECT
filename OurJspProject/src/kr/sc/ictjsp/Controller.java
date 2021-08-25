@@ -16,6 +16,7 @@ import kr.sc.ictjsp.answer.service.InsertAnswerService;
 import kr.sc.ictjsp.correct.service.CorrectService;
 import kr.sc.ictjsp.correct.service.InsertCorrect;
 import kr.sc.ictjsp.question.service.InsertQuestionService;
+import kr.sc.ictjsp.question.service.ListQuestionService;
 import kr.sc.ictjsp.question.service.QuestionService;
 import kr.sc.ictjsp.users.service.BUserService;
 import kr.sc.ictjsp.users.service.UserDeleteService;
@@ -164,16 +165,17 @@ public class Controller extends HttpServlet {
 			qs.execute(request, response);
 			cs = new InsertCorrect();
 			cs.execute(request, response);
-			ui = "/UserView/login_success.jsp";
+
+			ui = "/TEST/question_list.jsp";
 		}
-		else if(uri.equals("/OurJspProject/answer.use")) {
-			System.out.println("현재 답 입력 페이지 : " + uri);
-			System.out.println("문제 풀이 페이지");
-			as = new InsertAnswerService();
-			as.execute(request, response);
-			ui = "/Example/.jsp";
-		}
-		
+		else if(uri.equals("/OurJspProject/q_list.use")) {
+			System.out.println("현재사용자 페이지 : " + uri);
+			System.out.println("현재 등록된 문제 페이지");
+			qs = new ListQuestionService();
+			qs.execute(request, response);
+			
+			ui = "/TEST/question_list.jsp";
+		} 
 		else {
 			//나중에 오류페이지로 보내주기
 			//out.print("잘못된 페이지");

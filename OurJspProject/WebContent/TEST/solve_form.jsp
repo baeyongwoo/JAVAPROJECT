@@ -12,8 +12,8 @@
 <jsp:useBean id="now" class="java.util.Date" />
 
 	<form action = "/OurJspProject/answer.use" method="post">
-	<p>문제가 띄워질 자리
-	<input type="text" name="subject" value="1000"></p> <!-- JSTL로 랜덤출력 처리하기 -->
+	<p><div>문제내용 : ${q_code }</div>
+	<input type="text" name="subject" value="1000"></p>
 	<div>정답을 입력해주세요</div><input type ="text" name="answer">
 	<input type="hidden" name="name" value="${name}">
 	<input type="submit" value="정답 제출!">

@@ -86,7 +86,7 @@ div>h3{color: blue;
 			<h2>${uname} 환영합니다</h2>
 			
 			
-			<form action ="http://localhost:8181/OurJspProject/TEST/solve_form.jsp" method="post">
+			<form action ="/OurJspProject/q_list.use" method="post">
 			<button class="btn btn-primary" name="subject" value="1">HTML 문제 풀러가기</button><br/><br/><br/>
 			<button class="btn btn-primary" name="subject" value="2">CSS 문제 풀러가기</button><br/><br/><br/>
 			<button class="btn btn-primary" name="subject" value="3">JAVA 문제 풀러가기</button><br/><br/><br/>

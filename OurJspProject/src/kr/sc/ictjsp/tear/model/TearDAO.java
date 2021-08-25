@@ -1,10 +1,11 @@
 package kr.sc.ictjsp.tear.model;
 
-import java.sql.*;
-
 import javax.naming.*;
 import javax.sql.*;
 
+import kr.sc.ictjsp.answer.model.AnswerDAO;
+
+import java.sql.*;
 public class TearDAO {
 	
 	private DataSource ds;
@@ -25,9 +26,18 @@ public class TearDAO {
 		return dao;
 	}
 	
-	public int AdvanTear(TearVO tear) {
+	public int AdvanTear(TearVO tear, AnswerDAO answer) {
 		
-		Connection con 
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			con = ds.getConnection();
+			if()
+			
+			
+		}
 	}
 
 }
