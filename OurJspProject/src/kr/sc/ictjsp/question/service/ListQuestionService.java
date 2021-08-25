@@ -16,11 +16,15 @@ public class ListQuestionService implements QuestionService{
 
 		HttpSession session = request.getSession();
 		List<QuestionVO> QList = new ArrayList<>();
+		Object TList = new ArrayList<>();
 		try {
 			
 			QuestionDAO dao = QuestionDAO.getInstance();
 			QList = dao.QuestionGetInfo();
-			session.setAttribute("q_l", QList);
+			//session.setAttribute("q_l", QList);
+			//TList = session.getAttribute("q_l");
+			request.setAttribute("q_l", QList);
+			System.out.println(TList);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

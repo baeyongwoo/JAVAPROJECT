@@ -28,11 +28,14 @@ td {
 
 	<div align="center">
 		<h1>HTML 문제 풀기</h1>
+				<c:forEach items="${q_l}" var="qlist">
+				${qlist }
+				</c:forEach>
 		<table>
 			<tr>
 				<th width="50px">문제번호</th>
 				<th width="50px">
-					<form action="/OurJspProject/update.use" method="post">
+					<form action="/OurJspProject/q_list.use" method="post">
 						<select name="select">
 							<option value="all">html</option>
 							<option value="notice">css</option>
@@ -46,12 +49,10 @@ td {
 			</tr>
 
 			<tr>
-				<c:forEach items="{q_l}" var="qlist">
-					system.out.print("세션 넘어온 값: "+${qlist}+); <!-- 디버깅후 삭제 -->
 				<td><a href="http://localhost:8181/OurJspProject/TEST/solve_form.jsp">${qlist.q_code }</a></td>
 				<td>타입</td>
 				<td>${qlist.question}</td>
-				</c:forEach>
+				
 			</tr>
 		</table>
 		<a href="http://localhost:8181/OurJspProject/StudyView/write_form.jsp"><button>글쓰기</button></a>
