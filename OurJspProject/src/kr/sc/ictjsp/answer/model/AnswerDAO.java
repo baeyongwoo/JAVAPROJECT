@@ -3,7 +3,6 @@ package kr.sc.ictjsp.answer.model;
 import javax.naming.*;
 import javax.sql.*;
 
-import kr.sc.ictjsp.correct.model.CorrectDAO;
 import kr.sc.ictjsp.correct.model.CorrectVO;
 import kr.sc.ictjsp.question.model.QuestionVO;
 import kr.sc.ictjsp.users.model.usersVO;
@@ -81,6 +80,7 @@ public class AnswerDAO {
 		int ucsscount = users.getCsscount();
 		int ujavacount = users.getJavacount();
 		int ujspcount = users.getJspcount();
+		int totalcount = uhtmlcount + ucsscount + ujavacount + ujspcount;
 		
 		try {
 			con = ds.getConnection();
@@ -90,6 +90,7 @@ public class AnswerDAO {
 					if(answer.getQcode() == correct.getCcode()) { // 사용자가 푼 문제 코드와 문젱에 대한 정답코드 비교
 						if(answer.getAnswer() == correct.getCorrect()) { // 사용자가 푼 문제의 정답과 주어진 문제의 정답 비교
 							uhtmlcount++;
+							totalcount++;
 							break;
 						}
 					}
@@ -99,6 +100,7 @@ public class AnswerDAO {
 					if(answer.getQcode() == correct.getCcode()) {
 						if(answer.getAnswer() == correct.getCorrect()) {
 							ucsscount++;
+							totalcount++;
 							break;
 						}	
 					}
@@ -108,6 +110,7 @@ public class AnswerDAO {
 					if(answer.getQcode() == correct.getCcode()) {
 						if(answer.getAnswer() == correct.getCorrect()) {
 							ujavacount++;
+							totalcount++;
 							break;
 						}
 					}
@@ -117,12 +120,12 @@ public class AnswerDAO {
 					if(answer.getQcode() == correct.getCcode()) {
 						if(answer.getAnswer() == correct.getCorrect()) {
 							ujspcount++;
+							totalcount++;
 							break;
 						}
 					}
 				}
 			}
-			return COMPARE_A_SUCCESS;
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -135,6 +138,7 @@ public class AnswerDAO {
 				e.printStackTrace();
 			}
 		}
-		return COMPARE_A_FAIL;
+		return totalcount;
+		
 	} // end SolveAnswer
 }

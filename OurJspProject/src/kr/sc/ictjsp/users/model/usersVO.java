@@ -16,8 +16,10 @@ public class usersVO {
 	
 	
 
-	public usersVO(String uid, String upw, String uname, String uemail, String subject,
-				int htmlcount, int csscount, int javacount, int jspcount) {
+	public usersVO(String uid, String upw, String uname, 
+			String uemail, String subject,int htmlcount, 
+			int csscount, int javacount, int jspcount) {
+		
 		super();
 		this.uid = uid;
 		this.upw = upw;
@@ -117,8 +119,6 @@ public class usersVO {
 	public void setJspcount(int jspcount) {
 		this.jspcount = jspcount;
 	}
-
-
 
 	@Override
 	public String toString() {
