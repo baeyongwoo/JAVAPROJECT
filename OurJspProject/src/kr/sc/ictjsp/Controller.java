@@ -185,6 +185,9 @@ public class Controller extends HttpServlet {
 			
 			ui = "/TEST/solve_form.jsp";
 		} 
+		else if(uri.equals("/OurJspProject/solve.use?qcode=")){
+			
+		}
 		else {
 			//나중에 오류페이지로 보내주기
 			//out.print("잘못된 페이지");
