@@ -80,7 +80,6 @@ public class usersDAO {
 	} // end joinUsers;
 	
 	public int usersLogin(usersVO user) {
-		System.out.println("넘겨받아서 처리할 객체 : " + user);
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -101,10 +100,7 @@ public class usersDAO {
 				
 				String dbId = rs.getString("uid");
 				String dbPw = rs.getString("upw");
-				
-				System.out.println("디비쪽 아이디 :" + dbId);
-				System.out.println("디비쪽 비번 :" + dbPw);
-				
+								
 				if(user.getUid().equals(dbId) &&
 						user.getUpw().equals(dbPw)) {
 					resultCode = LOGIN_SUCCESS;

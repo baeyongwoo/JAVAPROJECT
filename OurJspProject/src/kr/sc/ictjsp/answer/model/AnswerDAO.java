@@ -3,7 +3,6 @@ package kr.sc.ictjsp.answer.model;
 import javax.naming.*;
 import javax.sql.*;
 
-import kr.sc.ictjsp.correct.model.CorrectDAO;
 import kr.sc.ictjsp.correct.model.CorrectVO;
 import kr.sc.ictjsp.question.model.QuestionVO;
 import kr.sc.ictjsp.users.model.usersVO;
