@@ -20,17 +20,17 @@ public class InsertAnswerService implements AnswerService{
 		
 		String Ssubject = (String)request.getParameter("subject");
 		String answer = (String)request.getParameter("answer");
-		//String sovle = (String)request.getParameter("time");
+		String sovle = (String)request.getParameter("time");
 		//String name = (String)request.getParameter(name);
 		
 		int subject = Integer.parseInt(Ssubject);
-		//Timestamp sovletime = Timestamp.valueOf(sovle);
+		Timestamp sovletime = Timestamp.valueOf(sovle);
 		
 		AnswerDAO dao = AnswerDAO.getInstance();
 		AnswerVO u_answer = new AnswerVO();
 		u_answer.setQcode(subject);
 		u_answer.setAnswer(answer);
-		//u_answer.setSolvedate(sovletime);
+		u_answer.setSolvedate(sovletime);
 		
 		int result = dao.InsertAnswer(u_answer);
 		

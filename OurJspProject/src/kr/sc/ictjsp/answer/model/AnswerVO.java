@@ -4,9 +4,9 @@ import java.sql.Timestamp;
 
 public class AnswerVO {
 
-	private int auto_acode;
-	private int qcode;
-	private String answer;
+	private int auto_acode;	//db에 저장할 때 입력할때마다 생성
+	private int qcode;		//문제 코드
+	private String answer;	//답
 	private Timestamp solvedate;
 	
 	

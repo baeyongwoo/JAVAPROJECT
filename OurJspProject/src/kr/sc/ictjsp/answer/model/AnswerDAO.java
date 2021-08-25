@@ -34,9 +34,11 @@ public class AnswerDAO {
 	public static AnswerDAO getInstance() {
 		return dao;
 	}
-	
+	//정답 입력 메서드
+	//문제 풀이할 때
+	//
 	public int InsertAnswer(AnswerVO answer) {
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -44,10 +46,11 @@ public class AnswerDAO {
 			
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO answer VALUES (NULL, ?)";
+			String sql = "INSERT INTO answer VALUES (NULL, ?, ?, now())";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, answer.getAnswer());
+			pstmt.setInt(1, answer.getQcode());
+			pstmt.setString(2, answer.getAnswer());
 			
 			pstmt.executeUpdate();
 			
@@ -69,9 +72,10 @@ public class AnswerDAO {
 		return INSERT_A_FAIL;
 	} // end InsertAnswer
 	
+	//정답 확인 메서드
 	public int AnswerComp(AnswerVO answer, CorrectVO correct, 
 				QuestionVO question, usersVO users, int code) {
-		
+
 		Connection con = null;
 		int uhtmlcount = users.getHtmlcount();
 		int ucsscount = users.getCsscount();
@@ -79,7 +83,6 @@ public class AnswerDAO {
 		int ujspcount = users.getJspcount();
 		
 		try {
-			
 			con = ds.getConnection();
 			switch (code) {
 			case 1:
