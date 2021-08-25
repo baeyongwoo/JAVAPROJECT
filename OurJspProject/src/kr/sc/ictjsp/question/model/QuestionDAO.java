@@ -173,7 +173,6 @@ public class QuestionDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		QuestionVO questionData = new QuestionVO();
 	
 		String sql = "SELECT * FROM question ORDER BY qcode DESC";
 
@@ -183,6 +182,7 @@ public class QuestionDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				QuestionVO questionData = new QuestionVO();
 				questionData.setqcode(rs.getInt("qcode"));
 				questionData.setquestion(rs.getString("question"));
 				

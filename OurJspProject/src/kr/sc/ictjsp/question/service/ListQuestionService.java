@@ -23,7 +23,7 @@ public class ListQuestionService implements QuestionService{
 			//session.setAttribute("q_l", QList);
 			//TList = session.getAttribute("q_l");
 			request.setAttribute("q_l", QList);
-			
+			System.out.println(QList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -12,7 +12,10 @@
 <jsp:useBean id="now" class="java.util.Date" />
 
 	<form action = "/OurJspProject/answer.use" method="post">
-	<p><div>문제내용 : ${q_code }</div>
+	<c:forEach items="${q_l}" var="qlist"> 
+	<p><div>문제코드 : ${qlist.qcode }</div>
+	<p><div>문제내용 : ${qlist.question }</div>
+	</c:forEach>
 	<input type="text" name="subject" value="1000"></p>
 	<div>정답을 입력해주세요</div><input type ="text" name="answer">
 	<input type="hidden" name="name" value="${name}">
