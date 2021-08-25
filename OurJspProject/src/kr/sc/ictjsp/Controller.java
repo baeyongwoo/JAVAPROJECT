@@ -18,6 +18,7 @@ import kr.sc.ictjsp.correct.service.InsertCorrect;
 import kr.sc.ictjsp.question.service.InsertQuestionService;
 import kr.sc.ictjsp.question.service.ListQuestionService;
 import kr.sc.ictjsp.question.service.QuestionService;
+import kr.sc.ictjsp.question.service.SelectQuestionService;
 import kr.sc.ictjsp.users.service.BUserService;
 import kr.sc.ictjsp.users.service.UserDeleteService;
 import kr.sc.ictjsp.users.service.UserGetinfoService;
@@ -186,7 +187,11 @@ public class Controller extends HttpServlet {
 			ui = "/TEST/solve_form.jsp";
 		} 
 		else if(uri.equals("/OurJspProject/solve.use?qcode=")){
-			
+			System.out.println("현재사용자 페이지 : " + uri);
+			System.out.println("문제 선택후 나올 페이지");
+			qs = new SelectQuestionService();
+			qs.execute(request, response);
+			//ui = "정답입니다 페이지로 가는것";
 		}
 		else {
 			//나중에 오류페이지로 보내주기
