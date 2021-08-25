@@ -15,8 +15,6 @@ public class QuestionDAO {
 	private static final int UPDATE_Q_FAIL = 0;
 	private static final int DELETE_Q_SUCCESS = 1;
 	private static final int DELETE_Q_FAIL = 0;
-	private static final int Get_Q_SUCCESS = 1;
-	private static final int Get_Q_FAIL = 0;
 	
 	private int htmlcode = 1000;
 	private int csscode = 2000;
@@ -210,26 +208,27 @@ public class QuestionDAO {
 		return QList;
 	} // end QuestionGetInfo
 	
-	public String Getquestion(QuestionVO question) {
+	public QuestionVO Getquestion(int qcode, String question) {
 		
+		QuestionVO gquestion = new QuestionVO();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String gquestion = null;
 		
 		
 		try {
 			
 			con = ds.getConnection();
-			
 			String sql = "SELECT * FROM question WHERE qcode = ?";
-			
+
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, question.getqcode());			
+			pstmt.setInt(1, qcode);
+					
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				gquestion = (rs.getString("gquestion"));
+				gquestion.setqcode(rs.getInt("qcode"));
+				gquestion.setquestion(rs.getString("question"));
 			}
 			
 		} catch (SQLException e) {
