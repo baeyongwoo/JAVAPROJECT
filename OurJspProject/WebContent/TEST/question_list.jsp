@@ -28,12 +28,10 @@ td {
 
 	<div align="center">
 		<h1>HTML 문제 풀기</h1>
-				<c:forEach items="${q_l}" var="qlist">
-				${qlist }
-				</c:forEach>
+			
 		<table>
 			<tr>
-				<th width="50px">문제번호</th>
+				<th width="80px">문제번호</th>
 				<th width="50px">
 					<form action="/OurJspProject/q_list.use" method="post">
 						<select name="select">
@@ -44,18 +42,16 @@ td {
 						</select>
 					</form>
 				</th>
-				<th width="600px">글 제목</th>
-				<th width="100px">작성자</th>
+				<th width="600px">문제 미리보기</th>
 			</tr>
-
-			<tr>
-				<td><a href="http://localhost:8181/OurJspProject/TEST/solve_form.jsp">${qlist.q_code }</a></td>
+		<c:forEach items="${q_l}" var="qlist">
+			<tr>	
+				<td><a href="http://localhost:8181/OurJspProject/TEST/solve_form.jsp">${qlist.qcode }</a></td>
 				<td>타입</td>
 				<td>${qlist.question}</td>
-				
 			</tr>
+				</c:forEach>
 		</table>
-		<a href="http://localhost:8181/OurJspProject/StudyView/write_form.jsp"><button>글쓰기</button></a>
 	</div>
 </body>
 </html>
