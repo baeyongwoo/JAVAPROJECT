@@ -1,4 +1,4 @@
-package kr.sc.ictjsp.tear.model;
+package kr.sc.ictjsp.tier.model;
 
 public class TearVO {
 	

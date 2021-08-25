@@ -112,7 +112,7 @@ public class usersDAO {
 				resultCode = LOGIN_FAIL;
 						
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -149,7 +149,7 @@ public class usersDAO {
 			} else {
 				return DELETE_FAIL;
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {

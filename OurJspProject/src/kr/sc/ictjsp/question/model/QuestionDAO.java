@@ -15,6 +15,8 @@ public class QuestionDAO {
 	private static final int UPDATE_Q_FAIL = 0;
 	private static final int DELETE_Q_SUCCESS = 1;
 	private static final int DELETE_Q_FAIL = 0;
+	private static final int Get_Q_SUCCESS = 1;
+	private static final int Get_Q_FAIL = 0;
 	
 	private int htmlcode = 1000;
 	private int csscode = 2000;
@@ -207,5 +209,42 @@ public class QuestionDAO {
 		}
 		return QList;
 	} // end QuestionGetInfo
-
+	
+	public String Getquestion(QuestionVO question) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String gquestion = null;
+		
+		try {
+			
+			con = ds.getConnection();
+			
+			String sql = "SELECT * FROM question WHERE qcode = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, question.getqcode());			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				gquestion = (rs.getString("gquestion"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return gquestion;
+	} // end Getquestion
 }
