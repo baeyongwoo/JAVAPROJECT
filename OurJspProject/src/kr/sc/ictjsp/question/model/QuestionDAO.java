@@ -208,9 +208,12 @@ public class QuestionDAO {
 		return QList;
 	} // end QuestionGetInfo
 	
-	public QuestionVO Getquestion(int qcode, String question) {
+	
+	
+	
+	public QuestionVO Getquestion(int qcode) {
 		
-		QuestionVO gquestion = new QuestionVO();
+		QuestionVO dbquestion = new QuestionVO();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -227,8 +230,9 @@ public class QuestionDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				gquestion.setqcode(rs.getInt("qcode"));
-				gquestion.setquestion(rs.getString("question"));
+				dbquestion.setqcode(qcode);
+				dbquestion = Getquestion(qcode);
+				System.out.println(dbquestion + "여기는 DAO");
 			}
 			
 		} catch (SQLException e) {
@@ -245,6 +249,7 @@ public class QuestionDAO {
 				e.printStackTrace();
 			}
 		}
-		return gquestion;
+		return dbquestion;
+		
 	} // end Getquestion
 }

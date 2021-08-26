@@ -181,17 +181,11 @@ public class Controller extends HttpServlet {
 		else if(uri.equals("/OurJspProject/solve.use")) {
 			System.out.println("현재사용자 페이지 : " + uri);
 			System.out.println("현재 등록된 문제 페이지");
-			qs = new ListQuestionService();
-			qs.execute(request, response);
-			
-			ui = "/TEST/solve_form.jsp";
-		} 
-		else if(uri.equals("/OurJspProject/solve.use?qcode=")){
-			System.out.println("현재사용자 페이지 : " + uri);
-			System.out.println("문제 선택후 나올 페이지");
 			qs = new SelectQuestionService();
 			qs.execute(request, response);
-			//ui = "정답입니다 페이지로 가는것";
+			
+			ui = "/TEST/solve_form.jsp"; // 여기서 무한루프 걸려서 못넘어가는중
+
 		}
 		else {
 			//나중에 오류페이지로 보내주기
