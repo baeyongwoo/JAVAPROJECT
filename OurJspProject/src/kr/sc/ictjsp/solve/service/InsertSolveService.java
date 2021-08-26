@@ -19,9 +19,9 @@ public class InsertSolveService implements SolveService{
 		session = request.getSession();
 		
 		String code = (String)request.getParameter("qcode");
+		String requestion = (String)request.getParameter("question");
 		String answer = (String)request.getParameter("answer");
 		
-	
 		QuestionDAO dao = QuestionDAO.getInstance();
 		QuestionVO question = new QuestionVO();
 		question = dao.Getquestion(code);
@@ -32,19 +32,19 @@ public class InsertSolveService implements SolveService{
 		System.out.println(code);
 		int icode = Integer.parseInt(code);
 		
-		
+		SolveDAO dao1 = SolveDAO.getInstance();
 		SolveVO solve = new SolveVO();
+		
 		
 		solve.setQcode(icode);
 		solve.setAnswer(answer);
 		
-		request.setAttribute("squestion", solve);
 		
-		int result = dao.InsertSolve(solve);
+		int result = dao1.InsertSolve(solve);
 		
 		if(result == 1) {
 			System.out.println("답안 작성 완료");
-			//session.setAttribute("q_code", solve);
+			session.setAttribute("check", solve);
 			
 		} else if(result ==0) {
 			System.out.println("답안 작성 실패");

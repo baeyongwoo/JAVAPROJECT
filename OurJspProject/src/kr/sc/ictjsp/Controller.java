@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.sc.ictjsp.answer.service.AnswerService;
-import kr.sc.ictjsp.answer.service.InsertAnswerService;
 import kr.sc.ictjsp.correct.service.CorrectService;
 import kr.sc.ictjsp.correct.service.InsertCorrect;
 import kr.sc.ictjsp.question.service.InsertQuestionService;
@@ -206,9 +204,8 @@ public class Controller extends HttpServlet {
 			
 			ss.execute(request, response);
 			
+			
 		} 
-		
-		
 		else {
 			System.out.println("잘못된 페이지");
 		}

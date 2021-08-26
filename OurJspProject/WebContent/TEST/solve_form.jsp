@@ -16,7 +16,7 @@
 	<div>문제내용 : ${question.question }</div>
 	 -->
 	<!-- 예를 들면 3번 문제에 이미지가 필요하면 첨부하는 로직 -->
-	<input type="text" name="question" value="${question.qcode}" readonly="readonly">
+	<input type="text" name="qcode" value="${question.qcode}" readonly="readonly">
 	<input type="text" name="question" value="${question.question}" readonly="readonly">
 	
 	<div>정답을 입력해주세요</div>

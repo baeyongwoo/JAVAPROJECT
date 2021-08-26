@@ -3,6 +3,9 @@ package kr.sc.ictjsp.solve.model;
 import javax.naming.*;
 import javax.sql.*;
 
+import kr.sc.ictjsp.correct.model.CorrectVO;
+import kr.sc.ictjsp.question.model.QuestionVO;
+import kr.sc.ictjsp.users.model.usersVO;
 
 import java.sql.*;
 
@@ -69,8 +72,8 @@ public class SolveDAO {
 	} // end InsertAnswer
 	
 	//정답 확인 메서드
-	/*
-	public int AnswerComp(SolveVO Solve, CorrectVO correct, 
+	
+	public int check(SolveVO Solve, CorrectVO correct, 
 				QuestionVO question, usersVO users, int code) {
 
 		Connection con = null;
@@ -84,9 +87,9 @@ public class SolveDAO {
 			con = ds.getConnection();
 			switch (code) {
 			case 1:
-				if(answer.getQcode()  == question.getqcode()) { // 사용자가 푼 문제 코드와 주어진 문제의 코드 비교
-					if(answer.getQcode() == correct.getCcode()) { // 사용자가 푼 문제 코드와 문젱에 대한 정답코드 비교
-						if(answer.getAnswer() == correct.getCorrect()) { // 사용자가 푼 문제의 정답과 주어진 문제의 정답 비교
+				if(Solve.getQcode()  == question.getqcode()) { // 사용자가 푼 문제 코드와 주어진 문제의 코드 비교
+					if(Solve.getQcode() == correct.getCcode()) { // 사용자가 푼 문제 코드와 문젱에 대한 정답코드 비교
+						if(Solve.getAnswer() == correct.getCorrect()) { // 사용자가 푼 문제의 정답과 주어진 문제의 정답 비교
 							uhtmlcount++;
 							totalcount++;
 							break;
@@ -94,9 +97,9 @@ public class SolveDAO {
 					}
 				}
 			case 2: 
-				if(answer.getQcode()  == question.getqcode()) {
-					if(answer.getQcode() == correct.getCcode()) {
-						if(answer.getAnswer() == correct.getCorrect()) {
+				if(Solve.getQcode()  == question.getqcode()) {
+					if(Solve.getQcode() == correct.getCcode()) {
+						if(Solve.getAnswer() == correct.getCorrect()) {
 							ucsscount++;
 							totalcount++;
 							break;
@@ -104,9 +107,9 @@ public class SolveDAO {
 					}
 				}
 			case 3:
-				if(answer.getQcode()  == question.getqcode()) {
-					if(answer.getQcode() == correct.getCcode()) {
-						if(answer.getAnswer() == correct.getCorrect()) {
+				if(Solve.getQcode()  == question.getqcode()) {
+					if(Solve.getQcode() == correct.getCcode()) {
+						if(Solve.getAnswer() == correct.getCorrect()) {
 							ujavacount++;
 							totalcount++;
 							break;
@@ -114,9 +117,9 @@ public class SolveDAO {
 					}
 				}
 			case 4:
-				if(answer.getQcode()  == question.getqcode()) {
-					if(answer.getQcode() == correct.getCcode()) {
-						if(answer.getAnswer() == correct.getCorrect()) {
+				if(Solve.getQcode()  == question.getqcode()) {
+					if(Solve.getQcode() == correct.getCcode()) {
+						if(Solve.getAnswer() == correct.getCorrect()) {
 							ujspcount++;
 							totalcount++;
 							break;
@@ -139,5 +142,5 @@ public class SolveDAO {
 		return totalcount;
 		
 	} // end SolveAnswer
-	*/
+	
 }
