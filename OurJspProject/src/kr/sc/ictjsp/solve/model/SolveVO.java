@@ -1,22 +1,16 @@
-package kr.sc.ictjsp.answer.model;
+package kr.sc.ictjsp.solve.model;
 
 import java.sql.Timestamp;
 
-public class AnswerVO {
-
+public class SolveVO {
 	private int auto_acode;	//db에 저장할 때 입력할때마다 생성
 	private int qcode;		//문제 코드
 	private String answer;	//답
 	private Timestamp solvedate;
 	
+	public SolveVO() {};
 	
-	
-	public AnswerVO() {
-		
-	}
-	
-	public AnswerVO(int auto_acode, int qcode,  
-			String answer, Timestamp solvedate) {
+	public SolveVO(int auto_acode, int qcode, String answer, Timestamp solvedate) {
 		super();
 		this.auto_acode = auto_acode;
 		this.qcode = qcode;
@@ -58,7 +52,9 @@ public class AnswerVO {
 
 	@Override
 	public String toString() {
-		return "AnswerVO [auto_acode=" + auto_acode + ", qcode=" + qcode 
-				+ ", answer=" + answer + ", solvedate=" + solvedate + "]";
-	}	
+		return "SolveVO [auto_acode=" + auto_acode + ", qcode=" + qcode + ", answer=" + answer + ", solvedate="
+				+ solvedate + "]";
+	}
+	
+
 }

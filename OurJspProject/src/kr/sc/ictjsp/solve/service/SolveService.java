@@ -1,8 +1,8 @@
-package kr.sc.ictjsp.answer.service;
+package kr.sc.ictjsp.solve.service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public interface AnswerService {
+public interface SolveService {
 	void execute(HttpServletRequest request, HttpServletResponse response);
 }

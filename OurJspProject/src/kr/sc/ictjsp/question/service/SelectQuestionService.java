@@ -11,24 +11,20 @@ public class SelectQuestionService implements QuestionService{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			
-			String q = (request.getParameter("qcode"));
-			int inputqcode = Integer.parseInt(q);
-			
+			String qcode = request.getParameter("qcode");
+			//intcode 약자
 			QuestionDAO dao = QuestionDAO.getInstance();
-			QuestionVO qcodeVO = new QuestionVO();
-			qcodeVO = dao.Getquestion(inputqcode);
+			QuestionVO question = new QuestionVO();
+			question = dao.Getquestion(qcode);
 			
 			
-			request.setAttribute("qcodeVO", qcodeVO);
-			System.out.println(qcodeVO.getqcode() + "두줄은 서비스");
-			System.out.println(qcodeVO.getquestion());
+			request.setAttribute("question", question);
 			
+			System.out.println(question);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 		
 	}
 

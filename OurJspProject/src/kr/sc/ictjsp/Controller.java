@@ -17,8 +17,11 @@ import kr.sc.ictjsp.correct.service.CorrectService;
 import kr.sc.ictjsp.correct.service.InsertCorrect;
 import kr.sc.ictjsp.question.service.InsertQuestionService;
 import kr.sc.ictjsp.question.service.ListQuestionService;
+import kr.sc.ictjsp.question.service.QuestionDetailService;
 import kr.sc.ictjsp.question.service.QuestionService;
 import kr.sc.ictjsp.question.service.SelectQuestionService;
+import kr.sc.ictjsp.solve.service.InsertSolveService;
+import kr.sc.ictjsp.solve.service.SolveService;
 import kr.sc.ictjsp.users.service.BUserService;
 import kr.sc.ictjsp.users.service.UserDeleteService;
 import kr.sc.ictjsp.users.service.UserGetinfoService;
@@ -79,7 +82,7 @@ public class Controller extends HttpServlet {
 		BUserService busv = null;
 		QuestionService qs = null;
 		CorrectService cs = null;
-		AnswerService as = null;
+		SolveService ss = null;
 		
 		
 		//ui 지정하기
@@ -174,22 +177,40 @@ public class Controller extends HttpServlet {
 			System.out.println("현재 등록된 문제 페이지");
 			qs = new ListQuestionService();
 			qs.execute(request, response);
-			
 			ui = "/TEST/question_list.jsp";
-		} 
-
-		else if(uri.equals("/OurJspProject/solve.use")) {
-			System.out.println("현재사용자 페이지 : " + uri);
-			System.out.println("현재 등록된 문제 페이지");
-			qs = new SelectQuestionService();
-			qs.execute(request, response);
 			
-			ui = "/TEST/solve_form.jsp"; // 여기서 무한루프 걸려서 못넘어가는중
-
-		}
+		} else if(uri.equals("/OurJspProject/question_detail.use")) {
+			System.out.println("현재 사용자 페이지 : " + uri);
+			System.out.println("현재 문제 상세보기 페이지");
+			ui = "/TEST/question_detail.jsp";
+			
+			qs = new QuestionDetailService();
+			qs.execute(request, response);
+		} else if(uri.equals("/OurJspProject/submit.use")) {
+			System.out.println("현재 사용자 페이지 : " + uri);
+			System.out.println("사용자 답안 제출 페이지");
+			ss = new InsertSolveService();
+			
+			String qcode = request.getParameter("qcode");
+			ui = "/OurJspProject/TEST/solve_form.jsp";
+			
+			ss.execute(request, response);
+			
+		} else if(uri.equals("/OurJspProject/solve_form.use")) {
+			System.out.println("현재 사용자 페이지 : " + uri);
+			System.out.println("사용자 답안 제출 페이지");
+			ss = new InsertSolveService();
+			
+			String qcode = request.getParameter("qcode");
+			ui = "/TEST/solve_form.jsp";
+			
+			ss.execute(request, response);
+			
+		} 
+		
+		
 		else {
-			//나중에 오류페이지로 보내주기
-			//out.print("잘못된 페이지");
+			System.out.println("잘못된 페이지");
 		}
 		
 		RequestDispatcher dp  = request.getRequestDispatcher(ui);

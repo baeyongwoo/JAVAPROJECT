@@ -46,7 +46,7 @@ td {
 			</tr>
 		<c:forEach items="${q_l}" var="qlist">
 			<tr>	
-				<td><a href="/OurJspProject/solve.use?qcode=${qlist.qcode }" >${qlist.qcode }</a></td>
+				<td><a href="/OurJspProject/question_detail.use?qcode=${question.qcode}" >${qlist.qcode }</a></td>
 				<td>타입</td>
 				<td>${qlist.question}</td>
 			</tr>

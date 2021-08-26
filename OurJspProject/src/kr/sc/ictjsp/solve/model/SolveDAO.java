@@ -1,15 +1,12 @@
-package kr.sc.ictjsp.answer.model;
+package kr.sc.ictjsp.solve.model;
 
 import javax.naming.*;
 import javax.sql.*;
 
-import kr.sc.ictjsp.correct.model.CorrectVO;
-import kr.sc.ictjsp.question.model.QuestionVO;
-import kr.sc.ictjsp.users.model.usersVO;
 
 import java.sql.*;
 
-public class AnswerDAO {
+public class SolveDAO {
 
 	private DataSource ds;
 	
@@ -18,7 +15,7 @@ public class AnswerDAO {
 	private final int COMPARE_A_SUCCESS = 1;
 	private final int COMPARE_A_FAIL = 0;
 	
-	private AnswerDAO() {
+	private SolveDAO() {
 		
 		try {
 			Context ct = new InitialContext();
@@ -28,15 +25,15 @@ public class AnswerDAO {
 		}
 	}
 	
-	public static AnswerDAO dao = new AnswerDAO();
+	public static SolveDAO dao = new SolveDAO();
 	
-	public static AnswerDAO getInstance() {
+	public static SolveDAO getInstance() {
 		return dao;
 	}
 	//정답 입력 메서드
 	//문제 풀이할 때
 	//
-	public int InsertAnswer(AnswerVO answer) {
+	public int InsertSolve(SolveVO solve) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -45,11 +42,11 @@ public class AnswerDAO {
 			
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO answer VALUES (NULL, ?, ?, now())";
+			String sql = "INSERT INTO solve VALUES (NULL, ?, ?, now())";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, answer.getQcode());
-			pstmt.setString(2, answer.getAnswer());
+			pstmt.setInt(1, solve.getQcode());
+			pstmt.setString(2, solve.getAnswer());
 			
 			pstmt.executeUpdate();
 			
@@ -72,7 +69,8 @@ public class AnswerDAO {
 	} // end InsertAnswer
 	
 	//정답 확인 메서드
-	public int AnswerComp(AnswerVO answer, CorrectVO correct, 
+	/*
+	public int AnswerComp(SolveVO Solve, CorrectVO correct, 
 				QuestionVO question, usersVO users, int code) {
 
 		Connection con = null;
@@ -141,4 +139,5 @@ public class AnswerDAO {
 		return totalcount;
 		
 	} // end SolveAnswer
+	*/
 }

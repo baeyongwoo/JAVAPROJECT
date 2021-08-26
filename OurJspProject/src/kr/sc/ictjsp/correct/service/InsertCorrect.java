@@ -3,7 +3,6 @@ package kr.sc.ictjsp.correct.service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.sc.ictjsp.answer.model.AnswerDAO;
 import kr.sc.ictjsp.correct.model.CorrectDAO;
 import kr.sc.ictjsp.correct.model.CorrectVO;
 
