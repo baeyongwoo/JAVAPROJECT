@@ -7,132 +7,96 @@ public class usersVO {
 	private String uname;
 	private String uemail;
 	private String subject;
-	private int qcode;
-	private int point;
-	private int tier;
+	private int uqcode;
+	private int upoint;
+	private int utier;
 	
 	public usersVO() {}
-	
-	
 
-	public usersVO(String uid, String upw, String uname, 
-					String uemail, String subject, int qcode ,
-					int point, int tier) {
-		
+	public usersVO(String uid, String upw, String uname, String uemail, String subject, int uqcode, int upoint,
+			int utier) {
 		super();
 		this.uid = uid;
 		this.upw = upw;
 		this.uname = uname;
 		this.uemail = uemail;
 		this.subject = subject;
-		this.qcode = qcode;
-		this.point = point;
-		this.tier = tier;
-		
-		
+		this.uqcode = uqcode;
+		this.upoint = upoint;
+		this.utier = utier;
 	}
 
 	public String getUid() {
 		return uid;
 	}
 
-
-
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-
-
 
 	public String getUpw() {
 		return upw;
 	}
 
-
-
 	public void setUpw(String upw) {
 		this.upw = upw;
 	}
-
-
 
 	public String getUname() {
 		return uname;
 	}
 
-
-
 	public void setUname(String uname) {
 		this.uname = uname;
 	}
-
-
 
 	public String getUemail() {
 		return uemail;
 	}
 
-
-
 	public void setUemail(String uemail) {
 		this.uemail = uemail;
 	}
-
-
 
 	public String getSubject() {
 		return subject;
 	}
 
-
-
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
 
-
-
-	public int getQcode() {
-		return qcode;
+	public int getUqcode() {
+		return uqcode;
 	}
 
-
-
-	public void setQcode(int qcode) {
-		this.qcode = qcode;
+	public void setUqcode(int uqcode) {
+		this.uqcode = uqcode;
 	}
 
-
-
-	public int getPoint() {
-		return point;
+	public int getUpoint() {
+		return upoint;
 	}
 
-
-
-	public void setPoint(int point) {
-		this.point = point;
+	public void setUpoint(int upoint) {
+		this.upoint = upoint;
 	}
 
-
-
-	public int getTier() {
-		return tier;
+	public int getUtier() {
+		return utier;
 	}
 
-
-
-	public void setTier(int tier) {
-		this.tier = tier;
+	public void setUtier(int utier) {
+		this.utier = utier;
 	}
-
-
 
 	@Override
 	public String toString() {
-		return "usersVO [uid=" + uid + ", upw=" + upw + ", uname=" + 
-				uname + ", uemail=" + uemail + ", subject="+ subject + 
-				", qcode=" + qcode + ", point=" + point + ", tier=" + tier + "]";
+		return "usersVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", uemail=" + uemail + ", subject="
+				+ subject + ", uqcode=" + uqcode + ", upoint=" + upoint + ", utier=" + utier + "]";
 	}
 	
+	
+
+		
 }

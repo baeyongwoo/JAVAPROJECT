@@ -1,10 +1,15 @@
 package kr.sc.ictjsp.users.model;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.*;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.*;
+import javax.xml.ws.Response;
+import javax.xml.ws.soap.AddressingFeature.Responses;
 
 
 public class usersDAO {
@@ -36,7 +41,7 @@ public class usersDAO {
 		return dao;
 	}
 	
-	public int joinUsers(usersVO user) {
+	public int joinUsers(usersVO user){
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -49,7 +54,7 @@ public class usersDAO {
 			
 			con = ds.getConnection();
 
-			String sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, 0)";
+			String sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, 0, 0, 0)";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user.getUid());
@@ -61,9 +66,16 @@ public class usersDAO {
 			pstmt.executeUpdate();
 						
 			result = JOIN_SUCCESS;
-		} catch (SQLException e) {
+			
+		}catch(SQLIntegrityConstraintViolationException e) {
+				System.out.println("아이디 중복 에러");
+				return result =  2;
+				
+		}catch (Exception e) {
 			System.out.println("에러 : " + e);
-		} finally {
+			
+		} 
+		finally {
 			try { 
 				if(con != null && !con.isClosed()) {
 					con.close();
@@ -85,6 +97,8 @@ public class usersDAO {
 		ResultSet rs = null;
 		int resultCode = 0;
 		
+		//System.out.println("service에서 받아온 id : " + user.getUid());
+		//System.out.println("service에서 받아온 pw : " + user.getUpw());
 		try {
 			
 			con = ds.getConnection();
@@ -101,16 +115,16 @@ public class usersDAO {
 				String dbId = rs.getString("uid");
 				String dbPw = rs.getString("upw");
 								
+				//System.out.println("db에서 아이디 : " + dbId);
+				//System.out.println("db에서 비밀번호 : " + dbPw);
 				if(user.getUid().equals(dbId) &&
 						user.getUpw().equals(dbPw)) {
-					resultCode = LOGIN_SUCCESS;
+					//System.out.println("조건 검사 : " + user.getUid());
+					//System.out.println("조건 검사 : " + user.getUpw());
+					return resultCode = LOGIN_SUCCESS;
 				} else {
-					resultCode = LOGIN_FAIL;
-				} 
-				
-			}else {
-				resultCode = LOGIN_FAIL;
-						
+					return resultCode = LOGIN_FAIL;
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -126,7 +140,7 @@ public class usersDAO {
 				e.printStackTrace();
 			}
 		}
-		return resultCode;
+		return resultCode = LOGIN_FAIL;
 	} // end usersLogin
 
 	public int usersDelete(usersVO user, String dpw) {
@@ -341,10 +355,12 @@ public class usersDAO {
 			
 			if(rs.next()) {
 				usersData.setUid(rs.getString("uid"));
+				usersData.setUpw(rs.getString("upw"));
 				usersData.setUname(rs.getString("uname"));
 				usersData.setUemail(rs.getString("uemail"));
-				usersData.setQcode(rs.getInt("uqcode"));
-				usersData.setPoint(rs.getInt("upoint"));
+				usersData.setUqcode(rs.getInt("uqcode"));
+				usersData.setUpoint(rs.getInt("upoint"));
+				usersData.setUtier(rs.getInt("utier"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

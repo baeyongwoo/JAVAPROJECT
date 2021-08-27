@@ -13,26 +13,28 @@ public class UserUpdateService implements BUserService{
 
 		HttpSession session = null;
 		session = request.getSession();
-		/*
+		
 		try {
 			request.setCharacterEncoding("utf-8");
 			response.setCharacterEncoding("utf-8");
-			String uid = (String) request.getParameter("id");
-			String upw = (String) request.getParameter("pw");
-			String uname = (String) request.getParameter("name");
-			String uemail = (String) request.getParameter("email");
-			String ubirth = (String) request.getParameter("birth");
-			String ugender = (String) request.getParameter("gender");
+			String uid = (String) request.getParameter("uid");
+			String upw = (String) request.getParameter("upw");
+			String uemail = (String)request.getParameter("uemail");
+			
+			
+			System.out.println("수정 요청 uid : " + uid + ", upw : " + upw + ", uemail : "+ uemail);
 			
 			usersDAO dao = usersDAO.getInstance();
-			usersVO user = new usersVO(uid, upw, uname, uemail, ubirth, ugender);
+			usersVO user = new usersVO();
+			user.setUid(uid);
+			user.setUpw(upw);
+			user.setUemail(uemail);
+			user.setUname(user.getUname());
+			
+			System.out.println("반영된 정보 : " + user);
 			
 			int result = dao.usersUpdate(user);
-			System.out.println(uid);
-			System.out.println(upw);
-			System.out.println(uname);
-			System.out.println(ubirth);
-			System.out.println(ugender);
+			
 			if(result == 1) {
 				System.out.println("회원정보 수정완료");
 			} else if(result == 0) {
@@ -42,7 +44,7 @@ public class UserUpdateService implements BUserService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		*/
+		
 		
 	}
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +18,9 @@
 <body>
 	<h1>회원 정보 수정</h1>
 		<form action="/OurJspProject/update.use" method="post">
-		<input type="text" name ="id" value="${u_id }" readonly="readonly" size="30"/><br/>
-		<input type="password" name ="pw" placeholder="변경할 비밀번호" size="30"/><br/>
-		<input type="email" name ="email" value="${u_email }" size="30"/><br/><br/>
-		<input type="hidden" name ="name" value="${u_name }" size="30"/>
+		<input type="text" name ="uid" value="${u_id}" readonly="readonly" size="30"/><br/>
+		<input type="password" name ="upw" placeholder="변경할 비밀번호" size="30"/><br/>
+		<input type="email" name ="uemail" value="${u_email}" placeholder="변경할 이메일" size="30"/><br/><br/>
 		<input type="submit" value="수정완료">
 		<input type="reset"><br/><br/>
 		</form>

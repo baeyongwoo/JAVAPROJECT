@@ -1,5 +1,7 @@
 package kr.sc.ictjsp.users.service;
 
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,7 +21,7 @@ public class UserLoginService implements BUserService{
 			response.setCharacterEncoding("utf-8");
 			String uid = (String)request.getParameter("id");
 			String upw = (String)request.getParameter("pw");
-			System.out.println("폼에서 날린 아이디 : " + uid + "//폼에서 날린 비번 : " + upw);
+			System.out.println("사용자 입력 아이디 : " + uid + "//사용자 입력 비번 : " + upw);
 			
 			usersDAO dao = usersDAO.getInstance();
 			usersVO user = new usersVO();
@@ -27,24 +29,34 @@ public class UserLoginService implements BUserService{
 			user.setUid(uid);
 			user.setUpw(upw);
 			
-			System.out.println("user 객체 디버깅 : " + user);
 			
 			int result = dao.usersLogin(user);
-			user = dao.usergetinfo(user);
 			
 			if(result == 1) {
+				
 				session.setAttribute("u_id", uid);
 				session.setAttribute("u_pw", upw);
 				session.setAttribute("u_name", dao.getName(uid));
+				request.setAttribute("u_name", user.getUname());
+				request.setAttribute("u_email", user.getUemail());
+				request.setAttribute("u_subject", user.getSubject());
+				request.setAttribute("u_qcode", user.getUqcode());
+				request.setAttribute("u_point", user.getUpoint());
+				request.setAttribute("u_tier", user.getUtier());
 				
-				request.setAttribute("u_qcode", user.getQcode());
-				request.setAttribute("u_point", user.getPoint());
+				user = dao.usergetinfo(user);
+				System.out.println(user.getUid() + "의 정보 : " + user);
 				
-			} else if(result == 0){
+				
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				
+				String time = formatter.format(session.getCreationTime());
+				request.setAttribute("login", time);
+				System.out.println("최초 로그인 시간 : " + time);
+			} 
+			else if(result == 0){
 				System.out.println(uid + "님 로그인 실패");
 				session.setAttribute("l_f", "fail");
-//				long time = session.getLastAccessedTime();
-//				System.out.println(time);
 			}
 			
 		}catch(Exception e) {

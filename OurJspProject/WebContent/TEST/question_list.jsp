@@ -26,6 +26,7 @@ td {
 		<a href="/OurJspProject/logout.use"><button>로그아웃</button></a>
 	</div>
 
+	<p>접속한 시간 : ${login}</p>
 	<div align="center">
 		<h1>HTML 문제 풀기</h1>
 			

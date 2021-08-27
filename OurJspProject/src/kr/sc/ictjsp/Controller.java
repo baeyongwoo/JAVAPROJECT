@@ -112,9 +112,7 @@ public class Controller extends HttpServlet {
 			busv = new UserLoginService();
 			busv.execute(request, response);
 			
-			
 			String check = (String)session.getAttribute("l_f");
-			System.out.println("현재 사용자 페이지 : " + uri);
 			if(check != null && check.equals("fail")) {
 				session.invalidate();
 				ui = "/UserView/login_form.jsp";
@@ -133,8 +131,10 @@ public class Controller extends HttpServlet {
 		}else if(uri.equals("/OurJspProject/update.use")) {
 			System.out.println("현재  사용자 페이지 : " + uri);
 			System.out.println("회원정보 수정");
+			
 			busv = new UserUpdateService();
 			busv.execute(request, response);
+			
 			ui = "/UserView/update_form.jsp";
 			
 		}else if(uri.equals("/OurJspProject/delete.use")) {

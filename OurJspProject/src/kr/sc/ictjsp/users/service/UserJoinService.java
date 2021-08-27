@@ -1,5 +1,7 @@
 package kr.sc.ictjsp.users.service;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,6 +25,7 @@ public class UserJoinService implements BUserService {
 			System.out.println(user);
 
 			int result = dao.joinUsers(user);
+		
 			System.out.println("회원가입 성공 여부 : " + result);
 		} catch (Exception e) {
 			e.printStackTrace();
