@@ -16,9 +16,14 @@ public class CheckService implements SolveService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		//정답 체크해주는 서비스
-		String qcode = (String)request.getParameter("qcode");
+		String code = (String)request.getParameter("code");
 		String solve =(String)request.getParameter("answer");
 		String suser = (String)request.getParameter("solveuser");
+		String upoint = (String)request.getParameter("userpoint");
+		
+		int qcode = Integer.parseInt(code);
+		int point = Integer.parseInt(upoint);
+		
 		System.out.println("checkservice에서 코드" + qcode);
 		System.out.println("checkservice에서 답" + solve);
 		
@@ -30,8 +35,7 @@ public class CheckService implements SolveService{
 		
 		SolveDAO sdao = SolveDAO.getInstance();
 		SolveVO solve1 = new SolveVO();
-		sdao.PointUp(qcode, solve);
-		
+		sdao.PointUp(qcode, solve, point);
 	}
 
 }

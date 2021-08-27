@@ -11,6 +11,7 @@ public class TierDAO {
 	
 	private DataSource ds;
 	
+	private final int ADVANCEMENT_SUCCESS = 1;
 	private final int ADVANCEMENT_FAIL = 0;
 	
 	private TierDAO() {
@@ -25,33 +26,47 @@ public class TierDAO {
 	
 	public static TierDAO dao = new TierDAO();
 	
+	
 	public static TierDAO getInstance() {
 		return dao;
 	}
 	
-	public int AdvanTier(TierVO tier, QuestionVO question, usersVO user) {
-		
-		Connection con = null;
-		int supoint = user.getPoint();
-		int qtcount = question.getQtcount();
+	public int AdvanTier(int qtcount, int USQcount) {
 				
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		TierVO tier = new TierVO();
+		
 		try {
 			con = ds.getConnection();
-			if(supoint <= (qtcount*0.05)) {
-				return tier.getUnranked();
-			} else if(supoint <= (qtcount*0.15)) {
-				return tier.getBronze();
-			} else if(supoint <= (qtcount*0.4)) {
-				return tier.getSilver();
-			} else if(supoint <= (qtcount*0.65)) {
-				return tier.getGold();
-			} else if(supoint <= (qtcount*0.85)) {
-				return tier.getPlatinum();
-			} else if(supoint <= (qtcount*0.95)) {
-				return tier.getDiamond();
-			} else {
-				return tier.getRuby();
+			
+			String sql = "SELECT count(?) from question";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qtcount);
+			
+			pstmt.execute();
+			if(rs.next()) {
+				int dbqtcount = rs.getInt(qtcount);
+				int dbusqcount = rs.getInt(USQcount);
+				
+				if(dbusqcount <= dbqtcount*0.05) {
+					return tier.getUnranked();
+				} else if(dbusqcount <= dbqtcount*0.15) {
+					return tier.getBronze();
+				} else if(dbusqcount <= dbqtcount*0.4) {
+					return tier.getSilver();
+				} else if(dbusqcount <= dbqtcount*0.65) {
+					return tier.getGold();
+				} else if(dbusqcount <= dbqtcount*0.85) {
+					return tier.getPlatinum();
+				} else if(dbusqcount <= dbqtcount*0.95) {
+					return tier.getDiamond();
+				} else 
+					return tier.getRuby();
 			}
+			return ADVANCEMENT_SUCCESS;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -60,12 +75,18 @@ public class TierDAO {
 				if(con != null && !con.isClosed()) {
 					con.close();
 				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+				if(rs != null && !rs.isClosed()) {
+					rs.close();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		return ADVANCEMENT_FAIL;
-			
+					
 	}
 
 }
