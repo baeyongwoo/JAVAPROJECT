@@ -181,10 +181,10 @@ public class Controller extends HttpServlet {
 		} else if(uri.equals("/OurJspProject/question_detail.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("현재 문제 상세보기 페이지");
-			ui = "/TEST/question_detail.jsp";
-			
 			qs = new QuestionDetailService();
 			qs.execute(request, response);
+			ui = "/TEST/question_detail.jsp";
+			
 		} else if(uri.equals("/OurJspProject/solve_form.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 페이지");

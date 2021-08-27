@@ -88,9 +88,6 @@ div>h3{color: blue;
 			
 			<form action ="/OurJspProject/q_list.use" method="post">
 			<button class="btn btn-primary" name="subject" value="1">HTML 문제 풀러가기</button><br/><br/><br/>
-			<button class="btn btn-primary" name="subject" value="2">CSS 문제 풀러가기</button><br/><br/><br/>
-			<button class="btn btn-primary" name="subject" value="3">JAVA 문제 풀러가기</button><br/><br/><br/>
-			<button class="btn btn-primary" name="subject" value="4">JSP 문제 풀러가기</button>
 			</form>
 			
 			
@@ -111,9 +108,6 @@ div>h3{color: blue;
 		<p>
 			<form action="http://localhost:8181/OurJspProject/StudyView/html_study.jsp" method="post">
 			<button class="btn btn-primary" name="subject" value="1">HTML 공부 게시판</button><br/><br/><br/>
-			<button class="btn btn-primary" name="subject" value="2">CSS 공부 게시판</button><br/><br/><br/>
-			<button class="btn btn-primary" name="subject" value="3">JAVA 공부 게시판</button><br/><br/><br/>
-			<button class="btn btn-primary" name="subject" value="4">JSP 공부 게시판</button>
 			</form>
 		</div>
 

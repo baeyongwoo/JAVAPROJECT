@@ -11,6 +11,7 @@ public class QuestionDetailService implements QuestionService{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String code = request.getParameter("qcode");
 		//int icode = Integer.parseInt(code);
+		
 		QuestionDAO dao = QuestionDAO.getInstance();
 		
 		QuestionVO question = dao.Getquestion(code);
