@@ -38,12 +38,12 @@ public class QuestionDAO {
 	}
 	
 	public int InsertQuestion(QuestionVO question, int code) {
-			
+		
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		int count = question.getQtcount();
 		
 		try {
-			
 			con = ds.getConnection();
 			switch (code) {
 			case 1: 
@@ -53,6 +53,7 @@ public class QuestionDAO {
 				
 				pstmt.executeUpdate();
 				htmlcode++;
+				count++;
 				break;
 			case 2:
 				String sql2 = "INSERT INTO question VALUES("+csscode+", ?)";
@@ -61,6 +62,7 @@ public class QuestionDAO {
 				
 				pstmt.executeUpdate();
 				csscode++;
+				count++;
 				break;
 			case 3:
 				String sql3 = "INSERT INTO question VALUES("+javacode+", ?)";
@@ -69,6 +71,7 @@ public class QuestionDAO {
 				
 				pstmt.executeUpdate();
 				javacode++;
+				count++;
 				break;
 			case 4:
 				String sql4 = "INSERT INTO question VALUES("+jspcode+", ?)";
@@ -77,6 +80,7 @@ public class QuestionDAO {
 				
 				pstmt.executeUpdate();
 				jspcode++;
+				count++;
 				break;
 			}	
 			return INSERT_Q_SUCCESS;
@@ -251,4 +255,43 @@ public class QuestionDAO {
 		return question;
 		
 	} // end Getquestion
+	
+	public QuestionVO CountTquestion(String question) {
+		
+		QuestionVO countquestion = new QuestionVO();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = ds.getConnection();
+			String sql = "SELECT COUNT(?) as cnt FROM question";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, question);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				countquestion.setquestion(question);
+				countquestion = CountTquestion(question);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+				if(rs != null && !rs.isClosed()) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return countquestion;
+	} // end CountTquestion
 }

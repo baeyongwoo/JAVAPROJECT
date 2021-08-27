@@ -49,7 +49,7 @@ public class usersDAO {
 			
 			con = ds.getConnection();
 
-			String sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, 0, 0, 0, 0)";
+			String sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, 0)";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user.getUid());

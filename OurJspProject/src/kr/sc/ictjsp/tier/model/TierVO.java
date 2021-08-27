@@ -1,6 +1,6 @@
 package kr.sc.ictjsp.tier.model;
 
-public class TearVO {
+public class TierVO {
 	
 	private int Unranked;
 	private int Bronze;
@@ -10,11 +10,11 @@ public class TearVO {
 	private int Diamond;
 	private int Ruby;
 
-	public TearVO() {
+	public TierVO() {
 		
 	}
 	
-	public TearVO(int Unranked, int Bronze, int Silver,
+	public TierVO(int Unranked, int Bronze, int Silver,
 			int Gold, int Platinum, int Diamond, int Ruby) {
 		super();
 		this.Unranked = Unranked;
@@ -27,7 +27,7 @@ public class TearVO {
 	}
 
 	public int getUnranked() {
-		return Unranked;
+		return Unranked = 1;
 	}
 
 	public void setUnranked(int unranked) {
@@ -35,7 +35,7 @@ public class TearVO {
 	}
 
 	public int getBronze() {
-		return Bronze;
+		return Bronze = 2;
 	}
 
 	public void setBronze(int bronze) {
@@ -43,7 +43,7 @@ public class TearVO {
 	}
 
 	public int getSilver() {
-		return Silver;
+		return Silver = 3;
 	}
 
 	public void setSilver(int silver) {
@@ -51,7 +51,7 @@ public class TearVO {
 	}
 
 	public int getGold() {
-		return Gold;
+		return Gold = 4;
 	}
 
 	public void setGold(int gold) {
@@ -59,7 +59,7 @@ public class TearVO {
 	}
 
 	public int getPlatinum() {
-		return Platinum;
+		return Platinum = 5;
 	}
 
 	public void setPlatinum(int platinum) {
@@ -67,7 +67,7 @@ public class TearVO {
 	}
 
 	public int getDiamond() {
-		return Diamond;
+		return Diamond = 6;
 	}
 
 	public void setDiamond(int diamond) {
@@ -75,7 +75,7 @@ public class TearVO {
 	}
 
 	public int getRuby() {
-		return Ruby;
+		return Ruby = 7;
 	}
 
 	public void setRuby(int ruby) {
