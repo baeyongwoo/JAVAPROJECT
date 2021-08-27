@@ -30,11 +30,16 @@ public class UserLoginService implements BUserService{
 			System.out.println("user 객체 디버깅 : " + user);
 			
 			int result = dao.usersLogin(user);
+			user = dao.usergetinfo(user);
 			
 			if(result == 1) {
 				session.setAttribute("u_id", uid);
 				session.setAttribute("u_pw", upw);
 				session.setAttribute("u_name", dao.getName(uid));
+				
+				request.setAttribute("u_qcode", user.getQcode());
+				request.setAttribute("u_point", user.getPoint());
+				
 			} else if(result == 0){
 				System.out.println(uid + "님 로그인 실패");
 				session.setAttribute("l_f", "fail");

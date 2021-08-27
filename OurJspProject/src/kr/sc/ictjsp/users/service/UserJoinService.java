@@ -19,7 +19,7 @@ public class UserJoinService implements BUserService {
 			String usubject = (String)request.getParameter("subject");
 					
 			usersDAO dao = usersDAO.getInstance();
-			usersVO user = new usersVO(uid, upw, uname, uemail, usubject, 0, 0);
+			usersVO user = new usersVO(uid, upw, uname, uemail, usubject, 0, 0, 0);
 			System.out.println(user);
 
 			int result = dao.joinUsers(user);

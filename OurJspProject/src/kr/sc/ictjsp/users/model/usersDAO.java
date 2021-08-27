@@ -237,7 +237,9 @@ public class usersDAO {
 		return uname;
 		
 		
-	}//getsessionEnd
+	} // end getName
+	
+	
 	
 	
 	/*
@@ -338,9 +340,11 @@ public class usersDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				usersData.setUid("uid");
-				usersData.setUname("uname");
-				usersData.setUemail("uemail");
+				usersData.setUid(rs.getString("uid"));
+				usersData.setUname(rs.getString("uname"));
+				usersData.setUemail(rs.getString("uemail"));
+				usersData.setQcode(rs.getInt("uqcode"));
+				usersData.setPoint(rs.getInt("upoint"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
