@@ -29,7 +29,7 @@ public class InsertSolveService implements SolveService{
 		request.setAttribute("question", question);
 		
 		//intcode의 줄인말
-		System.out.println(code);
+		System.out.println("사용자가 풀고 있는 코드 : " + code);
 		int icode = Integer.parseInt(code);
 		
 		SolveDAO dao1 = SolveDAO.getInstance();

@@ -53,8 +53,8 @@
 				<li>짱구도 하니까 당신도 할수있어요!</li>
 			</ul>
 		<div class="user">
-		<a href="http://localhost:8181/OurJspProject/UserView/login_form.jsp"><button>로그인</button></a>&nbsp;&nbsp;
-		<a href="http://localhost:8181/OurJspProject/UserView/join_form.jsp"><button>회원가입</button></a>
+		<a href="/OurJspProject/UserView/login_form.jsp"><button>로그인</button></a>&nbsp;&nbsp;
+		<a href="/OurJspProject/UserView/join_form.jsp"><button>회원가입</button></a>
 		</div>
 	</div>
 </body>

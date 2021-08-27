@@ -18,6 +18,7 @@ import kr.sc.ictjsp.question.service.ListQuestionService;
 import kr.sc.ictjsp.question.service.QuestionDetailService;
 import kr.sc.ictjsp.question.service.QuestionService;
 import kr.sc.ictjsp.question.service.SelectQuestionService;
+import kr.sc.ictjsp.solve.service.CheckService;
 import kr.sc.ictjsp.solve.service.InsertSolveService;
 import kr.sc.ictjsp.solve.service.SolveService;
 import kr.sc.ictjsp.users.service.BUserService;
@@ -184,16 +185,6 @@ public class Controller extends HttpServlet {
 			
 			qs = new QuestionDetailService();
 			qs.execute(request, response);
-		} else if(uri.equals("/OurJspProject/submit.use")) {
-			System.out.println("현재 사용자 페이지 : " + uri);
-			System.out.println("사용자 답안 제출 페이지");
-			ss = new InsertSolveService();
-			
-			String qcode = request.getParameter("qcode");
-			ui = "/OurJspProject/TEST/solve_form.jsp";
-			
-			ss.execute(request, response);
-			
 		} else if(uri.equals("/OurJspProject/solve_form.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 페이지");
@@ -204,6 +195,20 @@ public class Controller extends HttpServlet {
 			
 			ss.execute(request, response);
 			
+		} else if(uri.equals("/OurJspProject/submit.use")) {
+			System.out.println("현재 사용자 페이지 : " + uri);
+			System.out.println("사용자 답안 제출 후 페이지");
+			qs = new ListQuestionService();
+			qs.execute(request, response);
+			
+			ss = new CheckService();
+			ss.execute(request, response);
+			System.out.println("답안 정답 체크 페이지");
+			
+			//ss = 
+			ui = "/TEST/checkok.jsp";
+			
+			qs.execute(request, response);
 			
 		} 
 		else {

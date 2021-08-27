@@ -122,7 +122,7 @@ div>h3{color: blue;
 	</div>	<!-- body -->
 	<div id="footer">
 	<c:choose>
-			<c:when test="${uname eq 'test'}">
+			<c:when test="${uname eq 'test' 'test1' 'test2'}">
 			
 			<h3>문제 출제하기</h3>
 				<p>	문제유형 선택 :</p> 
