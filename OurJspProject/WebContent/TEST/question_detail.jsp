@@ -3,13 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <meta charset="UTF-8">
+<style>
+
+</style>
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/OurJspProject/UserView/login_success.jsp">
-	<input type="button" value="목록으로"></a>
-	<table border="1">
+	
+	<button onclick="window.history.back()">문제목록</button></a>
+	<div class = "row"></div>
+	<table>
 		<tr>
 			<td>문제코드 : ${question.qcode}</td>
 		</tr>

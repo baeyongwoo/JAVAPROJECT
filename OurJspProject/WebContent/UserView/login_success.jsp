@@ -126,8 +126,8 @@ div>h3{color: blue;
 				java <input type="radio" name ="subject" value="3">
 				jsp <input type="radio" name ="subject" value="4"> <br/>
 
-				<input type="text" name="question" placeholder="문제를 입력하세요">
-				<input type="text" name="correct" placeholder="답을 입력하세요">
+				<input type="text" name="question" placeholder="문제를 입력하세요"><br/>
+				<input type="text" name="correct" placeholder="답을 입력하세요"><br/>
 				<input type="submit" value="문제출제">
 			</form>
 			
