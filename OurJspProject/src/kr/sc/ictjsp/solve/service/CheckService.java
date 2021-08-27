@@ -26,6 +26,7 @@ public class CheckService implements SolveService{
 		
 		SolveDAO sdao = SolveDAO.getInstance();
 		SolveVO solve1 = new SolveVO();
+		sdao.check(Solve, correct, question, users, code)
 		
 		//
 		

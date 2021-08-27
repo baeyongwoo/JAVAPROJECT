@@ -121,8 +121,8 @@ div>h3{color: blue;
 
 	</div>	<!-- body -->
 	<div id="footer">
-	<c:choose>
-			<c:when test="${uname eq 'test' 'test1' 'test2'}">
+
+			<c:if test="${uname eq ('test' or 'test1' or 'test2')}">
 			
 			<h3>문제 출제하기</h3>
 				<p>	문제유형 선택 :</p> 
@@ -136,13 +136,9 @@ div>h3{color: blue;
 				<input type="text" name="correct" placeholder="답을 입력하세요">
 				<input type="submit" value="문제출제">
 			</form>
-
 			
-			
-			</c:when>
-			<c:otherwise>
-			</c:otherwise>
-			</c:choose>
+			</c:if>
+	
 			
 	</div>
 </body>
