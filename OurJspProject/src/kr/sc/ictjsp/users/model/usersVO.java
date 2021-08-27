@@ -7,18 +7,15 @@ public class usersVO {
 	private String uname;
 	private String uemail;
 	private String subject;
-	private int htmlcount;
-	private int csscount;
-	private int javacount;
-	private int jspcount;
+	private int point;
+	private int tier;
 	
 	public usersVO() {}
 	
 	
 
 	public usersVO(String uid, String upw, String uname, 
-			String uemail, String subject,int htmlcount, 
-			int csscount, int javacount, int jspcount) {
+			String uemail, String subject, int point, int tier) {
 		
 		super();
 		this.uid = uid;
@@ -26,10 +23,9 @@ public class usersVO {
 		this.uname = uname;
 		this.uemail = uemail;
 		this.subject = subject;
-		this.htmlcount = htmlcount;
-		this.csscount = csscount;
-		this.javacount = javacount;
-		this.jspcount = jspcount;
+		this.point = point;
+		this.tier = tier;
+		
 	}
 
 	public String getUid() {
@@ -72,59 +68,34 @@ public class usersVO {
 		this.subject = subject;
 	}
 
-
-
-	public int getHtmlcount() {
-		return htmlcount;
+	public int getPoint() {
+		return point;
 	}
 
 
 
-	public void setHtmlcount(int htmlcount) {
-		this.htmlcount = htmlcount;
+	public void setPoint(int point) {
+		this.point = point;
+	}
+	
+	
+
+	public int getTier() {
+		return tier;
 	}
 
 
 
-	public int getCsscount() {
-		return csscount;
+	public void setTier(int tier) {
+		this.tier = tier;
 	}
 
 
-
-	public void setCsscount(int csscount) {
-		this.csscount = csscount;
-	}
-
-
-
-	public int getJavacount() {
-		return javacount;
-	}
-
-
-
-	public void setJavacount(int javacount) {
-		this.javacount = javacount;
-	}
-
-
-
-	public int getJspcount() {
-		return jspcount;
-	}
-
-
-
-	public void setJspcount(int jspcount) {
-		this.jspcount = jspcount;
-	}
 
 	@Override
 	public String toString() {
-		return "usersVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + 
-				", uemail=" + uemail + ", subject=" + subject + ", htmlcount=" +
-				htmlcount + ", csscount=" + csscount + ", javacount=" + javacount + 
-				", jspcount=" + jspcount + "]";
+		return "usersVO [uid=" + uid + ", upw=" + upw + ", uname=" 
+						+ uname + ", uemail=" + uemail + ", subject="
+						+ subject + ", point=" + point + ", tier=" + tier + "]";
 	}
 }

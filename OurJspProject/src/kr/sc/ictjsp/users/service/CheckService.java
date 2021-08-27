@@ -15,7 +15,7 @@ public class CheckService implements BUserService{
 		CorrectDAO cdao = CorrectDAO.getInstance();
 		SolveDAO sdao = SolveDAO.getInstance();
 		
-		CorrectVO correct = new CorrectVO(ccode, correct);
+//		CorrectVO correct = new CorrectVO(ccode, correct);
 
 		
 	}
