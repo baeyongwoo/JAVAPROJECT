@@ -37,11 +37,14 @@ public class QuestionDAO {
 		return dao;
 	}
 	
-	public int InsertQuestion(QuestionVO question, int code) {
+	public int InsertQuestion(int code) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		QuestionVO question = new QuestionVO();
+		
 		int count = question.getQtcount();
+		
 		
 		try {
 			con = ds.getConnection();

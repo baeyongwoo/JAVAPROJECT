@@ -76,7 +76,7 @@ public class SolveDAO {
 		ResultSet rs = null;
 		usersVO users = new usersVO();
 		
-		int upoint = users.getPoint();
+		int upoint = users.getUpoint();
 		
 		try {
 			con = ds.getConnection();
@@ -102,6 +102,12 @@ public class SolveDAO {
 			try {
 				if(con != null && !con.isClosed()) {
 					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+				if(rs != null && !rs.isClosed()) {
+					rs.close();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
