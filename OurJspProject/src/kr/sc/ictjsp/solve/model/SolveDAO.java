@@ -3,9 +3,7 @@ package kr.sc.ictjsp.solve.model;
 import javax.naming.*;
 import javax.sql.*;
 
-import kr.sc.ictjsp.correct.model.CorrectVO;
-import kr.sc.ictjsp.question.model.QuestionVO;
-import kr.sc.ictjsp.users.model.usersVO;
+import kr.sc.ictjsp.test.model.TestVO;
 
 import java.sql.*;
 
@@ -71,12 +69,12 @@ public class SolveDAO {
 	
 	//정답 확인 메서드
 	
-	public int Check(int qcode, String solve) {
+	public int Check(int Tcode, String solve) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;		
-		CorrectVO correct = new CorrectVO();
+		TestVO correct = new TestVO();
 						
 		String dbCorrect = null;
 		
@@ -86,7 +84,7 @@ public class SolveDAO {
 			String sql = "SELECT qcode, answer from solve where qcode = ?";
 
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, qcode);
+			pstmt.setInt(1, Tcode);
 			
 			rs = pstmt.executeQuery();
 			if(rs.next()) {

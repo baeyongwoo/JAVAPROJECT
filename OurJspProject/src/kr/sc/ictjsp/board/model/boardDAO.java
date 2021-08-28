@@ -11,8 +11,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.*;
 
-import kr.sc.ictjsp.question.model.QuestionVO;
-
 public class boardDAO {
 	
 	private DataSource ds;

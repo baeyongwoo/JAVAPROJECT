@@ -37,7 +37,7 @@ public class TestDAO {
 		return dao;
 	}
 	
-	public int InsertTest(int code, String Input_Test, String QCorrect, String submitUser) {
+	public int InsertTest(int code, String Input_Test, String QCorrect) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -46,38 +46,38 @@ public class TestDAO {
 			con = ds.getConnection();
 			switch (code) {
 			case 1: 
-				String sql1 = "INSERT INTO Test VALUES("+htmlcode+", ?, ?, ?)";
+				String sql1 = "INSERT INTO Test VALUES(null, "+htmlcode+", ?, ?, "+"test)";
 				pstmt = con.prepareStatement(sql1);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
-				pstmt.setString(3, submitUser);
+//				pstmt.setString(3, submitUser);
 				pstmt.executeUpdate();
 				htmlcode++;
 				break;
 			case 2:
-				String sql2 = "INSERT INTO Test VALUES("+csscode+", ?, ?, ?)";
+				String sql2 = "INSERT INTO Test VALUES(null, "+csscode+", ?, ?, ?)";
 				pstmt = con.prepareStatement(sql2);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
-				pstmt.setString(3, submitUser);
+//				pstmt.setString(3, submitUser);
 				pstmt.executeUpdate();
 				csscode++;
 				break;
 			case 3:
-				String sql3 = "INSERT INTO Test VALUES("+javacode+", ?)";
+				String sql3 = "INSERT INTO Test VALUES(null, "+javacode+", ?, ?, ?)";
 				pstmt = con.prepareStatement(sql3);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
-				pstmt.setString(3, submitUser);
+//				pstmt.setString(3, submitUser);
 				pstmt.executeUpdate();
 				javacode++;
 				break;
 			case 4:
-				String sql4 = "INSERT INTO Test VALUES("+jspcode+", ?)";
+				String sql4 = "INSERT INTO Test VALUES(null, "+jspcode+", ?, ?, ?)";
 				pstmt = con.prepareStatement(sql4);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
-				pstmt.setString(3, submitUser);
+//				pstmt.setString(3, submitUser);
 				pstmt.executeUpdate();
 				jspcode++;
 				break;
@@ -101,7 +101,7 @@ public class TestDAO {
 		return INSERT_T_FAIL;
 	} // end InsertTest
 	
-	public int UpdateTest() {
+	public int UpdateTest(String utquestion, int utcode) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -112,11 +112,11 @@ public class TestDAO {
 			String sql = "UPDATE Test set Test = ? WHERE qcode = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, Test.getQuestion());
-			pstmt.setInt(2, Test.getTcode());
+			pstmt.setString(1, utquestion);
+			pstmt.setInt(2, utcode);
 			
 			pstmt.executeUpdate();
-			return UPDATE_Q_SUCCESS;
+			return UPDATE_T_SUCCESS;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -131,10 +131,10 @@ public class TestDAO {
 				e.printStackTrace();
 			}
 		}
-		return UPDATE_Q_FAIL;
+		return UPDATE_T_FAIL;
 	} // end UpdateTest
 	
-	public int DeleteTest(TestVO Test) {
+	public int DeleteTest(int DQcode) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -145,10 +145,10 @@ public class TestDAO {
 			String sql = "DELETE from Test WHERE qcode = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Test.getqcode());
+			pstmt.setInt(1, DQcode);
 			pstmt.executeUpdate();
 			
-			return DELETE_Q_SUCCESS;
+			return DELETE_T_SUCCESS;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -164,7 +164,7 @@ public class TestDAO {
 			}
 			
 		}
-		return DELETE_Q_FAIL;
+		return DELETE_T_FAIL;
 	} // end DeleteTest
 
 
@@ -185,8 +185,8 @@ public class TestDAO {
 			
 			while(rs.next()) {
 				TestVO TestData = new TestVO();
-				TestData.setqcode(rs.getInt("qcode"));
-				TestData.setTest(rs.getString("Test"));
+				TestData.setTcode(rs.getInt("Tcode"));
+				TestData.setQuestion(rs.getString("Test"));
 				
 				QList.add(TestData);
 			}
@@ -229,8 +229,8 @@ public class TestDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				Test.setqcode(rs.getInt("qcode"));
-				Test.setTest(rs.getString("Test"));
+				Test.setTcode(rs.getInt("Tcode"));
+				Test.setQuestion(rs.getString("question"));
 			}
 			
 		} catch (SQLException e) {
@@ -256,17 +256,17 @@ public class TestDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int qtcount = 0;
+		int TestTcount = 0;
 		
 		try {
 			
 			con = ds.getConnection();
-			String sql = "SELECT COUNT(qcode) as qtcount from Test";
+			String sql = "SELECT COUNT(Tcode) as TestTcount from Test";
 			
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				qtcount = rs.getInt("qtcount");				
+				TestTcount = rs.getInt("TestTcount");				
 			}
 			
 		} catch (SQLException e) {
@@ -286,7 +286,7 @@ public class TestDAO {
 				e.printStackTrace();
 			}
 		}
-		return qtcount;
+		return TestTcount;
 	} 
 
 }

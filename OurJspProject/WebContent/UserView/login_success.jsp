@@ -120,7 +120,7 @@ div>h3{color: blue;
 			
 			<h3>문제 출제하기</h3>
 				<p>	문제유형 선택 :</p> 
-				<form action="/OurJspProject/questions.use" method="post">
+				<form action="/OurJspProject/Test.use" method="post">
 				html <input type="radio" name ="subject" value="1">
 				css <input type="radio" name ="subject" value="2">
 				java <input type="radio" name ="subject" value="3">
