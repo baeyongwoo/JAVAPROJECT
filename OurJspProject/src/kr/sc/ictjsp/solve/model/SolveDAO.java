@@ -3,6 +3,7 @@ package kr.sc.ictjsp.solve.model;
 import javax.naming.*;
 import javax.sql.*;
 
+import kr.sc.ictjsp.correct.model.CorrectVO;
 import kr.sc.ictjsp.question.model.QuestionVO;
 import kr.sc.ictjsp.users.model.usersVO;
 
@@ -70,14 +71,13 @@ public class SolveDAO {
 	
 	//정답 확인 메서드
 	
-	public int PointUp(int qcode, String solve) {
+	public int Check(int qcode, String solve) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		usersVO users = new usersVO();		
-		
-		int upoint = users.getUpoint();
+		ResultSet rs = null;		
+		CorrectVO correct = new CorrectVO();
+						
 		String dbCorrect = null;
 		
 		try {
@@ -90,11 +90,13 @@ public class SolveDAO {
 			
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				dbCorrect = rs.getString("correct");
+				dbCorrect = correct.getCorrect();
 				if(solve == dbCorrect) { // 사용자가 푼 문제의 정답과 주어진 문제의 정답 비교
-						upoint++;
-					}
+					return 1;
+				} else {
+					return 0;
 				}
+			}
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -113,7 +115,7 @@ public class SolveDAO {
 				e.printStackTrace();
 			}
 		}
-		return upoint;
+		return 0;
 		
 	}// end SolveAnswer
 	
@@ -134,7 +136,7 @@ public class SolveDAO {
 			pstmt.setInt(2, USNum);
 			
 			rs = pstmt.executeQuery();
-			Whether = rs.getInt("whether");
+//			Whether = rs.getInt("whether");
 			if(rs.next()) {
 				if(Whether==1) {
 					System.out.println("푼 적이 있는 문제입니다.");

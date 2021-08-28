@@ -16,7 +16,6 @@ public class SolvedWhetherService implements SolveService {
 		SolveDAO dao = SolveDAO.getInstance();
 		int result = dao.SolvedWhether(USNum);
 		
-		request.setAttribute("SW", result);
 	}
 
 	

@@ -198,14 +198,12 @@ public class Controller extends HttpServlet {
 			
 		} else if(uri.equals("/OurJspProject/submit.use")) {		
 			System.out.println("현재 사용자 페이지 : " + uri);
-			System.out.println("사용자 답안 제출 후 페이지");
-			ss = new SolvedWhetherService(); // 문제 푼 여부 비교 return 1 풀었음
-			ss.execute(request, response);
-			System.out.println(ss + "서비스체크");
+			System.out.println("사용자 답안 제출 후 페이지");																	 
 			qs = new ListQuestionService();
 			qs.execute(request, response);
 			
-			ss = new CheckService();
+			ss = new CheckService(); // CheckService내에서 정답비교 및 포인트 계산 
+								 	 // 완료 후 다음 서비스 진행
 			ss.execute(request, response);
 			System.out.println("답안 정답 체크 페이지");
 			

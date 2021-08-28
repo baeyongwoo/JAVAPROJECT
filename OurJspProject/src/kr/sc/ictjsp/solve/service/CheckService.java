@@ -29,11 +29,13 @@ public class CheckService implements SolveService{
 //		CorrectVO correct = new CorrectVO();
 //		QuestionVO question = new QuestionVO(); 
 //		usersVO users = new usersVO();
-		//정답 추출하는 로직 dao 만들기?
+//		정답 추출하는 로직 dao 만들기?
 		
 		SolveDAO sdao = SolveDAO.getInstance();
+
+		
 //		SolveVO solve1 = new SolveVO();
-		sdao.PointUp(qcode, solve);
+		sdao.Check(qcode, solve);
 	}
 
 }
