@@ -1,5 +1,7 @@
 package kr.sc.ictjsp.solve.service;
 
+import java.security.Timestamp;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,8 +19,9 @@ public class InsertSolveService implements SolveService{
 		HttpSession session = null;
 		session = request.getSession();
 		
-		String code = (String)request.getParameter("qcode");
-		String answer = (String)request.getParameter("answer");
+		String code = (String)request.getParameter("tcode");
+		String rsolve = (String)request.getParameter("solve");
+		String suser = (String)request.getParameter("suser");
 		
 		TestDAO dao = TestDAO.getInstance();
 		TestVO question = new TestVO();
@@ -34,9 +37,10 @@ public class InsertSolveService implements SolveService{
 		SolveVO solve = new SolveVO();
 		
 		
-		solve.setQcode(icode);
-		solve.setAnswer(answer);
 		
+		solve.setTcode(icode);
+		solve.setSolve(rsolve);
+		solve.setSuer(suser);
 		
 		int result = dao1.InsertSolve(solve);
 		

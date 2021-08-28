@@ -187,17 +187,16 @@ public class Controller extends HttpServlet {
 			ui = "/TEST/question_detail.jsp";
 			
 		} 
-		/*else if(uri.equals("/OurJspProject/solve_form.use")) {
+		else if(uri.equals("/OurJspProject/solve_form.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 페이지");
 			ss = new InsertSolveService();
 			
-			String qcode = request.getParameter("qcode");
 			ui = "/TEST/solve_form.jsp";
 			
 			ss.execute(request, response);
 			
-		} else if(uri.equals("/OurJspProject/submit.use")) {		
+		} /*else if(uri.equals("/OurJspProject/submit.use")) {		
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 후 페이지");																	 
 			ts = new ListTestService();

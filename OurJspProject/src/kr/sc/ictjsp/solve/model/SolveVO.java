@@ -3,58 +3,63 @@ package kr.sc.ictjsp.solve.model;
 import java.sql.Timestamp;
 
 public class SolveVO {
-	private int auto_acode;	//db에 저장할 때 입력할때마다 생성
-	private int qcode;		//문제 코드
-	private String answer;	//답
-	private Timestamp solvedate;
+	private int id;	//db에 저장할 때 입력할때마다 생성
+	private int tcode;		//문제 코드
+	private String solve;	//답
+	private Timestamp stime;
+	private String suer;
 	
-	public SolveVO() {};
-	
-	public SolveVO(int auto_acode, int qcode, String answer, Timestamp solvedate) {
+	public SolveVO() {}
+
+	public SolveVO(int id, int tcode, String solve, Timestamp stime, String suer) {
 		super();
-		this.auto_acode = auto_acode;
-		this.qcode = qcode;
-		this.answer = answer;
-		this.solvedate = solvedate;
+		this.id = id;
+		this.tcode = tcode;
+		this.solve = solve;
+		this.stime = stime;
+		this.suer = suer;
 	}
 
-	public int getAuto_acode() {
-		return auto_acode;
+	public int getId() {
+		return id;
 	}
 
-	public void setAuto_acode(int auto_acode) {
-		this.auto_acode = auto_acode;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public int getQcode() {
-		return qcode;
+	public int getTcode() {
+		return tcode;
 	}
 
-	public void setQcode(int qcode) {
-		this.qcode = qcode;
+	public void setTcode(int tcode) {
+		this.tcode = tcode;
 	}
 
-	public String getAnswer() {
-		return answer;
+	public String getSolve() {
+		return solve;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setSolve(String solve) {
+		this.solve = solve;
 	}
 
-	public Timestamp getSolvedate() {
-		return solvedate;
+	public Timestamp getStime() {
+		return stime;
 	}
 
-	public void setSolvedate(Timestamp solvedate) {
-		this.solvedate = solvedate;
+	public void setStime(Timestamp stime) {
+		this.stime = stime;
 	}
 
-	@Override
-	public String toString() {
-		return "SolveVO [auto_acode=" + auto_acode + ", qcode=" + qcode + ", answer=" + answer + ", solvedate="
-				+ solvedate + "]";
+	public String getSuer() {
+		return suer;
 	}
+
+	public void setSuer(String suer) {
+		this.suer = suer;
+	};
+	
 	
 
 }

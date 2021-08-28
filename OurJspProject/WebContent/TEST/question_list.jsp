@@ -46,7 +46,7 @@ td {
 			</tr>
 		<c:forEach items="${t_l}" var="tlist">
 			<tr>	
-				<td><a href="/OurJspProject/Test_detail.use?tcode=${tlist.tcode}" >${tlist.tcode }</a></td>
+				<td><a href="/OurJspProject/T_detail.use?tcode=${tlist.tcode}" >${tlist.tcode }</a></td>
 				<td>타입</td>
 				<td>${tlist.question}</td>
 			</tr>

@@ -214,7 +214,7 @@ public class TestDAO {
 		return TList;
 	} // end TestGetInfo
 		
-	public TestVO GetTest(String qcode) {
+	public TestVO GetTest(String code) {
 		
 		TestVO Test = new TestVO();
 		Connection con = null;
@@ -225,16 +225,19 @@ public class TestDAO {
 		try {
 			
 			con = ds.getConnection();
-			String sql = "SELECT * FROM Test WHERE qcode = ?";
+			String sql = "SELECT * FROM Test WHERE tcode = ?";
 
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, qcode);
+			pstmt.setString(1, code);
 					
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
+				Test.setId(rs.getInt("id"));
 				Test.setTcode(rs.getInt("Tcode"));
 				Test.setQuestion(rs.getString("question"));
+				Test.setCorrect(rs.getString("correct"));
+				Test.setS_user(rs.getString("s_user"));
 			}
 			
 		} catch (SQLException e) {

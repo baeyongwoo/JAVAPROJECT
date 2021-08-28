@@ -41,11 +41,12 @@ public class SolveDAO {
 			
 			con = ds.getConnection();
 			
-			String sql = "INSERT INTO solve VALUES (NULL, ?, ?, now())";
+			String sql = "INSERT INTO solve VALUES (NULL, ?, ?, now(), ?)";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, solve.getQcode());
-			pstmt.setString(2, solve.getAnswer());
+			pstmt.setInt(1, solve.getTcode());
+			pstmt.setString(2, solve.getSolve());
+			pstmt.setString(3, user);
 			
 			pstmt.executeUpdate();
 			

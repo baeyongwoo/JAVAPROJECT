@@ -21,7 +21,6 @@ public class ListTestService implements TestService{
 		try {
 			
 			TestDAO dao = TestDAO.getInstance();
-			System.out.println("여긴 실행완료");
 			TList = dao.TestGetInfo();
 			//session.setAttribute("q_l", QList);
 			//TList = session.getAttribute("q_l");
