@@ -16,17 +16,17 @@
 	<div class = "row"></div>
 	<table>
 		<tr>
-			<td>문제코드 : ${question.qcode}</td>
+			<td>문제코드 : ${question.tcode}</td>
 		</tr>
 		<tr>
-			<td>문제 : ${question.question}</td>
+			<td>문제 : ${question.tuestion}</td>
 		</tr>
 		<tr>
 			<td>
 				<!-- 문제 자세히 보고 답안 작성하러 가기 -->
 				
 				<form action="/OurJspProject/solve_form.use" method="post">
-					<input type="hidden" name="qcode" value="${question.qcode}">
+					<input type="hidden" name="qcode" value="${question.tcode}">
 					<input type="submit" value="풀기">
 				</form>
 			</td>

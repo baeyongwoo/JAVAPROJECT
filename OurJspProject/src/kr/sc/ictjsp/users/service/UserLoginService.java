@@ -47,7 +47,7 @@ public class UserLoginService implements BUserService{
 				user = dao.usergetinfo(user);
 				System.out.println(user.getUid() + "의 정보 : " + user);
 				
-				
+
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 				
 				String time = formatter.format(session.getCreationTime());

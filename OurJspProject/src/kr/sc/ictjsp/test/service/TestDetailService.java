@@ -10,8 +10,8 @@ public class TestDetailService implements TestService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String code = request.getParameter("qcode");
+		System.out.println("test code : " + code);
 		//int icode = Integer.parseInt(code);
-		
 		TestDAO dao = TestDAO.getInstance();
 		
 		TestVO question = dao.GetTest(code);

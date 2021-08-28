@@ -21,10 +21,11 @@ public class ListTestService implements TestService{
 		try {
 			
 			TestDAO dao = TestDAO.getInstance();
+			System.out.println("여긴 실행완료");
 			TList = dao.TestGetInfo();
 			//session.setAttribute("q_l", QList);
 			//TList = session.getAttribute("q_l");
-			request.setAttribute("q_l", TList);
+			request.setAttribute("t_l", TList);
 			System.out.println(TList);
 		} catch (Exception e) {
 			e.printStackTrace();

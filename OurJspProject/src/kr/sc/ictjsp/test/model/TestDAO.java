@@ -47,6 +47,7 @@ public class TestDAO {
 			switch (code) {
 			case 1: 
 				String sql1 = "INSERT INTO Test VALUES(null, "+htmlcode+", ?, ?, "+"test)";
+				
 				pstmt = con.prepareStatement(sql1);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
@@ -170,13 +171,13 @@ public class TestDAO {
 
 	public List<TestVO> TestGetInfo() {
 		
-		List<TestVO> QList = new ArrayList<>();
+		List<TestVO> TList = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 	
-		String sql = "SELECT * FROM Test ORDER BY qcode DESC";
+		String sql = "SELECT * FROM Test ORDER BY Tcode DESC";
 
 		try {
 			con = ds.getConnection();
@@ -185,10 +186,13 @@ public class TestDAO {
 			
 			while(rs.next()) {
 				TestVO TestData = new TestVO();
-				TestData.setTcode(rs.getInt("Tcode"));
-				TestData.setQuestion(rs.getString("Test"));
 				
-				QList.add(TestData);
+				TestData.setId(rs.getInt("id"));
+				TestData.setTcode(rs.getInt("tcode"));
+				TestData.setQuestion(rs.getString("question"));
+				TestData.setS_user(rs.getString("s_user"));
+				
+				TList.add(TestData);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -207,7 +211,7 @@ public class TestDAO {
 				e.printStackTrace();
 			}
 		}
-		return QList;
+		return TList;
 	} // end TestGetInfo
 		
 	public TestVO GetTest(String qcode) {

@@ -15,11 +15,8 @@ import kr.sc.ictjsp.solve.service.CheckService;
 import kr.sc.ictjsp.solve.service.InsertSolveService;
 import kr.sc.ictjsp.solve.service.SolveService;
 import kr.sc.ictjsp.test.service.InsertTestService;
-<<<<<<< HEAD
-=======
 import kr.sc.ictjsp.test.service.ListTestService;
 import kr.sc.ictjsp.test.service.TestDetailService;
->>>>>>> origin/master
 import kr.sc.ictjsp.test.service.TestService;
 import kr.sc.ictjsp.users.service.BUserService;
 import kr.sc.ictjsp.users.service.UserDeleteService;
@@ -79,11 +76,7 @@ public class Controller extends HttpServlet {
 	protected void deRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//businessUserService
 		BUserService busv = null;
-<<<<<<< HEAD
 		TestService tsv = null;
-=======
-		TestService ts = null;
->>>>>>> origin/master
 		SolveService ss = null;
 		
 		
@@ -123,6 +116,7 @@ public class Controller extends HttpServlet {
 			}else {
 				//System.out.println("이름 세션 : " +  );
 				ui = "/UserView/login_success.jsp";
+				
 				
 			}
 			
@@ -173,31 +167,27 @@ public class Controller extends HttpServlet {
 		else if(uri.equals("/OurJspProject/Test.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("문제 출제 페이지");
-<<<<<<< HEAD
 			tsv = new InsertTestService();
 			tsv.execute(request, response);
-=======
-			ts = new InsertTestService();
-			ts.execute(request, response);
->>>>>>> origin/master
 
 			ui = "/TEST/question_list.jsp";
-		} /*
-		else if(uri.equals("/OurJspProject/q_list.use")) {
+		} 
+		else if(uri.equals("/OurJspProject/T_list.use")) {
 			System.out.println("현재사용자 페이지 : " + uri);
 			System.out.println("현재 등록된 문제 페이지");
-			ts = new ListTestService();
-			ts.execute(request, response);
+			tsv = new ListTestService();
+			tsv.execute(request, response);
 			ui = "/TEST/question_list.jsp";
 			
-		} else if(uri.equals("/OurJspProject/Test_detail.use")) {
+		} else if(uri.equals("/OurJspProject/T_detail.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("현재 문제 상세보기 페이지");
-			ts = new TestDetailService();
-			ts.execute(request, response);
+			tsv = new TestDetailService();
+			tsv.execute(request, response);
 			ui = "/TEST/question_detail.jsp";
 			
-		} else if(uri.equals("/OurJspProject/solve_form.use")) {
+		} 
+		/*else if(uri.equals("/OurJspProject/solve_form.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 페이지");
 			ss = new InsertSolveService();

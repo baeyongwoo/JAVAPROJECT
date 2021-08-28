@@ -1,15 +1,10 @@
 package kr.sc.ictjsp.users.model;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.sql.*;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.servlet.http.HttpServletResponse;
 import javax.sql.*;
-import javax.xml.ws.Response;
-import javax.xml.ws.soap.AddressingFeature.Responses;
 
 
 public class usersDAO {

@@ -26,7 +26,6 @@ td {
 		<a href="/OurJspProject/logout.use"><button>로그아웃</button></a>
 	</div>
 
-	<p>접속한 시간 : ${login}</p>
 	<div align="center">
 		<h1>HTML 문제 풀기</h1>
 			
@@ -34,7 +33,7 @@ td {
 			<tr>
 				<th width="80px">문제번호</th>
 				<th width="50px">
-					<form action="/OurJspProject/q_list.use" method="post">
+					<form action="/OurJspProject/T_detail.use" method="post">
 						<select name="select">
 							<option value="all">html</option>
 							<option value="notice">css</option>
@@ -45,11 +44,11 @@ td {
 				</th>
 				<th width="600px">문제 미리보기</th>
 			</tr>
-		<c:forEach items="${q_l}" var="qlist">
+		<c:forEach items="${t_l}" var="tlist">
 			<tr>	
-				<td><a href="/OurJspProject/Test_detail.use?qcode=${qlist.qcode}" >${qlist.qcode }</a></td>
+				<td><a href="/OurJspProject/Test_detail.use?tcode=${tlist.tcode}" >${tlist.tcode }</a></td>
 				<td>타입</td>
-				<td>${qlist.question}</td>
+				<td>${tlist.question}</td>
 			</tr>
 				</c:forEach>
 		</table>

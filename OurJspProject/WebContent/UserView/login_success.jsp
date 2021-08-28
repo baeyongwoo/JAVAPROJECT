@@ -68,6 +68,7 @@ div>h3{color: blue;
 <title>게시판</title>
 </head>
 <body>
+		로그인 시간 : ${login}
 	<div id="header" align="right">
 		<a href="/OurJspProject/UserView/update_form.jsp"><button>회원정보수정</button></a>
 		<a href="/OurJspProject/logout.use"><button>로그아웃</button></a>
@@ -85,9 +86,8 @@ div>h3{color: blue;
 
 			<h2>${uname} 환영합니다</h2>
 			
-			
-			<form action ="/OurJspProject/q_list.use" method="post">
-			<button class="btn btn-primary" name="subject" value="1">HTML 문제 풀러가기</button><br/><br/><br/>
+			<form action ="/OurJspProject/T_list.use" method="post">
+			<button class="btn btn-primary" name="subject">문제리스트 가기</button><br/><br/><br/>
 			</form>
 			
 			
@@ -100,6 +100,7 @@ div>h3{color: blue;
 				<img src="../UserImage/mytier.jpg"/><br/>
 		</p>
 		<p>당신의 현재 TIER</p>
+			${u_tier}
 			<!-- 가능하다면 티어 db에서 인식해서 이미지 변경 -->
 	</div>
 
