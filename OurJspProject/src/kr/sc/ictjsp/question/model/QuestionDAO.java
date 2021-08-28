@@ -37,7 +37,7 @@ public class QuestionDAO {
 		return dao;
 	}
 	
-	public int InsertQuestion(int code) {
+	public int InsertQuestion(int code, String Input_question) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -45,42 +45,43 @@ public class QuestionDAO {
 		
 		int count = question.getQtcount();
 		
+		System.out.println("");
 		
 		try {
 			con = ds.getConnection();
 			switch (code) {
 			case 1: 
-				String sql1 = "INSERT INTO question VALUES("+htmlcode+", ?)";
+				String sql1 = "INSERT INTO question VALUES("+htmlcode+", ?, ?)";
 				pstmt = con.prepareStatement(sql1);
-				pstmt.setString(1, question.getquestion());
-				
+				pstmt.setString(1, Input_question);
+				pstmt.setInt(2, count);
 				pstmt.executeUpdate();
 				htmlcode++;
 				count++;
 				break;
 			case 2:
-				String sql2 = "INSERT INTO question VALUES("+csscode+", ?)";
+				String sql2 = "INSERT INTO question VALUES("+csscode+", ?, ?)";
 				pstmt = con.prepareStatement(sql2);
-				pstmt.setString(1, question.getquestion());
-				
+				pstmt.setString(1, Input_question);
+				pstmt.setInt(2, count);
 				pstmt.executeUpdate();
 				csscode++;
 				count++;
 				break;
 			case 3:
-				String sql3 = "INSERT INTO question VALUES("+javacode+", ?)";
+				String sql3 = "INSERT INTO question VALUES("+javacode+", ?, ?)";
 				pstmt = con.prepareStatement(sql3);
 				pstmt.setString(1, question.getquestion());
-				
+				pstmt.setInt(2, count);
 				pstmt.executeUpdate();
 				javacode++;
 				count++;
 				break;
 			case 4:
-				String sql4 = "INSERT INTO question VALUES("+jspcode+", ?)";
+				String sql4 = "INSERT INTO question VALUES("+jspcode+", ?, ?)";
 				pstmt = con.prepareStatement(sql4);
 				pstmt.setString(1, question.getquestion());
-				
+				pstmt.setInt(2, count);
 				pstmt.executeUpdate();
 				jspcode++;
 				count++;

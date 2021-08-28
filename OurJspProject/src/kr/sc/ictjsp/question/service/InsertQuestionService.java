@@ -21,7 +21,7 @@ public class InsertQuestionService implements QuestionService {
 			System.out.println("선택한 코드 : " + ecode + "문제 : " + question);
 			QuestionDAO dao = QuestionDAO.getInstance();
 			
-			int result = dao.InsertQuestion(ecode);
+			int result = dao.InsertQuestion(ecode, question);
 
 			if (result == 1) {
 				System.out.println("문제 생성 완료");
