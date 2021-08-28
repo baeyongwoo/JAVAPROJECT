@@ -21,6 +21,8 @@ import kr.sc.ictjsp.question.service.SelectQuestionService;
 import kr.sc.ictjsp.solve.service.CheckService;
 import kr.sc.ictjsp.solve.service.InsertSolveService;
 import kr.sc.ictjsp.solve.service.SolveService;
+import kr.sc.ictjsp.test.service.InsertTestService;
+import kr.sc.ictjsp.test.service.TestService;
 import kr.sc.ictjsp.users.service.BUserService;
 import kr.sc.ictjsp.users.service.UserDeleteService;
 import kr.sc.ictjsp.users.service.UserGetinfoService;
@@ -79,8 +81,7 @@ public class Controller extends HttpServlet {
 	protected void deRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//businessUserService
 		BUserService busv = null;
-		QuestionService qs = null;
-		CorrectService cs = null;
+		TestService tsv = null;
 		SolveService ss = null;
 		
 		
@@ -112,6 +113,7 @@ public class Controller extends HttpServlet {
 			busv = new UserLoginService();
 			busv.execute(request, response);
 			
+			
 			String check = (String)session.getAttribute("l_f");
 			if(check != null && check.equals("fail")) {
 				session.invalidate();
@@ -119,6 +121,7 @@ public class Controller extends HttpServlet {
 			}else {
 				//System.out.println("이름 세션 : " +  );
 				ui = "/UserView/login_success.jsp";
+				
 			}
 			
 		}else if(uri.equals("/OurJspProject/logout.use")) {
@@ -136,6 +139,7 @@ public class Controller extends HttpServlet {
 			busv.execute(request, response);
 			
 			ui = "/UserView/login_form.jsp";
+			
 			
 		}else if(uri.equals("/OurJspProject/delete.use")) {
 			System.out.println("현재  사용자 페이지 : " + uri);
@@ -158,19 +162,20 @@ public class Controller extends HttpServlet {
 			System.out.println("회원 정보 보기 요청");
 			busv = new UserGetinfoService();
 			busv.execute(request, response);
+			
+			ui = "/UserView/getinfo_view.jsp";
 		}
+		
 		//문제 출제
 		
 		else if(uri.equals("/OurJspProject/Test.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("문제 출제 페이지");
-			qs = new InsertQuestionService();
-			qs.execute(request, response);
-			cs = new InsertCorrect();
-			cs.execute(request, response);
+			tsv = new InsertTestService();
+			tsv.execute(request, response);
 
 			ui = "/TEST/question_list.jsp";
-		}
+		} /*
 		else if(uri.equals("/OurJspProject/q_list.use")) {
 			System.out.println("현재사용자 페이지 : " + uri);
 			System.out.println("현재 등록된 문제 페이지");
@@ -210,7 +215,7 @@ public class Controller extends HttpServlet {
 			
 			qs.execute(request, response);
 			
-		} 
+		} */
 		else {
 			System.out.println("잘못된 페이지");
 		}

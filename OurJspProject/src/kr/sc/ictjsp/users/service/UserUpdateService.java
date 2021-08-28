@@ -21,7 +21,6 @@ public class UserUpdateService implements BUserService{
 			String upw = (String) request.getParameter("upw");
 			String uemail = (String)request.getParameter("uemail");
 			
-			
 			System.out.println("수정 요청 uid : " + uid + ", upw : " + upw + ", uemail : "+ uemail);
 			
 			usersDAO dao = usersDAO.getInstance();

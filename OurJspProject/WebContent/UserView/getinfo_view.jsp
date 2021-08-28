@@ -20,7 +20,7 @@
 	<div id = "body">
 	<h1>${u_name }의 등급(${u_tier})</h1><!-- NAME과 등급은 DB에서 받아오기 -->
 		<h2>공부해야 할 것</h2>
-		<p>${u_submit }</p><!-- DB에서 받아오기 -->
+		<p>${u_subject}</p><!-- DB에서 받아오기 -->
 	</div>
 	
 	<div id = "footer">
