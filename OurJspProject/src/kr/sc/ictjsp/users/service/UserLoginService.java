@@ -48,7 +48,7 @@ public class UserLoginService implements BUserService{
 				System.out.println(user.getUid() + "의 정보 : " + user);
 				
 				
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 				
 				String time = formatter.format(session.getCreationTime());
 				request.setAttribute("login", time);

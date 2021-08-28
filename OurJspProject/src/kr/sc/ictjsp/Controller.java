@@ -21,7 +21,6 @@ import kr.sc.ictjsp.question.service.SelectQuestionService;
 import kr.sc.ictjsp.solve.service.CheckService;
 import kr.sc.ictjsp.solve.service.InsertSolveService;
 import kr.sc.ictjsp.solve.service.SolveService;
-import kr.sc.ictjsp.solve.service.SolvedWhetherService;
 import kr.sc.ictjsp.users.service.BUserService;
 import kr.sc.ictjsp.users.service.UserDeleteService;
 import kr.sc.ictjsp.users.service.UserGetinfoService;
@@ -136,7 +135,7 @@ public class Controller extends HttpServlet {
 			busv = new UserUpdateService();
 			busv.execute(request, response);
 			
-			ui = "/UserView/update_form.jsp";
+			ui = "/UserView/login_form.jsp";
 			
 		}else if(uri.equals("/OurJspProject/delete.use")) {
 			System.out.println("현재  사용자 페이지 : " + uri);
@@ -162,7 +161,7 @@ public class Controller extends HttpServlet {
 		}
 		//문제 출제
 		
-		else if(uri.equals("/OurJspProject/questions.use")) {
+		else if(uri.equals("/OurJspProject/Test.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("문제 출제 페이지");
 			qs = new InsertQuestionService();

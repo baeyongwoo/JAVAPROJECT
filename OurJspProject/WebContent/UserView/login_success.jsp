@@ -69,7 +69,7 @@ div>h3{color: blue;
 </head>
 <body>
 	<div id="header" align="right">
-		<a href="/OurJspProject/update.use"><button>회원정보수정</button></a>
+		<a href="/OurJspProject/UserView/update_form.jsp"><button>회원정보수정</button></a>
 		<a href="/OurJspProject/logout.use"><button>로그아웃</button></a>
 			
 	</div>
@@ -95,7 +95,7 @@ div>h3{color: blue;
 		</div>
 		<div class="center" align="center">
 		<p>
-			<a href="http://localhost:8181/OurJspProject/UserView/getinfo_form.jsp">
+			<a href="/OurJspProject/getinfo.use">
 				<button>내 정보 보기</button> </a> <br />
 				<img src="../UserImage/mytier.jpg"/><br/>
 		</p>
@@ -106,7 +106,7 @@ div>h3{color: blue;
 		<div class="right" align="right">
 		<h2>공부하러가기</h2>
 		<p>
-			<form action="http://localhost:8181/OurJspProject/StudyView/html_study.jsp" method="post">
+			<form action="/OurJspProject/StudyView/html_study.jsp" method="post">
 			<button class="btn btn-primary" name="subject" value="1">HTML 공부 게시판</button><br/><br/><br/>
 			</form>
 		</div>

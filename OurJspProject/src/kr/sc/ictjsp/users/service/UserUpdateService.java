@@ -37,6 +37,7 @@ public class UserUpdateService implements BUserService{
 			
 			if(result == 1) {
 				System.out.println("회원정보 수정완료");
+				//session.invalidate();
 			} else if(result == 0) {
 				System.out.println("회원정보 수정실패");
 			}

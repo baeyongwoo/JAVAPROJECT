@@ -15,7 +15,7 @@ public class UserLogoutService implements BUserService{
 		HttpSession session = request.getSession();
 				
 		//(HttpSession) request.getAttribute("login_start");
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String time = formatter.format(session.getLastAccessedTime());
 		request.setAttribute("logout", time);
 		System.out.println("로그아웃 시간 : " + time);

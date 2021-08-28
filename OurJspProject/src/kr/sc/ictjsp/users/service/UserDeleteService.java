@@ -10,17 +10,20 @@ import kr.sc.ictjsp.users.model.usersVO;
 public class UserDeleteService implements BUserService{
 	
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		/*
+		
 		try {
 		
 		String uid = (String)request.getParameter("id");
 		String upw = (String)request.getParameter("pw");
 		
+		System.out.println("삭제할 id : " + uid + "비밀번호 확인 : " + upw);
 		HttpSession session = null;
 		session = request.getSession();
 		
 		usersDAO dao = usersDAO.getInstance();
 		usersVO user = new usersVO();
+		user.setUid(uid);
+		user.setUpw(upw);
 		
 		int result = dao.usersDelete(user, upw);
 		
@@ -34,7 +37,7 @@ public class UserDeleteService implements BUserService{
 		
 		}catch(Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 }
