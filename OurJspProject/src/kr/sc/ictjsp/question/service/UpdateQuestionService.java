@@ -7,7 +7,13 @@ public class UpdateQuestionService implements QuestionService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
-		//String
+		try {
+			request.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("utf-8");
+			
+			
+		}
+		
 	}
 
 }

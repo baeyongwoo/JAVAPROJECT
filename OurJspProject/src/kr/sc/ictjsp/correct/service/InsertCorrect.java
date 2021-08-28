@@ -20,10 +20,7 @@ public class InsertCorrect implements CorrectService {
 
 			System.out.println("선택한 코드 : " + ccode + "정답 : " + correct);
 			CorrectDAO dao = CorrectDAO.getInstance();
-			CorrectVO Input_correct = new CorrectVO(ccode, correct);
-
-			int result = dao.InsertCorrect(Input_correct, ccode);
-
+			
 			if (result == 1) {
 				System.out.println("답안지 생성 완료");
 			} else if(result == 0){
