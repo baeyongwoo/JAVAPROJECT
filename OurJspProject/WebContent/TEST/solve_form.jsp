@@ -25,8 +25,9 @@
 
 		<form action="/OurJspProject/submit.use" method="post">
 			<div class="row">
-				<h4 class="text-warning text-center">
-					<input type="text" name="qcode" value="${question.qcode}"
+					<h4 class="text-warning text-center">
+									문제코드<br/>
+					<input class = "text-center" type="text" name="qcode" value="${question.qcode}"
 						readonly="readonly">
 				</h4>
 			</div>
@@ -34,10 +35,9 @@
 			<div class="row">
 				<h2 class="text-info text-center">문제내용</h2>
 			</div>
-			<br />
 			<div class="row">
 				<h3 class="text-info text-center">
-					<input type="text" name="question" value="${question.question}"
+					<input class = "text-center" type="text" name="question" value="${question.question}"
 						readonly="readonly">
 				</h3>
 			</div>
