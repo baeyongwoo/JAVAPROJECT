@@ -21,6 +21,7 @@ import kr.sc.ictjsp.question.service.SelectQuestionService;
 import kr.sc.ictjsp.solve.service.CheckService;
 import kr.sc.ictjsp.solve.service.InsertSolveService;
 import kr.sc.ictjsp.solve.service.SolveService;
+import kr.sc.ictjsp.solve.service.SolvedWhetherService;
 import kr.sc.ictjsp.users.service.BUserService;
 import kr.sc.ictjsp.users.service.UserDeleteService;
 import kr.sc.ictjsp.users.service.UserGetinfoService;
@@ -195,9 +196,12 @@ public class Controller extends HttpServlet {
 			
 			ss.execute(request, response);
 			
-		} else if(uri.equals("/OurJspProject/submit.use")) {
+		} else if(uri.equals("/OurJspProject/submit.use")) {		
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 후 페이지");
+			ss = new SolvedWhetherService(); // 문제 푼 여부 비교 return 1 풀었음
+			ss.execute(request, response);
+			System.out.println(ss + "서비스체크");
 			qs = new ListQuestionService();
 			qs.execute(request, response);
 			
@@ -205,7 +209,6 @@ public class Controller extends HttpServlet {
 			ss.execute(request, response);
 			System.out.println("답안 정답 체크 페이지");
 			
-			//ss = 
 			ui = "/TEST/checkok.jsp";
 			
 			qs.execute(request, response);

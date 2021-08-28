@@ -3,6 +3,7 @@ package kr.sc.ictjsp.solve.model;
 import javax.naming.*;
 import javax.sql.*;
 
+import kr.sc.ictjsp.question.model.QuestionVO;
 import kr.sc.ictjsp.users.model.usersVO;
 
 import java.sql.*;
@@ -69,14 +70,15 @@ public class SolveDAO {
 	
 	//정답 확인 메서드
 	
-	public int PointUp(int qcode, String solve, int point) {
+	public int PointUp(int qcode, String solve) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		usersVO users = new usersVO();
+		usersVO users = new usersVO();		
 		
 		int upoint = users.getUpoint();
+		String dbCorrect = null;
 		
 		try {
 			con = ds.getConnection();
@@ -86,12 +88,10 @@ public class SolveDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qcode);
 			
-			pstmt.execute();
+			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				String dbAnswer = rs.getString("gAnswer");
-				String dbCorrect = rs.getString("gCorrect");
-				
-				if(dbAnswer == dbCorrect) { // 사용자가 푼 문제의 정답과 주어진 문제의 정답 비교
+				dbCorrect = rs.getString("correct");
+				if(solve == dbCorrect) { // 사용자가 푼 문제의 정답과 주어진 문제의 정답 비교
 						upoint++;
 					}
 				}
@@ -115,9 +115,36 @@ public class SolveDAO {
 		}
 		return upoint;
 		
-	}
-} // end SolveAnswer
+	}// end SolveAnswer
 	
-//	public int SolvedWhether()
-//	
-//}
+	public int SolvedWhether(int USNum) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int Whether = 0;
+		
+		try {
+			con = ds.getConnection();
+			
+			String sql = "SELECT ? in (SELECT qcode from question where qcode = ?) as whether";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, USNum);
+			pstmt.setInt(2, USNum);
+			
+			rs = pstmt.executeQuery();
+			Whether = rs.getInt("whether");
+			if(rs.next()) {
+				if(Whether==1) {
+					System.out.println("푼 적이 있는 문제입니다.");
+					System.out.println("포인트는 중복되서 쌓이지 않습니다.");
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return Whether;
+	}
+
+} 

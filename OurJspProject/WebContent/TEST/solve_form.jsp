@@ -23,7 +23,7 @@
 			<h1 class="text-primary text-center">문제풀기 페이지</h1>
 		</div>
 
-		<form action="/OurJspProject/solve.use" method="post">
+		<form action="/OurJspProject/submit.use" method="post">
 			<div class="row">
 				<h4 class="text-warning text-center">
 					<input type="text" name="qcode" value="${question.qcode}"

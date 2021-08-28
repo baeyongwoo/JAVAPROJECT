@@ -20,7 +20,7 @@ public class QuestionDAO {
 	private int csscode = 2000;
 	private int javacode = 3000;
 	private int jspcode = 4000;
-	
+
 	private QuestionDAO() {
 		
 		try {
@@ -41,54 +41,41 @@ public class QuestionDAO {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		QuestionVO question = new QuestionVO();
-		
-		int count = question.getQtcount();
-		
-		System.out.println("");
+		QuestionVO question = new QuestionVO();	
 		
 		try {
 			con = ds.getConnection();
 			switch (code) {
 			case 1: 
-				String sql1 = "INSERT INTO question VALUES("+htmlcode+", ?, ?)";
+				String sql1 = "INSERT INTO question VALUES("+htmlcode+", ?)";
 				pstmt = con.prepareStatement(sql1);
 				pstmt.setString(1, Input_question);
-				pstmt.setInt(2, count);
 				pstmt.executeUpdate();
 				htmlcode++;
-				count++;
 				break;
 			case 2:
-				String sql2 = "INSERT INTO question VALUES("+csscode+", ?, ?)";
+				String sql2 = "INSERT INTO question VALUES("+csscode+", ?)";
 				pstmt = con.prepareStatement(sql2);
 				pstmt.setString(1, Input_question);
-				pstmt.setInt(2, count);
 				pstmt.executeUpdate();
 				csscode++;
-				count++;
 				break;
 			case 3:
-				String sql3 = "INSERT INTO question VALUES("+javacode+", ?, ?)";
+				String sql3 = "INSERT INTO question VALUES("+javacode+", ?)";
 				pstmt = con.prepareStatement(sql3);
 				pstmt.setString(1, question.getquestion());
-				pstmt.setInt(2, count);
 				pstmt.executeUpdate();
 				javacode++;
-				count++;
 				break;
 			case 4:
-				String sql4 = "INSERT INTO question VALUES("+jspcode+", ?, ?)";
+				String sql4 = "INSERT INTO question VALUES("+jspcode+", ?)";
 				pstmt = con.prepareStatement(sql4);
 				pstmt.setString(1, question.getquestion());
-				pstmt.setInt(2, count);
 				pstmt.executeUpdate();
 				jspcode++;
-				count++;
 				break;
 			}	
-			return INSERT_Q_SUCCESS;
-			
+				
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -215,10 +202,7 @@ public class QuestionDAO {
 		}
 		return QList;
 	} // end QuestionGetInfo
-	
-	
-	
-	
+		
 	public QuestionVO Getquestion(String qcode) {
 		
 		QuestionVO question = new QuestionVO();
@@ -260,23 +244,22 @@ public class QuestionDAO {
 		
 	} // end Getquestion
 	
-	public QuestionVO CountTquestion(String question) {
+	public int CountTQuestion() {
 		
-		QuestionVO countquestion = new QuestionVO();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		int qtcount = 0;
 		
 		try {
+			
 			con = ds.getConnection();
-			String sql = "SELECT COUNT(?) as cnt FROM question";
+			String sql = "SELECT COUNT(qcode) as qtcount from question";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, question);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				countquestion.setquestion(question);
-				countquestion = CountTquestion(question);
+				qtcount = rs.getInt("qtcount");				
 			}
 			
 		} catch (SQLException e) {
@@ -296,6 +279,6 @@ public class QuestionDAO {
 				e.printStackTrace();
 			}
 		}
-		return countquestion;
-	} // end CountTquestion
+		return qtcount;
+	} 
 }
