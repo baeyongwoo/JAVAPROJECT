@@ -1,15 +1,14 @@
 package kr.sc.ictjsp.solve.service;
 
-import java.sql.Timestamp;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.sc.ictjsp.question.model.QuestionDAO;
-import kr.sc.ictjsp.question.model.QuestionVO;
+
 import kr.sc.ictjsp.solve.model.SolveDAO;
 import kr.sc.ictjsp.solve.model.SolveVO;
+import kr.sc.ictjsp.test.model.TestDAO;
+import kr.sc.ictjsp.test.model.TestVO;
 
 
 public class InsertSolveService implements SolveService{
@@ -19,12 +18,11 @@ public class InsertSolveService implements SolveService{
 		session = request.getSession();
 		
 		String code = (String)request.getParameter("qcode");
-		String requestion = (String)request.getParameter("question");
 		String answer = (String)request.getParameter("answer");
 		
-		QuestionDAO dao = QuestionDAO.getInstance();
-		QuestionVO question = new QuestionVO();
-		question = dao.Getquestion(code);
+		TestDAO dao = TestDAO.getInstance();
+		TestVO question = new TestVO();
+		question = dao.GetTest(code);
 		
 		request.setAttribute("question", question);
 		

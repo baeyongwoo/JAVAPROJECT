@@ -17,12 +17,12 @@ public class InsertTestService implements TestService {
 			String subjectcode = (String) request.getParameter("subject");
 			String question = (String) request.getParameter("question");
 			String correct = (String) request.getParameter("correct");
-			String qsuser = (String) request.getParameter("qsuser");
+//			String qsuser = (String) request.getParameter("qsuser");
 			int tcode = Integer.parseInt(subjectcode);
 			
 			System.out.println("선택한 코드 : " + tcode + "문제 : " + question + "정답 : " + correct);
 			TestDAO dao = TestDAO.getInstance();
-			int result = dao.InsertTest(tcode, question, correct, qsuser);
+			int result = dao.InsertTest(tcode, question, correct);
 			
 			if(result == 1) {
 				System.out.println("문제 생성 완료");

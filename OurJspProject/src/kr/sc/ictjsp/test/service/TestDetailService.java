@@ -1,20 +1,20 @@
-package kr.sc.ictjsp.question.service;
+package kr.sc.ictjsp.test.service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.sc.ictjsp.question.model.QuestionDAO;
-import kr.sc.ictjsp.question.model.QuestionVO;
+import kr.sc.ictjsp.test.model.TestDAO;
+import kr.sc.ictjsp.test.model.TestVO;
 
-public class QuestionDetailService implements QuestionService{
+public class TestDetailService implements TestService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String code = request.getParameter("qcode");
 		//int icode = Integer.parseInt(code);
 		
-		QuestionDAO dao = QuestionDAO.getInstance();
+		TestDAO dao = TestDAO.getInstance();
 		
-		QuestionVO question = dao.Getquestion(code);
+		TestVO question = dao.GetTest(code);
 		
 		request.setAttribute("question", question);
 		

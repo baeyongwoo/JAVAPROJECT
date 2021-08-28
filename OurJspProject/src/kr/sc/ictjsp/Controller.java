@@ -11,16 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.sc.ictjsp.correct.service.CorrectService;
-import kr.sc.ictjsp.correct.service.InsertCorrect;
-import kr.sc.ictjsp.question.service.InsertQuestionService;
-import kr.sc.ictjsp.question.service.ListQuestionService;
-import kr.sc.ictjsp.question.service.QuestionDetailService;
-import kr.sc.ictjsp.question.service.QuestionService;
-import kr.sc.ictjsp.question.service.SelectQuestionService;
 import kr.sc.ictjsp.solve.service.CheckService;
 import kr.sc.ictjsp.solve.service.InsertSolveService;
 import kr.sc.ictjsp.solve.service.SolveService;
+import kr.sc.ictjsp.test.service.InsertTestService;
+import kr.sc.ictjsp.test.service.ListTestService;
+import kr.sc.ictjsp.test.service.TestDetailService;
+import kr.sc.ictjsp.test.service.TestService;
 import kr.sc.ictjsp.users.service.BUserService;
 import kr.sc.ictjsp.users.service.UserDeleteService;
 import kr.sc.ictjsp.users.service.UserGetinfoService;
@@ -79,8 +76,7 @@ public class Controller extends HttpServlet {
 	protected void deRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//businessUserService
 		BUserService busv = null;
-		QuestionService qs = null;
-		CorrectService cs = null;
+		TestService ts = null;
 		SolveService ss = null;
 		
 		
@@ -164,25 +160,23 @@ public class Controller extends HttpServlet {
 		else if(uri.equals("/OurJspProject/Test.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("문제 출제 페이지");
-			qs = new InsertQuestionService();
-			qs.execute(request, response);
-			cs = new InsertCorrect();
-			cs.execute(request, response);
+			ts = new InsertTestService();
+			ts.execute(request, response);
 
 			ui = "/TEST/question_list.jsp";
 		}
 		else if(uri.equals("/OurJspProject/q_list.use")) {
 			System.out.println("현재사용자 페이지 : " + uri);
 			System.out.println("현재 등록된 문제 페이지");
-			qs = new ListQuestionService();
-			qs.execute(request, response);
+			ts = new ListTestService();
+			ts.execute(request, response);
 			ui = "/TEST/question_list.jsp";
 			
-		} else if(uri.equals("/OurJspProject/question_detail.use")) {
+		} else if(uri.equals("/OurJspProject/Test_detail.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("현재 문제 상세보기 페이지");
-			qs = new QuestionDetailService();
-			qs.execute(request, response);
+			ts = new TestDetailService();
+			ts.execute(request, response);
 			ui = "/TEST/question_detail.jsp";
 			
 		} else if(uri.equals("/OurJspProject/solve_form.use")) {
@@ -198,8 +192,8 @@ public class Controller extends HttpServlet {
 		} else if(uri.equals("/OurJspProject/submit.use")) {		
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 후 페이지");																	 
-			qs = new ListQuestionService();
-			qs.execute(request, response);
+			ts = new ListTestService();
+			ts.execute(request, response);
 			
 			ss = new CheckService(); // CheckService내에서 정답비교 및 포인트 계산 
 								 	 // 완료 후 다음 서비스 진행
@@ -208,7 +202,7 @@ public class Controller extends HttpServlet {
 			
 			ui = "/TEST/checkok.jsp";
 			
-			qs.execute(request, response);
+			ts.execute(request, response);
 			
 		} 
 		else {

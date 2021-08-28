@@ -3,9 +3,6 @@ package kr.sc.ictjsp.tier.model;
 import javax.naming.*;
 import javax.sql.*;
 
-import kr.sc.ictjsp.question.model.QuestionVO;
-import kr.sc.ictjsp.users.model.usersVO;
-
 import java.sql.*;
 public class TierDAO {
 	
