@@ -25,8 +25,8 @@ a{color: green;
 	<h2>아진짜형누나언니오빠삼촌이모왜그래그냥공부같이하자쫌!!!!!!!</h2>
 	<p class="a">그래도 갈거면 아래 입력하던가...</p>
 	<form action ="/OurJspProject/delete.use" method="post">
-	<input type="text" name="id" placeholder="${user.id}" readonly="readonly"/><br/><br/>
-	<input type="password" name="id" placeholder="비밀번호쓰면 우린 끝난거야"><br/><br/>
+	<input type="text" name="id" value="${u_id }" readonly="readonly"/><br/><br/>
+	<input type="password" name="pw" placeholder="비밀번호쓰면 우린 끝난거야"><br/><br/>
 	<input type="submit" value="회원탈퇴">
 	</form>
 	</div>
