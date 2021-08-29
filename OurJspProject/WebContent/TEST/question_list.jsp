@@ -32,15 +32,13 @@ td {
 		<table>
 			<tr>
 				<th width="80px">문제번호</th>
-				<th width="50px">
-					<form action="/OurJspProject/T_detail.use" method="post">
+				<th width="70px">문제유형
 						<select name="select">
-							<option value="all">html</option>
-							<option value="notice">css</option>
-							<option value="study">java</option>
-							<option value="qna">jsp</option>
+							<option value="html">html</option>
+							<option value="css">css</option>
+							<option value="java">java</option>
+							<option value="jsp">jsp</option>
 						</select>
-					</form>
 				</th>
 				<th width="600px">문제 미리보기</th>
 			</tr>
