@@ -15,6 +15,10 @@ public class SolveDAO {
 	
 	private final int INSERT_S_SUCCESS = 1;
 	private final int INSERT_S_FAIL = 0;
+	private final int SUCCESS = 1;
+	private final int FAIL = 0;
+	
+	
 	
 	private SolveDAO() {
 		
@@ -86,34 +90,37 @@ public class SolveDAO {
 			}
 	}// end SolveAnswer
 	
-	public int SolvedWhether(int USNum) {
+	public int SolvedWhether(usersVO user, int tcode) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int Whether = 0;
 		
+		
 		try {
 			con = ds.getConnection();
 			
-			String sql = "SELECT ? in (SELECT tcode from test where tcode = ?) as whether";
+			String sql = "SELECT ? in(SELECT tcode from solve where suser= ?) as whether";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, USNum);
-			pstmt.setInt(2, USNum);
+			pstmt.setInt(1, tcode);
+			pstmt.setString(2, user.getUid());
 			
 			rs = pstmt.executeQuery();
-//			Whether = rs.getInt("whether");
 			if(rs.next()) {
+				Whether = rs.getInt("whether");
+				System.out.println(Whether);
 				if(Whether==1) {
 					System.out.println("푼 적이 있는 문제입니다.");
 					System.out.println("포인트는 중복되서 쌓이지 않습니다.");
+					return FAIL;//중복될떄 0리턴
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return Whether;
+		return SUCCESS;
 	}
 
 } 

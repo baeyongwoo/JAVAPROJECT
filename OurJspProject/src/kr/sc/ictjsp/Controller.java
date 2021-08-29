@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import kr.sc.ictjsp.solve.service.CheckService;
 import kr.sc.ictjsp.solve.service.InsertSolveService;
 import kr.sc.ictjsp.solve.service.SolveService;
-import kr.sc.ictjsp.solve.service.SolvedWhetherService;
 import kr.sc.ictjsp.test.service.InsertTestService;
 import kr.sc.ictjsp.test.service.ListTestService;
 import kr.sc.ictjsp.test.service.TestDetailService;
@@ -211,8 +210,8 @@ public class Controller extends HttpServlet {
 								 	 // 완료 후 다음 서비스 진행
 			ss.execute(request, response);
 			
-			ss = new SolvedWhetherService();
-			ss.execute(request, response);
+//			ss = new SolvedWhetherService();
+//			ss.execute(request, response);
 			
 			ui = "/T_list.use";
 		} 

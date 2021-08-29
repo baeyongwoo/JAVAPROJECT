@@ -376,5 +376,38 @@ public class usersDAO {
 		}
 		return usersData;
 	} // end getUserInfo
+public int updatepoint(usersVO user) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			con = ds.getConnection();
+			
+			String sql = "UPDATE users set upoint=? WHERE uid = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, user.getUpoint());
+			pstmt.setString(2, user.getUid());
+			
+			pstmt.executeUpdate();
+			return UPDATE_SUCCESS;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con != null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return UPDATE_FAIL;
+	} //updatepointend
 	
 }
