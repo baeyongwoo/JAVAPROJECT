@@ -3,6 +3,7 @@ package kr.sc.ictjsp.solve.model;
 import javax.naming.*;
 import javax.sql.*;
 
+import kr.sc.ictjsp.test.model.TestDAO;
 import kr.sc.ictjsp.test.model.TestVO;
 import kr.sc.ictjsp.users.model.usersVO;
 
@@ -71,53 +72,18 @@ public class SolveDAO {
 	
 	//정답 확인 메서드
 	
-	public int Check(int Tcode, String solve) {
+	public int Check(TestVO test, String solve) {
+	
+		System.out.println("service에서 받아온 test" + test);
+		System.out.println("문제 코드 " + test.getTcode() + "에 대한 정답 입력한 것" + solve);
+		System.out.println("정답 : " + test.getCorrect());
 
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;		
-		TestVO correct = new TestVO();
-						
-		String dbCorrect = null;
-		
-		try {
-			con = ds.getConnection();
-			
-			String sql = "SELECT tcode, solve from test where tcode = ?";
-
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Tcode);
-			
-			System.out.println("정답 입력한 것" + solve);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				dbCorrect = correct.getCorrect();
-				if(solve == dbCorrect) { // 사용자가 푼 문제의 정답과 주어진 문제의 정답 비교
-					return 1;
-				} else {
-					return 0;
-				}
+			if(solve.equals(test.getCorrect())) {
+				return 1;	//정답
+				
+			}else {
+				return 0;
 			}
-			
-		}catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(con != null && !con.isClosed()) {
-					con.close();
-				}
-				if(pstmt != null && !pstmt.isClosed()) {
-					pstmt.close();
-				}
-				if(rs != null && !rs.isClosed()) {
-					rs.close();
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return 0;
-		
 	}// end SolveAnswer
 	
 	public int SolvedWhether(int USNum) {
@@ -130,7 +96,7 @@ public class SolveDAO {
 		try {
 			con = ds.getConnection();
 			
-			String sql = "SELECT ? in (SELECT qcode from question where qcode = ?) as whether";
+			String sql = "SELECT ? in (SELECT tcode from test where tcode = ?) as whether";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, USNum);

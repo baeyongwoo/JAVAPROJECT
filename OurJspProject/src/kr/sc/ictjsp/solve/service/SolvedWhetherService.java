@@ -10,7 +10,7 @@ public class SolvedWhetherService implements SolveService {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		String UserSNum = (String)request.getParameter("qcode");
+		String UserSNum = (String)request.getParameter("tcode");
 		int USNum = Integer.parseInt(UserSNum);
 		
 		SolveDAO dao = SolveDAO.getInstance();

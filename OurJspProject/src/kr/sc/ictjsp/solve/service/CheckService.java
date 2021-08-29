@@ -3,6 +3,8 @@ package kr.sc.ictjsp.solve.service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import kr.sc.ictjsp.solve.model.SolveDAO;
+import kr.sc.ictjsp.test.model.TestDAO;
+import kr.sc.ictjsp.test.model.TestVO;
 
 
 public class CheckService implements SolveService{
@@ -20,10 +22,18 @@ public class CheckService implements SolveService{
 			
 			SolveDAO sdao = SolveDAO.getInstance();
 		
-			int result = sdao.Check(Tcode, solve);
+			TestDAO dao = TestDAO.getInstance();
+			TestVO test = new TestVO();
+			test = dao.GetTest(code);
+			
+			request.setAttribute("question", test);
+			
+			System.out.println(code + "에 대한 문제" + test);
+			
+			int result = sdao.Check(test, solve);
 			if(result==1) {
 				System.out.println("정답입니다.");
-				
+				sdao.SolvedWhether(Tcode);
 			}else {
 				System.out.println("정답이 아닙니다.");
 			}
