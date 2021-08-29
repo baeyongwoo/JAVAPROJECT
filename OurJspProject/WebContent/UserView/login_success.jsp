@@ -82,9 +82,9 @@ div>h3{color: blue;
 		
 		<div class="content">
 		<div class="left" align="left">
-			<c:set var="uname" value="${u_name}" scope="session"/>
+			
 
-			<h2>${uname} 환영합니다</h2>
+			<h2>${u_ids} 환영합니다</h2>
 			
 			<form action ="/OurJspProject/T_list.use" method="post">
 			<button class="btn btn-primary" name="subject">문제리스트 가기</button><br/><br/><br/>
@@ -116,9 +116,7 @@ div>h3{color: blue;
 
 	</div>	<!-- body -->
 	<div id="footer">
-
-			<c:if test="${uname eq ('test' or 'test1' or 'test2')}">
-			
+	
 			<h3>문제 출제하기</h3>
 				<p>	문제유형 선택 :</p> 
 				<form action="/OurJspProject/Test.use" method="post">
@@ -129,13 +127,11 @@ div>h3{color: blue;
 
 				<input type="text" name="question" placeholder="문제를 입력하세요"><br/>
 				<input type="text" name="correct" placeholder="답을 입력하세요"><br/>
-				<input type="hidden" name ="tuser" value="${ }"> 
 				<input type="submit" value="문제출제">
 			</form>
 			
-			</c:if>
-	
 			
+		
 	</div>
 </body>
 </html>

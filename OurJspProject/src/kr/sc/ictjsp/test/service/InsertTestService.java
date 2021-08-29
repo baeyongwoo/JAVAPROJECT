@@ -24,7 +24,7 @@ public class InsertTestService implements TestService {
 			System.out.println("선택한 코드 : " + tcode + "문제 : " + question + "정답 : " + correct);
 			TestDAO dao = TestDAO.getInstance();
 			TestVO quser = new TestVO();	//quser 출제자
-			quser.set
+			//quser.set
 			
 			int result = dao.InsertTest(tcode, question, correct);
 			

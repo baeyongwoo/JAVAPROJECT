@@ -45,7 +45,7 @@
 					<input type="hidden" name="tcode" value="${question.tcode}">
 					<input type="text" name="solve" placeholder="답을 입력하세요">
 					<input type="hidden" name="suser" value="${u_id}">
-					<input type="submit" value="풀기">
+					<input type="submit" value="답안제출">
 				</form>
 			</td>
 		</tr>
