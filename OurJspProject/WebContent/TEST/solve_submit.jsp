@@ -11,6 +11,7 @@
 	<form action="/OurJspProject/check.use" method="post">
 		<input type="hidden" name="code" value="${solve_code}">
 		<input type="hidden" name="solve" value="${solve_solve}">
+		<input type="hidden" name="suser" value="${solve_user}">
 		<input type="submit" value="정답확인">
 		<a href="/OurJspProject/T_list.use">돌아가기</a>	
 	</form>
