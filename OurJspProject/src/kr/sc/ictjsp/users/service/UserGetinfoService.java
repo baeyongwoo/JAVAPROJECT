@@ -16,7 +16,7 @@ public class UserGetinfoService implements BUserService {
 		usersVO user = new usersVO();
 		
 		HttpSession session = request.getSession();
-		String uid = (String)session.getAttribute("u_id");
+		String uid = (String)session.getAttribute("u_ids");
 		
 		user.setUid(uid);
 		

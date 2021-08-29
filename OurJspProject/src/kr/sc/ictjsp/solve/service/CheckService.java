@@ -10,8 +10,8 @@ public class CheckService implements SolveService{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		//정답 체크해주는 서비스
 		try {
-			String code = (String)request.getParameter("qcode");
-			String solve =(String)request.getParameter("answer");
+			String code = (String)request.getParameter("code");
+			String solve =(String)request.getParameter("solve");
 			
 			int Tcode = Integer.parseInt(code);
 			
@@ -20,10 +20,16 @@ public class CheckService implements SolveService{
 			
 			SolveDAO sdao = SolveDAO.getInstance();
 		
-			sdao.Check(Tcode, solve);
+			int result = sdao.Check(Tcode, solve);
+			if(result==1) {
+				System.out.println("정답입니다.");
+				
+			}else {
+				System.out.println("정답이 아닙니다.");
+			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 

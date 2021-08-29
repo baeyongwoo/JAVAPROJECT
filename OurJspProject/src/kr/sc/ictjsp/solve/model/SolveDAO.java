@@ -83,11 +83,12 @@ public class SolveDAO {
 		try {
 			con = ds.getConnection();
 			
-			String sql = "SELECT qcode, answer from solve where qcode = ?";
+			String sql = "SELECT tcode, solve from test where tcode = ?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, Tcode);
 			
+			System.out.println("정답 입력한 것" + solve);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				dbCorrect = correct.getCorrect();

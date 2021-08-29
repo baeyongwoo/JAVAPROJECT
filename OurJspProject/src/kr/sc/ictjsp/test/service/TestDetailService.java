@@ -27,11 +27,15 @@ public class TestDetailService implements TestService {
 
 		usersDAO udao = usersDAO.getInstance();
 		usersVO user = new usersVO();
-
+		
 		HttpSession session = request.getSession();
-		String uid = (String) session.getAttribute("u_id");
-
+		String uid = (String)session.getAttribute("u_ids");
+		
 		user.setUid(uid);
+		
+		user = udao.usergetinfo(user);
+		
+		System.out.println("현재 로그인한 user의 정보 " + user);
 
 		request.setAttribute("u_id", user.getUid());
 		System.out.println("유저 아이디 : " + user.getUid());

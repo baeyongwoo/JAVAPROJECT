@@ -191,31 +191,27 @@ public class Controller extends HttpServlet {
 			ui = "/TEST/question_detail.jsp";
 			
 		} 
-		else if(uri.equals("/OurJspProject/check.use")) {
+		else if(uri.equals("/OurJspProject/submit.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 페이지");
 			ss = new InsertSolveService();
 			
-			ui = "/TEST/checkok.jsp";
+			ui = "/TEST/solve_submit.jsp";
 			
 			ss.execute(request, response);
 			
-		} /*else if(uri.equals("/OurJspProject/submit.use")) {		
+		}else if(uri.equals("/OurJspProject/check.use")) {		
 			System.out.println("현재 사용자 페이지 : " + uri);
-			System.out.println("사용자 답안 제출 후 페이지");																	 
-			ts = new ListTestService();
-			ts.execute(request, response);
-			
+			System.out.println("사용자 정답 체크 페이지");																	 
+//			tsv = new ListTestService();
+//			tsv.execute(request, response);
+//			
 			ss = new CheckService(); // CheckService내에서 정답비교 및 포인트 계산 
 								 	 // 완료 후 다음 서비스 진행
 			ss.execute(request, response);
-			System.out.println("답안 정답 체크 페이지");
 			
-			ui = "/TEST/checkok.jsp";
-			
-			ts.execute(request, response);
-			
-		} */
+			ui = "/T_list.use";
+		} 
 		else {
 			System.out.println("잘못된 페이지");
 		}

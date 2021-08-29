@@ -25,7 +25,7 @@ public class InsertSolveService implements SolveService{
 		
 		int tcode = Integer.parseInt(recode);
 		
-		//System.out.println("form에서 입력한 값 " + tcode + rsolve + suser);
+		System.out.println("form에서 입력한 값 " + tcode + rsolve + suser);
 		
 		SolveDAO dao = SolveDAO.getInstance();
 		SolveVO s_user = new SolveVO();
@@ -37,7 +37,10 @@ public class InsertSolveService implements SolveService{
 		
 		if(result == 1) {
 			System.out.println("답안 작성 완료");
-			session.setAttribute("check", s_user);
+			request.setAttribute("solve_code", s_user.getTcode());
+			request.setAttribute("solve_solve", s_user.getSolve());
+			request.setAttribute("solve_user", s_user.getSuer());
+			System.out.println("푼사람 " + s_user.getSuer());
 			
 		} else if(result ==0) {
 			System.out.println("답안 작성 실패");

@@ -129,6 +129,7 @@ div>h3{color: blue;
 
 				<input type="text" name="question" placeholder="문제를 입력하세요"><br/>
 				<input type="text" name="correct" placeholder="답을 입력하세요"><br/>
+				<input type="hidden" name ="tuser" value="${ }"> 
 				<input type="submit" value="문제출제">
 			</form>
 			

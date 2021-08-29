@@ -41,7 +41,7 @@
 		<tr>
 			<td>
 				<!-- 문제 자세히 보고 답안 작성하러 가기 -->
-				<form action="/OurJspProject/check.use" method="post">
+				<form action="/OurJspProject/submit.use" method="post">
 					<input type="hidden" name="tcode" value="${question.tcode}">
 					<input type="text" name="solve" placeholder="답을 입력하세요">
 					<input type="hidden" name="suser" value="${u_id}">

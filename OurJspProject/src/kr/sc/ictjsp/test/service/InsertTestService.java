@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.sc.ictjsp.test.model.TestDAO;
+import kr.sc.ictjsp.test.model.TestVO;
 
 public class InsertTestService implements TestService {
 
@@ -17,11 +18,14 @@ public class InsertTestService implements TestService {
 			String subjectcode = (String) request.getParameter("subject");
 			String question = (String) request.getParameter("question");
 			String correct = (String) request.getParameter("correct");
-//			String qsuser = (String) request.getParameter("qsuser");
+			String tuser = (String) request.getParameter("tuser");
 			int tcode = Integer.parseInt(subjectcode);
 			
 			System.out.println("선택한 코드 : " + tcode + "문제 : " + question + "정답 : " + correct);
 			TestDAO dao = TestDAO.getInstance();
+			TestVO quser = new TestVO();	//quser 출제자
+			quser.set
+			
 			int result = dao.InsertTest(tcode, question, correct);
 			
 			if(result == 1) {

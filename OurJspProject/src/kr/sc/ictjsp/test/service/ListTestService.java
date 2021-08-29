@@ -16,7 +16,6 @@ public class ListTestService implements TestService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
-		HttpSession session = request.getSession();
 		List<TestVO> TList = new ArrayList<>();
 		try {
 			

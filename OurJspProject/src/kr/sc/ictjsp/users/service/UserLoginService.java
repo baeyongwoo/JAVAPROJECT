@@ -34,9 +34,9 @@ public class UserLoginService implements BUserService{
 			
 			if(result == 1) {
 				
-				session.setAttribute("u_id", uid);
-				session.setAttribute("u_pw", upw);
-				session.setAttribute("u_name", dao.getName(uid));
+				session.setAttribute("u_ids", uid);
+				session.setAttribute("u_pws", upw);
+				request.setAttribute("u_id", user.getUid());
 				request.setAttribute("u_name", user.getUname());
 				request.setAttribute("u_email", user.getUemail());
 				request.setAttribute("u_subject", user.getSubject());
