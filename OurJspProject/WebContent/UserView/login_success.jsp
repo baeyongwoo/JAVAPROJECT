@@ -8,11 +8,11 @@
 
 <style>
 body{margin: 50px;}
+header{border-bottom:10px solid red; }
 .name{height: 50px;}
-header{border-bottom:3px solid red; }
-.question{border-top: 3px solid purple;}
-
-
+.question{border-top: 10px solid yellow; padding: 20px;}
+.rmain{height: 100%; margin: 20px;
+		position: relative;}
 </style>
 <meta charset="UTF-8">
 <title>게시판</title>
@@ -33,14 +33,17 @@ header{border-bottom:3px solid red; }
     </div>
     </header>
     <main>
-    <div class="row">
+    <div class="rmain row" >
+       
         <div class="col-md-3 text-center">
+        	<br/><br/><br/><br/><br/><br/>
         <form action ="/OurJspProject/T_list.use" method="post">
 			<h2>테스트하러가기</h2>
 			<button class="btn btn-primary" name="subject">문제리스트 가기</button><br/><br/><br/>
 		</form>
         </div>
-        <div class="col-md-6 text-center">
+        
+        <div class="con2 col-md-6 text-center">
         <h1>${u_name }의 등급 (${u_tier})</h1><!-- NAME과 등급은 DB에서 받아오기 -->
 		<h2>공부해야 할 것</h2>
 		<p>아이디 : ${u_id}</p><!-- DB에서 받아오기 -->
@@ -51,30 +54,37 @@ header{border-bottom:3px solid red; }
 		<p>포인트 : ${u_point}</p>
 		<p>티어 : ${u_tier}</p>
         </div>
+        
         <div class="col-md-3 text-center align-self-center">
+        <br/><br/><br/><br/><br/><br/>
         <h2>공부하러가기</h2>
 			<form action="/OurJspProject/StudyView/html_study.jsp" method="post">
 			<button class="btn btn-primary" name="subject" value="1">HTML 공부 게시판</button><br/><br/><br/>
 			</form>
         </div>
     </div>
+    
+    <c:if test="${u_ids eq 'test'}">
     <div class = "question row">
     	<div class = "col-md-12 text-center">
-    		<h3>문제 출제하기</h3>
-				<p>	문제유형 선택 :</p> 
+    		<h3 class = "text-primary">문제 출제하기</h3>
+				<div>문제유형 선택</div> 
 				<form action="/OurJspProject/Test.use" method="post">
-				html<input type="radio" name ="subject" value="1">
-				css<input type="radio" name ="subject" value="2">
-				java<input type="radio" name ="subject" value="3">
-				jsp<input type="radio" name ="subject" value="4">
+				
+				html<input type="radio" name ="subject" value="1">&nbsp;&nbsp;
+				css<input type="radio" name ="subject" value="2">&nbsp;&nbsp;
+				java<input type="radio" name ="subject" value="3">&nbsp;&nbsp;
+				jsp<input type="radio" name ="subject" value="4">&nbsp;&nbsp;
 				<br/>
 
-				<input type="text" name="question" placeholder="문제를 입력하세요"><br/>
-				<input type="text" name="correct" placeholder="답을 입력하세요"><br/>
+				<input class = "form-control text-center" type="text" name="question" placeholder="문제를 입력하세요"><br/><br/>
+				<input class = "form-control text-center" type="text" name="correct" placeholder="답을 입력하세요"><br/>
 				<input type="submit" value="문제출제">
 			</form>
     	</div>
     </div>
+    </c:if>
+    
     </main>
     <footer>
     <div class="row">
