@@ -41,11 +41,10 @@
 		<tr>
 			<td>
 				<!-- 문제 자세히 보고 답안 작성하러 가기 -->
-				
-				<form action="/OurJspProject/solve_form.use" method="post">
+				<form action="/OurJspProject/check.use" method="post">
 					<input type="hidden" name="tcode" value="${question.tcode}">
 					<input type="text" name="solve" placeholder="답을 입력하세요">
-					<input type="hidden" name="qcode" value="${question.s_user}">
+					<input type="hidden" name="suser" value="${u_id}">
 					<input type="submit" value="풀기">
 				</form>
 			</td>

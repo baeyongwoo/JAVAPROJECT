@@ -4,6 +4,7 @@ import javax.naming.*;
 import javax.sql.*;
 
 import kr.sc.ictjsp.test.model.TestVO;
+import kr.sc.ictjsp.users.model.usersVO;
 
 import java.sql.*;
 
@@ -46,7 +47,7 @@ public class SolveDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, solve.getTcode());
 			pstmt.setString(2, solve.getSolve());
-			pstmt.setString(3, user);
+			pstmt.setString(3, solve.getSuer());
 			
 			pstmt.executeUpdate();
 			

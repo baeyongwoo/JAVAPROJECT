@@ -184,15 +184,19 @@ public class Controller extends HttpServlet {
 			System.out.println("현재 문제 상세보기 페이지");
 			tsv = new TestDetailService();
 			tsv.execute(request, response);
+			
+			busv = new UserGetinfoService();
+			busv.execute(request, response);
+			
 			ui = "/TEST/question_detail.jsp";
 			
 		} 
-		else if(uri.equals("/OurJspProject/solve_form.use")) {
+		else if(uri.equals("/OurJspProject/check.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
 			System.out.println("사용자 답안 제출 페이지");
 			ss = new InsertSolveService();
 			
-			ui = "/TEST/solve_form.jsp";
+			ui = "/TEST/checkok.jsp";
 			
 			ss.execute(request, response);
 			

@@ -19,37 +19,30 @@ public class InsertSolveService implements SolveService{
 		HttpSession session = null;
 		session = request.getSession();
 		
-		String code = (String)request.getParameter("tcode");
+		String recode = (String)request.getParameter("tcode");
 		String rsolve = (String)request.getParameter("solve");
 		String suser = (String)request.getParameter("suser");
 		
-		TestDAO dao = TestDAO.getInstance();
-		TestVO question = new TestVO();
-		question = dao.GetTest(code);
+		int tcode = Integer.parseInt(recode);
 		
-		request.setAttribute("question", question);
+		//System.out.println("form에서 입력한 값 " + tcode + rsolve + suser);
 		
-		//intcode의 줄인말
-		System.out.println("사용자가 풀고 있는 코드 : " + code);
-		int icode = Integer.parseInt(code);
+		SolveDAO dao = SolveDAO.getInstance();
+		SolveVO s_user = new SolveVO();
+		s_user.setTcode(tcode);
+		s_user.setSolve(rsolve);
+		s_user.setSuer(suser);
 		
-		SolveDAO dao1 = SolveDAO.getInstance();
-		SolveVO solve = new SolveVO();
-		
-		
-		
-		solve.setTcode(icode);
-		solve.setSolve(rsolve);
-		solve.setSuer(suser);
-		
-		int result = dao1.InsertSolve(solve);
+		int result = dao.InsertSolve(s_user);
 		
 		if(result == 1) {
 			System.out.println("답안 작성 완료");
-			session.setAttribute("check", solve);
+			session.setAttribute("check", s_user);
 			
 		} else if(result ==0) {
 			System.out.println("답안 작성 실패");
 		}
 	}
 }
+
+
