@@ -4,52 +4,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
 <style>
-table {
-	border: 5px solid #7fffd4;
-	text-align: center
+	table {
+	border: 2px dashed orange;
 }
-
-td {
-	border: 1px solid;
-	text-align: center
-}
-
-.user{padding:30px;}
 </style>
 <meta charset="UTF-8">
-<title>HTML 문제 리스트</title>
+<title>문제 리스트</title>
 </head>
 <body>
-	<div class="user" align="right">
+
+
+<div class="container">
+<header>
+    <div class="row">
+        <h1 class = "text-center">문제 목록</h1>
+    	<div class="col-sm-4 text-left">
+    	<a href ="/OurJspProject/login.use"><button>메인페이지</button></a>
+    	</div>
+        <div class="col-sm-8 text-right">
 		<a href="/OurJspProject/update.use"><button>회원정보수정</button></a>
 		<a href="/OurJspProject/logout.use"><button>로그아웃</button></a>
-	</div>
+        </div>
+    </div>
+</header>
 
-	<div align="center">
-		<h1>HTML 문제 풀기</h1>
-			
-		<table>
-			<tr>
-				<th width="80px">문제번호</th>
-				<th width="70px">문제유형
-						<select name="select">
-							<option value="html">html</option>
-							<option value="css">css</option>
-							<option value="java">java</option>
-							<option value="jsp">jsp</option>
-						</select>
-				</th>
-				<th width="600px">문제 미리보기</th>
+<main>
+    <div class="row">
+        <div class="col-md-12 text-center">
+        <br/>
+		<table style="margin-left: auto; margin-right: auto;">
+			<tr class ="text-center">
+				<th class ="text-center" width="80px">문제번호</th>
+				<th class ="text-center" width="800px">문제 미리보기</th>
 			</tr>
 		<c:forEach items="${t_l}" var="tlist">
 			<tr>	
-				<td><a href="/OurJspProject/T_detail.use?tcode=${tlist.tcode}" >${tlist.tcode }</a></td>
-				<td>타입</td>
-				<td>${tlist.question}</td>
+				<td class ="text-center"><a href="/OurJspProject/T_detail.use?tcode=${tlist.tcode}" >${tlist.tcode }</a></td>
+				<td class ="text-center">${tlist.question}</td>
 			</tr>
 				</c:forEach>
-		</table>
+		</table>        
+        </div>
+        <div class="col-xs-12"></div>
+    </div>
+</main>
+
+<footer>
+    <div class="row"></div>
+</footer>		
+			
+		
 	</div>
 </body>
 </html>

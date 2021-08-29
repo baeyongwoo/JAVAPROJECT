@@ -36,30 +36,63 @@ header{border-bottom:10px solid red; }
     <div class="rmain row" >
        
         <div class="col-md-3 text-center">
-        	<br/><br/><br/><br/><br/><br/>
+        	<br/><br/><br/><br/><br/>
         <form action ="/OurJspProject/T_list.use" method="post">
-			<h2>테스트하러가기</h2>
-			<button class="btn btn-primary" name="subject">문제리스트 가기</button><br/><br/><br/>
+			<h2>실력검증</h2>
+			<button class="btn btn-primary" name="subject">문제리스트</button><br/><br/><br/>
 		</form>
         </div>
         
         <div class="con2 col-md-6 text-center">
-        <h1>${u_name }의 등급 (${u_tier})</h1><!-- NAME과 등급은 DB에서 받아오기 -->
-		<h2>공부해야 할 것</h2>
-		<p>아이디 : ${u_id}</p><!-- DB에서 받아오기 -->
-		<p>이름  : ${u_name}</p>
-		<p>이메일 : ${u_email}</p>
-		<p>흥미있는 과목 : ${u_subject}</p>
-		<p>풀었던 코드 : ${u_qcode}</p>
-		<p>포인트 : ${u_point}</p>
-		<p>티어 : ${u_tier}</p>
+        <h1>${u_name }의 TIER</h1>
+        <c:choose>
+        <c:when test="${u_tier eq '0'}">
+        <div class = "text-primary"><h2>챌린저</h2></div>
+        <img class="text-center" width="400px" src="https://i.imgur.com/bI3V2Du.png">
+        </c:when>
+       
+        <c:when test="${u_tier eq '1'}">
+        <div class = "text-primary"><h2>마스터</h2></div>
+        <img class="text-center" width="300px" src=" https://i.imgur.com/nVHE2E8.jpg">
+  
+        
+        </c:when>
+   
+        <c:when test="${u_tier eq '2'}">
+        
+        </c:when>
+   
+        <c:when test="${u_tier eq '3'}">
+        
+        </c:when>
+   
+        <c:when test="${u_tier eq '4'}">
+        
+        </c:when>
+   
+        <c:when test="${u_tier eq '5'}">
+        
+        </c:when>
+   
+        <c:when test="${u_tier eq '6'}">
+        
+        </c:when>
+        </c:choose>
+        
+        
+		
+		<div>이름  : ${u_name}</div>
+		<div>이메일 : ${u_email}</div>
+		<div>흥미있는 과목 : ${u_subject}</div>
+		<div>풀었던 코드 : ${u_qcode}</div>
+		<div>포인트 : ${u_point}</div>
         </div>
         
         <div class="col-md-3 text-center align-self-center">
-        <br/><br/><br/><br/><br/><br/>
-        <h2>공부하러가기</h2>
+        <br/><br/><br/><br/><br/>
+        <h2>소통공간</h2>
 			<form action="/OurJspProject/StudyView/html_study.jsp" method="post">
-			<button class="btn btn-primary" name="subject" value="1">HTML 공부 게시판</button><br/><br/><br/>
+			<button class="btn btn-primary" name="subject" value="1">게시판</button><br/><br/><br/>
 			</form>
         </div>
     </div>
