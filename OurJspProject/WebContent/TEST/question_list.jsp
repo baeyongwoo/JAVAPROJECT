@@ -24,7 +24,7 @@
     	<a href ="/OurJspProject/login.use"><button>메인페이지</button></a>
     	</div>
         <div class="col-sm-8 text-right">
-		<a href="/OurJspProject/update.use"><button>회원정보수정</button></a>
+		<a href="/OurJspProject/UserView/update_form.jsp"><button>회원정보수정</button></a>
 		<a href="/OurJspProject/logout.use"><button>로그아웃</button></a>
         </div>
     </div>
