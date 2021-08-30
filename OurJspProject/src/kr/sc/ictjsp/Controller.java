@@ -188,6 +188,8 @@ public class Controller extends HttpServlet {
 			ui = "/TEST/question_list.jsp";
 		} 
 		else if(uri.equals("/OurJspProject/T_list.use")) {
+			busv = new UserGetinfoService();
+			busv.execute(request, response);
 			System.out.println("현재사용자 페이지 : " + uri);
 			System.out.println("현재 등록된 문제 페이지");
 			tsv = new ListTestService();

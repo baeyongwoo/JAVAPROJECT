@@ -10,11 +10,21 @@
 	border: 2px dashed orange;
 }
 </style>
+<script>
+<c:forEach items="${t_l}" var="tlist">
+var uqcode = ${u_qcode}
+var ttcode = ${tlist.tcode}
+		function duple(){
+				if (uqcode == ttcode){
+						alert("중복된 문제입니다.");
+								}
+		}
+				</c:forEach>
+</script>
 <meta charset="UTF-8">
 <title>문제 리스트</title>
 </head>
 <body>
-
 
 <div class="container">
 <header>
@@ -42,7 +52,7 @@
 			</tr>
 		<c:forEach items="${t_l}" var="tlist">
 			<tr>	
-				<td class ="text-center"><a href="/OurJspProject/T_detail.use?tcode=${tlist.tcode}" >${tlist.tcode }</a></td>
+				<td class ="text-center"><a href="/OurJspProject/T_detail.use?tcode=${tlist.tcode}" ><button onclick=duple()>${tlist.tcode }</button></a></td>
 				<td class ="text-center">${tlist.question}</td>
 			</tr>
 				</c:forEach>

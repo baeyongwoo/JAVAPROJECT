@@ -45,36 +45,40 @@ header{border-bottom:10px solid red; }
         
         <div class="con2 col-md-6 text-center">
         <h1>${u_name }의 TIER</h1>
+       
         <c:choose>
-        <c:when test="${u_tier eq '0'}">
+        <c:when test="${u_tier eq '7'}">
         <div class = "text-primary"><h2>챌린저</h2></div>
         <img class="text-center" width="400px" src="https://i.imgur.com/bI3V2Du.png">
         </c:when>
        
-        <c:when test="${u_tier eq '1'}">
+        <c:when test="${u_tier eq '6'}">
         <div class = "text-primary"><h2>마스터</h2></div>
         <img class="text-center" width="300px" src=" https://i.imgur.com/nVHE2E8.jpg">
-  
-        
         </c:when>
    
-        <c:when test="${u_tier eq '2'}">
-        
-        </c:when>
-   
-        <c:when test="${u_tier eq '3'}">
+        <c:when test="${u_tier eq '5'}">
+        <div class = "text-primary"><h2>챌린저</h2></div>
         
         </c:when>
    
         <c:when test="${u_tier eq '4'}">
+        <div class = "text-primary"><h2>챌린저</h2></div>
         
         </c:when>
    
-        <c:when test="${u_tier eq '5'}">
+        <c:when test="${u_tier eq '3'}">
+        <div class = "text-primary"><h2>챌린저</h2></div>
         
         </c:when>
    
-        <c:when test="${u_tier eq '6'}">
+        <c:when test="${u_tier eq '2'}">
+        <div class = "text-primary"><h2>챌린저</h2></div>
+        
+        </c:when>
+   
+        <c:when test="${u_tier eq '1'}">
+        <div class = "text-primary"><h2>챌린저</h2></div>
         
         </c:when>
         </c:choose>
