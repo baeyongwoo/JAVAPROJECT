@@ -118,8 +118,22 @@ public class Controller extends HttpServlet {
 				busv.execute(request, response);
 				ui = "/UserView/login_success.jsp";
 				
+			}
+			
+		}else if(uri.equals("/OurJspProject/return.use")){
+			String check = (String)session.getAttribute("l_f");
+			System.out.println("return session check  : " + check);
+			if(check != null && check.equals("fail")) {
+				session.invalidate();
+				ui = "/UserView/login_form.jsp";
+			}else {
+				//System.out.println("이름 세션 : " +  );
+				busv = new UserGetinfoService();
+				busv.execute(request, response);
+				ui = "/UserView/login_success.jsp";
 				
 			}
+			
 			
 		}else if(uri.equals("/OurJspProject/logout.use")) {
 			System.out.println("현재 사용자 페이지 : " + uri);
