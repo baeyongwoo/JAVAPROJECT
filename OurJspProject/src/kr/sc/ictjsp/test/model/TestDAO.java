@@ -37,10 +37,12 @@ public class TestDAO {
 		return dao;
 	}
 	
-	public int InsertTest(int code, String Input_Test, String QCorrect) {
+	public int InsertTest(int code, String Input_Test, String QCorrect, String tuser) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		
+		System.out.println("code : " + code + "문제 : " + Input_Test + "정답 : " + QCorrect + "tuser" + tuser);
 				
 		try {
 			con = ds.getConnection();

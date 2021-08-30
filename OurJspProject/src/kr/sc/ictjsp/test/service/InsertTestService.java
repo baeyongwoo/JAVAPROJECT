@@ -18,15 +18,15 @@ public class InsertTestService implements TestService {
 			String subjectcode = (String) request.getParameter("subject");
 			String question = (String) request.getParameter("question");
 			String correct = (String) request.getParameter("correct");
-			String tuser = (String) request.getParameter("tuser");
+			String retuser = (String) request.getParameter("tuser");
 			int tcode = Integer.parseInt(subjectcode);
-			
-			System.out.println("선택한 코드 : " + tcode + "문제 : " + question + "정답 : " + correct);
 			TestDAO dao = TestDAO.getInstance();
-			TestVO quser = new TestVO();	//quser 출제자
+			TestVO tuser = new TestVO();	//quser 출제자
+			tuser.setS_user(retuser);
+			System.out.println("선택한 코드 : " + tcode + "문제 : " + question + "정답 : " + correct + "출제자 : "+ retuser);
 			//quser.set
 			
-			int result = dao.InsertTest(tcode, question, correct);
+			int result = dao.InsertTest(tcode, question, correct, retuser);
 			
 			if(result == 1) {
 				System.out.println("문제 생성 완료");
