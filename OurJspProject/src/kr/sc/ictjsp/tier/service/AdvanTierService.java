@@ -3,6 +3,8 @@ package kr.sc.ictjsp.tier.service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.sc.ictjsp.test.model.TestDAO;
+import kr.sc.ictjsp.test.model.TestVO;
 import kr.sc.ictjsp.tier.model.TierDAO;
 import kr.sc.ictjsp.tier.model.TierVO;
 
@@ -17,7 +19,10 @@ public class AdvanTierService implements TierService {
 			int qtcount = Integer.parseInt(totalQcount);
 			int USQcount = Integer.parseInt(solveUQcount);
 			
-			TierDAO tdao = TierDAO.getInstance();
-			tdao.AdvanTier(qtcount, USQcount);
+			TestVO testvo = new TestVO();
+			TestDAO tdao = TestDAO.getInstance();
+			
+			System.out.println("Test : " + tdao.TestGetInfo());
+			
 	}
 }

@@ -176,7 +176,6 @@ public class TestDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-	
 		String sql = "SELECT * FROM Test ORDER BY Tcode DESC";
 
 		try {
@@ -194,6 +193,7 @@ public class TestDAO {
 				
 				TList.add(TestData);
 			}
+			//System.out.println("test 갯수 : " + TList.size());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

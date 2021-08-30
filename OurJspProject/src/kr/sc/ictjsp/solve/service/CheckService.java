@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.sc.ictjsp.solve.model.SolveDAO;
 import kr.sc.ictjsp.test.model.TestDAO;
 import kr.sc.ictjsp.test.model.TestVO;
+import kr.sc.ictjsp.tier.model.TierDAO;
+import kr.sc.ictjsp.tier.model.TierVO;
 import kr.sc.ictjsp.users.model.usersDAO;
 import kr.sc.ictjsp.users.model.usersVO;
 
@@ -44,6 +46,14 @@ public class CheckService implements SolveService {
 					System.out.println("포인트 적립 완료");
 					udo.updatepoint(user);
 					System.out.println("유저 포인트 획득 확인: " + user.getUpoint());
+					
+					System.out.println("TestList : " + dao.TestGetInfo());
+					
+					TierDAO tdo = TierDAO.getInstance();
+					int tier = tdo.AdvanTier(user, dao.TestGetInfo());
+					System.out.println("tier int형 " + tier);
+					request.setAttribute("u_tier", tier);
+					
 				} else if(result == 0) {
 					System.out.println("오답입니다.");
 				}
