@@ -54,32 +54,37 @@ header{border-bottom:10px solid red; }
        
         <c:when test="${u_tier eq '6'}">
         <div class = "text-primary"><h2>마스터</h2></div>
-        <img class="text-center" width="300px" src=" https://i.imgur.com/nVHE2E8.jpg">
+        <img class="text-center" width="300px" src="https://i.imgur.com/nVHE2E8.jpg">
         </c:when>
    
         <c:when test="${u_tier eq '5'}">
-        <div class = "text-primary"><h2>챌린저</h2></div>
-        
+        <div class = "text-primary"><h2>다이아</h2></div>
+        <img class="text-center" width="300px" src="https://i.imgur.com/c2Lrej0.png">
         </c:when>
    
         <c:when test="${u_tier eq '4'}">
-        <div class = "text-primary"><h2>챌린저</h2></div>
-        
+        <div class = "text-primary"><h2>플레티넘</h2></div>
+        <img class="text-center" width="300px" src="https://i.imgur.com/hvlkheQ.png">
         </c:when>
    
         <c:when test="${u_tier eq '3'}">
-        <div class = "text-primary"><h2>챌린저</h2></div>
-        
+        <div class = "text-primary"><h2>골드</h2></div>
+        <img class="text-center" width="300px" src="https://i.imgur.com/oXcTcLm.png">
         </c:when>
    
         <c:when test="${u_tier eq '2'}">
-        <div class = "text-primary"><h2>챌린저</h2></div>
-        
+        <div class = "text-primary"><h2>실버</h2></div>
+        <img class="text-center" width="300px" src="https://i.imgur.com/OpdJgBX.png">
         </c:when>
    
         <c:when test="${u_tier eq '1'}">
-        <div class = "text-primary"><h2>챌린저</h2></div>
-        
+        <div class = "text-primary"><h2>브론즈</h2></div>
+        <img class="text-center" width="300px" src="https://i.imgur.com/pAJmQTv.jpg">
+        </c:when>
+
+        <c:when test="${u_tier eq '0'}">
+        <div class = "text-primary"><h2>심해</h2></div>
+        <img class="text-center" width="300px" src="https://imgur.com/QxHXxVp">
         </c:when>
         </c:choose>
         
