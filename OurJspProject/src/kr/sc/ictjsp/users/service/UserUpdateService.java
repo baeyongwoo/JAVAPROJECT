@@ -20,15 +20,16 @@ public class UserUpdateService implements BUserService{
 			String uid = (String) request.getParameter("uid");
 			String upw = (String) request.getParameter("upw");
 			String uemail = (String)request.getParameter("uemail");
+			String uname = (String)request.getParameter("uname");
 			
-			System.out.println("수정 요청 uid : " + uid + ", upw : " + upw + ", uemail : "+ uemail);
+			System.out.println("수정 요청 uid : " + uid + ", upw : " + upw + ", uemail : "+ uemail + "uname" + uname);
 			
 			usersDAO dao = usersDAO.getInstance();
 			usersVO user = new usersVO();
 			user.setUid(uid);
 			user.setUpw(upw);
 			user.setUemail(uemail);
-			user.setUname(user.getUname());
+			user.setUname(uname);
 			
 			System.out.println("반영된 정보 : " + user);
 			
@@ -36,6 +37,7 @@ public class UserUpdateService implements BUserService{
 			
 			if(result == 1) {
 				System.out.println("회원정보 수정완료");
+				session.setAttribute("updateUser", "success");
 				//session.invalidate();
 			} else if(result == 0) {
 				System.out.println("회원정보 수정실패");

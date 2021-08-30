@@ -19,12 +19,13 @@
 	<h1>회원 정보 수정</h1>
 		<form action="/OurJspProject/update.use" method="post">
 		<input type="text" name ="uid" value="${u_ids}" readonly="readonly" size="30"/><br/>
+		<input type="text" name ="uname" placeholder="변경할 닉네임">
 		<input type="password" name ="upw" placeholder="변경할 비밀번호" size="30"/><br/>
 		<input type="email" name ="uemail" value="${u_email}" placeholder="변경할 이메일" size="30"/><br/><br/>
 		<input type="submit" value="수정완료">
 		<input type="reset"><br/><br/>
 		</form>
-		<a href="http://localhost:8181/OurJspProject/UserView/login_success.jsp"><button>게시판으로 돌아가기</button></a><br/><br/>
-		<a href="http://localhost:8181/OurJspProject/UserView/delete_form.jsp"><button class="delete">회원탈퇴</button></a>
+		<a href="/OurJspProject/UserView/login_success.jsp"><button>게시판으로 돌아가기</button></a><br/><br/>
+		<a href="/OurJspProject/UserView/delete_form.jsp"><button class="delete">회원탈퇴</button></a>
 </body>
 </html>

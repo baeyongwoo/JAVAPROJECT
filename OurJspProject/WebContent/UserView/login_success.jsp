@@ -118,7 +118,7 @@ header{border-bottom:10px solid red; }
 				java<input type="radio" name ="subject" value="3">&nbsp;&nbsp;
 				jsp<input type="radio" name ="subject" value="4">&nbsp;&nbsp;
 				<br/>
-
+				<input type="hidden" name="tsuser" value="${u_ids}">
 				<input class = "form-control text-center" type="text" name="question" placeholder="문제를 입력하세요"><br/><br/>
 				<input class = "form-control text-center" type="text" name="correct" placeholder="답을 입력하세요"><br/>
 				<input type="submit" value="문제출제">

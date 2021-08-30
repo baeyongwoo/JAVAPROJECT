@@ -16,10 +16,10 @@ public class TestDAO {
 	private static final int DELETE_T_SUCCESS = 1;
 	private static final int DELETE_T_FAIL = 0;
 	
-	private int htmlcode = 1000;
-	private int csscode = 2000;
-	private int javacode = 3000;
-	private int jspcode = 4000;
+	private int htmlcode = 1100;
+	private int csscode = 2100;
+	private int javacode = 3100;
+	private int jspcode = 4100;
 
 	private TestDAO() {
 		
@@ -48,43 +48,46 @@ public class TestDAO {
 			con = ds.getConnection();
 			switch (code) {
 			case 1: 
-				String sql1 = "INSERT INTO Test VALUES(null, "+htmlcode+", ?, ?, "+"test)";
-				
-				pstmt = con.prepareStatement(sql1);
+				String sql = "insert into test values(null, "+htmlcode+", ?, ?, ?)";
+				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
-//				pstmt.setString(3, submitUser);
+				pstmt.setString(3, tuser);
+		
 				pstmt.executeUpdate();
 				htmlcode++;
 				break;
 			case 2:
-				String sql2 = "INSERT INTO Test VALUES(null, "+csscode+", ?, ?, ?)";
+				String sql2 = "insert into test values(null, "+csscode+", ?, ?, ?)";
 				pstmt = con.prepareStatement(sql2);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
-//				pstmt.setString(3, submitUser);
+				pstmt.setString(3, tuser);
 				pstmt.executeUpdate();
 				csscode++;
 				break;
 			case 3:
-				String sql3 = "INSERT INTO Test VALUES(null, "+javacode+", ?, ?, ?)";
+				String sql3 = "insert into test values(null, "+javacode+", ?, ?, ?)";
 				pstmt = con.prepareStatement(sql3);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
-//				pstmt.setString(3, submitUser);
+				pstmt.setString(3, tuser);
+				
 				pstmt.executeUpdate();
 				javacode++;
 				break;
 			case 4:
-				String sql4 = "INSERT INTO Test VALUES(null, "+jspcode+", ?, ?, ?)";
+				String sql4 = "insert into test values(null, "+jspcode+", ?, ?, ?)";
 				pstmt = con.prepareStatement(sql4);
 				pstmt.setString(1, Input_Test);
 				pstmt.setString(2, QCorrect);
-//				pstmt.setString(3, submitUser);
+				pstmt.setString(3, tuser);
+				
 				pstmt.executeUpdate();
 				jspcode++;
 				break;
 			}	
+			return INSERT_T_SUCCESS;
 				
 		} catch (SQLException e) {
 			e.printStackTrace();
