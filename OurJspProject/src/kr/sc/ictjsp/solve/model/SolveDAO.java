@@ -8,6 +8,8 @@ import kr.sc.ictjsp.test.model.TestVO;
 import kr.sc.ictjsp.users.model.usersVO;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class SolveDAO {
 
@@ -49,7 +51,7 @@ public class SolveDAO {
 			String sql = "INSERT INTO solve VALUES (NULL, ?, ?, now(), ?)";
 
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, solve.getTcode());
+			pstmt.setString(1, solve.getTcode());
 			pstmt.setString(2, solve.getSolve());
 			pstmt.setString(3, solve.getSuer());
 
@@ -89,38 +91,33 @@ public class SolveDAO {
 		}
 	}// end SolveAnswer
 
-	public int SolvedWhether(usersVO user, String tcode) {
+	//중복체크 검사
+	public int duplicate(usersVO user, String code) {
+		System.out.println("service에서 전달 받은 값  : " + user.getUqcode());	//qcode
+		System.out.println("service에서 전달 받은 code값  : " + code);	//qcode
+		String userCode = user.getUqcode();
+		
+		StringTokenizer st = new StringTokenizer(userCode, " ");
 
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		int Whether = 0;
-
-		try {
-			con = ds.getConnection();
-
-			String sql = "SELECT ? in(SELECT tcode from solve where suser= ?) as whether";
-			String sql = "SELECT ? in(SELECT qcode from users where uid= ?) as whether";
-
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, tcode);
-			pstmt.setString(2, user.getUid());
-
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				Whether = rs.getInt("whether");
-				System.out.println(Whether);
-				if (Whether == 0) {
-					System.out.println("푼 적이 있는 문제입니다.");
-					System.out.println("포인트는 중복되서 쌓이지 않습니다.");
-					return FAIL;// 중복될떄 0리턴
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		ArrayList<String> listcode = new ArrayList<>();
+		while(st.hasMoreTokens()) {
+			listcode.add(st.nextToken());
 		}
-		return SUCCESS;
+		
+		System.out.println(listcode);
+		
+		if(listcode.contains(code)) {
+			System.out.println("중복");
+			return 0;
+		}else {
+			System.out.println("중복아님");
+			return 1;
+		}
+		
 	}
+	
+	
+	
 
 	// user정보에 푼 코드 넣기
 	public int userInsertCode(usersVO user) {

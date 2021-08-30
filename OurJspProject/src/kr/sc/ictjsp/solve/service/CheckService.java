@@ -22,60 +22,32 @@ public class CheckService implements SolveService {
 
 			usersDAO udo = usersDAO.getInstance();
 			usersVO user = new usersVO();
-			user.setUid(reuser);
-
-			user = udo.usergetinfo(user);
-
-			//int Tcode = Integer.parseInt(code);
-			user.setUqcode(code);
-
-			System.out.println("현재 user 정보" + user);
-
 			SolveDAO sdao = SolveDAO.getInstance();
-
+			
 			TestDAO dao = TestDAO.getInstance();
+			
 			TestVO test = new TestVO();
+			
+			user.setUid(reuser);
+			user = udo.usergetinfo(user);
+			System.out.println("현재 담겨져 있는 user 정보 : " + user);
+			//int Tcode = Integer.parseInt(code);
+			//user.setUqcode(code);
+			//정답체크
 			test = dao.GetTest(code);
-
 			request.setAttribute("question", test);
-
-			int result = sdao.Check(test, solve);
-
-			int checkresult = sdao.SolvedWhether(user, code);
+			//정답체크
+				int result = sdao.Check(test, solve);
+				if(result == 1) {
+					System.out.println("현재 유저 포인트 : " + user.getUpoint());
+					user.setUpoint(user.getUpoint() + 1);
+					System.out.println("포인트 적립 완료");
+					udo.updatepoint(user);
+					System.out.println("유저 포인트 획득 확인: " + user.getUpoint());
+				} else if(result == 0) {
+					System.out.println("오답입니다.");
+				}
 			
-			if(result == 1 && checkresult == 1) {
-				System.out.println("정답입니다. 포인트 1증가");
-				user.setUpoint(user.getUpoint() + 1);
-				udo.updatepoint(user);
-			} else if(result ==1 && checkresult ==0) {
-				System.out.println("정답이지만, 중복으로 풀어서 포인트 없습니다.");
-				
-			}else {
-				System.out.println("오답입니다.");
-			}
-			
-			
-//			if (result == 1) {
-//				System.out.println("정답입니다.");
-//				
-//				if (checkresult == 1) {
-//					System.out.println("중복");
-//					user.setUpoint(user.getUpoint());
-//					udo.updatepoint(user);
-//					
-//				} else if(checkresult == 0){
-//					
-//					user.setUpoint(user.getUpoint() + 1);
-//					udo.updatepoint(user);
-//				}
-//				System.out.println("정답일때 userpoint 확인" + user);
-//			} else {
-//				System.out.println("정답이 아닙니다.");
-//			}
-			
-			
-			
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

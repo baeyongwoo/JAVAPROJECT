@@ -4,20 +4,26 @@ import java.sql.Timestamp;
 
 public class SolveVO {
 	private int id;	//db에 저장할 때 입력할때마다 생성
-	private int tcode;		//문제 코드
+	private String tcode;		//문제 코드
 	private String solve;	//답
 	private Timestamp stime;
 	private String suer;
 	
 	public SolveVO() {}
 
-	public SolveVO(int id, int tcode, String solve, Timestamp stime, String suer) {
+	public SolveVO(int id, String tcode, String solve, Timestamp stime, String suer) {
 		super();
 		this.id = id;
 		this.tcode = tcode;
 		this.solve = solve;
 		this.stime = stime;
 		this.suer = suer;
+	}
+
+	@Override
+	public String toString() {
+		return "SolveVO [id=" + id + ", tcode=" + tcode + ", solve=" + solve + ", stime=" + stime + ", suer=" + suer
+				+ "]";
 	}
 
 	public int getId() {
@@ -28,11 +34,11 @@ public class SolveVO {
 		this.id = id;
 	}
 
-	public int getTcode() {
+	public String getTcode() {
 		return tcode;
 	}
 
-	public void setTcode(int tcode) {
+	public void setTcode(String tcode) {
 		this.tcode = tcode;
 	}
 
@@ -58,8 +64,8 @@ public class SolveVO {
 
 	public void setSuer(String suer) {
 		this.suer = suer;
-	};
-	
-	
+	}
+
+		
 
 }
