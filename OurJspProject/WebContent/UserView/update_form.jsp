@@ -18,7 +18,7 @@
 <body>
 	<h1>회원 정보 수정</h1>
 		<form action="/OurJspProject/update.use" method="post">
-		<input type="text" name ="uid" value="${u_id}" readonly="readonly" size="30"/><br/>
+		<input type="text" name ="uid" value="${u_ids}" readonly="readonly" size="30"/><br/>
 		<input type="password" name ="upw" placeholder="변경할 비밀번호" size="30"/><br/>
 		<input type="email" name ="uemail" value="${u_email}" placeholder="변경할 이메일" size="30"/><br/><br/>
 		<input type="submit" value="수정완료">

@@ -111,7 +111,7 @@ public class SolveDAO {
 			if(rs.next()) {
 				Whether = rs.getInt("whether");
 				System.out.println(Whether);
-				if(Whether==1) {
+				if(Whether==0) {
 					System.out.println("푼 적이 있는 문제입니다.");
 					System.out.println("포인트는 중복되서 쌓이지 않습니다.");
 					return FAIL;//중복될떄 0리턴
