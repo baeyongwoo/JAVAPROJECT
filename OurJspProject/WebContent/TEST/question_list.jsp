@@ -21,7 +21,8 @@
     <div class="row">
         <h1 class = "text-center">문제 목록</h1>
     	<div class="col-sm-4 text-left">
-    	<a href ="/OurJspProject/login.use"><button>메인페이지</button></a>
+    	<input type="button" value="이전페이지" onclick="history.back();">
+    	<!-- <a href ="/OurJspProject/return.use"><button>메인페이지</button></a> -->
     	</div>
         <div class="col-sm-8 text-right">
 		<a href="/OurJspProject/UserView/update_form.jsp"><button>회원정보수정</button></a>
