@@ -97,7 +97,7 @@ header{border-bottom:10px solid red; }
         </div>
     </div>
     
-    <c:if test="${u_ids eq 'test'}">
+    <c:if test="${u_ids eq ('test' or 'admin')}">
     <div class = "question row">
     	<div class = "col-md-12 text-center">
     		<h3 class = "text-primary">문제 출제하기</h3>

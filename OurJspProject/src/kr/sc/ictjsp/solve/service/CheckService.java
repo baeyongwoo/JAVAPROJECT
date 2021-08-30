@@ -26,8 +26,8 @@ public class CheckService implements SolveService {
 
 			user = udo.usergetinfo(user);
 
-			int Tcode = Integer.parseInt(code);
-			user.setUqcode(Tcode);
+			//int Tcode = Integer.parseInt(code);
+			user.setUqcode(code);
 
 			System.out.println("현재 user 정보" + user);
 
@@ -41,7 +41,7 @@ public class CheckService implements SolveService {
 
 			int result = sdao.Check(test, solve);
 
-			int checkresult = sdao.SolvedWhether(user, Tcode);
+			int checkresult = sdao.SolvedWhether(user, code);
 			
 			if(result == 1 && checkresult == 1) {
 				System.out.println("정답입니다. 포인트 1증가");

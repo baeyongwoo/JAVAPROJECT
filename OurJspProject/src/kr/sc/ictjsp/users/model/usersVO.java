@@ -7,13 +7,13 @@ public class usersVO {
 	private String uname;
 	private String uemail;
 	private String subject;
-	private int uqcode;
+	private String uqcode;
 	private int upoint;
 	private int utier;
 	
 	public usersVO() {}
 
-	public usersVO(String uid, String upw, String uname, String uemail, String subject, int uqcode, int upoint,
+	public usersVO(String uid, String upw, String uname, String uemail, String subject, String uqcode, int upoint,
 			int utier) {
 		super();
 		this.uid = uid;
@@ -66,11 +66,11 @@ public class usersVO {
 		this.subject = subject;
 	}
 
-	public int getUqcode() {
+	public String getUqcode() {
 		return uqcode;
 	}
 
-	public void setUqcode(int uqcode) {
+	public void setUqcode(String uqcode) {
 		this.uqcode = uqcode;
 	}
 
@@ -95,8 +95,8 @@ public class usersVO {
 		return "usersVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", uemail=" + uemail + ", subject="
 				+ subject + ", uqcode=" + uqcode + ", upoint=" + upoint + ", utier=" + utier + "]";
 	}
-	
-	
+
+		
 
 		
 }

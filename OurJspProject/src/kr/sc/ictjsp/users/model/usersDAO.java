@@ -353,7 +353,7 @@ public class usersDAO {
 				usersData.setUpw(rs.getString("upw"));
 				usersData.setUname(rs.getString("uname"));
 				usersData.setUemail(rs.getString("uemail"));
-				usersData.setUqcode(rs.getInt("uqcode"));
+				usersData.setUqcode(rs.getString("uqcode"));
 				usersData.setUpoint(rs.getInt("upoint"));
 				usersData.setUtier(rs.getInt("utier"));
 			}
