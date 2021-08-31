@@ -19,7 +19,7 @@ public class Test {
 		
 		System.out.println(str2);
 		
-		if(str2.contains("3005")) {
+		if(str2.contains("9595")) {
 			System.out.println("중복");
 		}else {
 			System.out.println("중복아님");

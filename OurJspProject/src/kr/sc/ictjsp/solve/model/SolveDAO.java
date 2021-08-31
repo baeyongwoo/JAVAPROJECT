@@ -100,7 +100,7 @@ public class SolveDAO {
 		StringTokenizer st = new StringTokenizer(userCode, " ");
 
 		ArrayList<String> listcode = new ArrayList<>();
-		while(st.hasMoreTokens()) {
+		while(st.hasMoreTokens()) {	//토큰이 존재하면 ture 리턴하는 구문
 			listcode.add(st.nextToken());
 		}
 		
