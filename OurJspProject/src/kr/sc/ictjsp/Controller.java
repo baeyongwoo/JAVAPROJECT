@@ -196,7 +196,7 @@ public class Controller extends HttpServlet {
 
 			busv = new UserGetinfoService();
 			busv.execute(request, response);
-			ui = "/";
+			ui = "/UserView/login_success.jsp";
 		} else if (uri.equals("/OurJspProject/T_list.use")) {
 			busv = new UserGetinfoService();
 			busv.execute(request, response);

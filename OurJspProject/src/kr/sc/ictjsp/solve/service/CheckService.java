@@ -52,6 +52,9 @@ public class CheckService implements SolveService {
 					TierDAO tdo = TierDAO.getInstance();
 					int tier = tdo.AdvanTier(user, dao.TestGetInfo());
 					System.out.println("tier int형 " + tier);
+					user.setUtier(tier);
+					udo.updatetir(user);
+					System.out.println("바뀐 user tier" + user.getUtier());
 					request.setAttribute("u_tier", tier);
 					
 				} else if(result == 0) {

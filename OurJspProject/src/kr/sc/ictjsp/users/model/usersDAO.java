@@ -409,5 +409,41 @@ public int updatepoint(usersVO user) {
 		}
 		return UPDATE_FAIL;
 	} //updatepointend
+
+public int updatetir(usersVO user) {
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	
+	try {
+		
+		con = ds.getConnection();
+		
+		String sql = "UPDATE users set utier=? WHERE uid = ?";
+		
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, user.getUtier());
+		pstmt.setString(2, user.getUid());
+		
+		pstmt.executeUpdate();
+		return UPDATE_SUCCESS;
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			if(con != null && !con.isClosed()) {
+				con.close();
+			}
+			if(pstmt != null && !pstmt.isClosed()) {
+				pstmt.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	return UPDATE_FAIL;
+} //updatepointend
+
+
 	
 }
